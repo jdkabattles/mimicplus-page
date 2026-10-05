@@ -3,154 +3,113 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>forgingstack — mimicplus</title>
-<meta name="description" content="A recording you are allowed to use becomes a typed client and a contract check.">
+<title>Forgingstack — the contract from the recording</title>
+<meta name="description" content="mimicplus turns one HAR you are allowed to record into a spec, a typed client, and a breaking-change check.">
 <link rel="icon" href="mark.png">
 <style>
-  :root {
-    --bg: #07111f;
-    --ink: #f4f7fb;
-    --muted: #9aabbf;
-    --line: rgba(255,255,255,.12);
-    --card: rgba(16, 28, 46, .86);
-    --accent: #d7ff4a;
-    --accent-ink: #142000;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    color: var(--ink);
-    background:
-      radial-gradient(900px 420px at 80% -10%, rgba(215,255,74,.16), transparent 60%),
-      linear-gradient(180deg, #0c1b2e, var(--bg) 40%);
-    font: 17px/1.55 "Iowan Old Style", Palatino, Georgia, serif;
-  }
-  a { color: inherit; }
-  nav, header, section { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
-  nav {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 22px 0 8px;
-  }
-  .brand { display: flex; gap: 10px; align-items: center; font: 600 15px/1 system-ui, sans-serif; letter-spacing: .04em; text-decoration: none; }
-  .brand img { width: 36px; height: 36px; border-radius: 8px; }
-  .nav-links { display: flex; gap: 18px; align-items: center; font: 14px/1 system-ui, sans-serif; color: var(--muted); }
-  .nav-links a { text-decoration: none; }
-  .btn, button.btn {
-    display: inline-block; background: var(--accent); color: var(--accent-ink);
-    text-decoration: none; border: 0; border-radius: 999px; padding: 12px 18px;
-    font: 700 14px/1 system-ui, sans-serif; cursor: pointer;
-  }
-  .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
-  header { padding: 54px 0 20px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: end; }
-  h1 { font: 560 64px/0.95 system-ui, sans-serif; letter-spacing: -0.045em; margin: 0 0 16px; }
-  .lede { font-size: 20px; color: var(--muted); max-width: 40rem; }
-  .actions { display: flex; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
-  .panel {
-    background: var(--card); border: 1px solid var(--line); border-radius: 18px;
-    padding: 16px; backdrop-filter: blur(8px); min-height: 280px;
-  }
-  .panel header { width: auto; padding: 0 0 10px; display: flex; justify-content: space-between; font: 12px/1 system-ui, sans-serif; color: var(--muted); }
-  pre { margin: 0; white-space: pre-wrap; font: 14px/1.55 ui-monospace, monospace; }
-  .ok { color: var(--accent); }
-  section { padding: 28px 0; }
-  h2 { font: 560 32px/1.1 system-ui, sans-serif; letter-spacing: -.03em; margin: 0 0 8px; }
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  article { border: 1px solid var(--line); border-radius: 16px; padding: 16px; background: rgba(255,255,255,.03); }
-  article strong { display: block; font: 650 16px/1.3 system-ui, sans-serif; margin-bottom: 6px; }
-  article p { margin: 0; color: var(--muted); }
-  form { display: grid; gap: 10px; }
-  input, textarea {
-    width: 100%; background: #08131f; color: var(--ink); border: 1px solid var(--line);
-    border-radius: 12px; padding: 12px; font: 15px/1.4 system-ui, sans-serif;
-  }
-  .status { min-height: 1.4em; font: 14px/1.4 system-ui, sans-serif; }
-  footer { width: min(1080px, calc(100% - 32px)); margin: 20px auto 40px; color: var(--muted); font: 13px/1.4 system-ui, sans-serif; }
-  @media (max-width: 800px) {
-    header, .grid { grid-template-columns: 1fr; }
-    h1 { font-size: 42px; }
-    .nav-links a:not(.btn) { display: none; }
+  :root { --bg:#070b10; --ink:#f6f4ef; --muted:#b7b1a6; --line:rgba(246,244,239,.14); --gold:#e6d3a3; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.55 "Iowan Old Style", Palatino, Georgia, serif; }
+  img { max-width:100%; display:block; }
+  a { color:inherit; }
+  nav, header, section, footer { width:min(1180px, calc(100% - 40px)); margin:0 auto; }
+  nav { display:flex; justify-content:space-between; align-items:center; padding:22px 0; position:sticky; top:0; background:rgba(7,11,16,.86); backdrop-filter:blur(12px); z-index:2; }
+  .brand { display:flex; gap:12px; align-items:center; text-decoration:none; font:600 13px/1 system-ui, sans-serif; letter-spacing:.18em; text-transform:uppercase; }
+  .brand img { width:34px; height:34px; border-radius:7px; }
+  .links { display:flex; gap:22px; align-items:center; font:13px/1 system-ui, sans-serif; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+  .links a { text-decoration:none; }
+  .btn { display:inline-block; background:var(--gold); color:#1b160d; text-decoration:none; border:0; border-radius:999px; padding:13px 18px; font:700 13px/1 system-ui, sans-serif; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; }
+  .btn.line { background:transparent; color:var(--ink); border:1px solid var(--line); }
+  header { display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:end; padding:36px 0 20px; }
+  .kicker { font:12px/1 system-ui, sans-serif; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); }
+  h1 { font:500 78px/0.92 "Iowan Old Style", Georgia, serif; letter-spacing:-.035em; margin:14px 0; }
+  .lede { color:var(--muted); font-size:21px; max-width:38rem; }
+  .actions { display:flex; gap:10px; margin-top:26px; flex-wrap:wrap; }
+  .frame { border-radius:22px; overflow:hidden; border:1px solid var(--line); }
+  .frame img { width:100%; height:520px; object-fit:cover; }
+  section { padding:54px 0; }
+  h2 { font:500 42px/1.05 Georgia, serif; margin:0 0 10px; }
+  .split { display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center; }
+  .steps { display:grid; gap:0; border-top:1px solid var(--line); }
+  .step { display:grid; grid-template-columns:92px 1fr; gap:16px; padding:16px 0; border-bottom:1px solid var(--line); }
+  .step b { font:600 13px/1 system-ui, sans-serif; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); }
+  .step span { color:var(--muted); }
+  form { display:grid; gap:12px; }
+  input, textarea { width:100%; background:#10151c; color:var(--ink); border:1px solid var(--line); border-radius:12px; padding:14px; font:16px/1.4 system-ui, sans-serif; }
+  .status { min-height:1.4em; color:var(--gold); font:15px/1.4 system-ui, sans-serif; }
+  footer { padding:10px 0 40px; color:var(--muted); font:13px/1.4 system-ui, sans-serif; }
+  @media (max-width:860px) {
+    header, .split { grid-template-columns:1fr; }
+    h1 { font-size:48px; }
+    .frame img { height:320px; }
+    .links a:not(.btn) { display:none; }
   }
 </style>
 </head>
 <body>
 <nav>
-  <a class="brand" href="#top"><img src="mark.png" alt="">forgingstack</a>
-  <div class="nav-links">
-    <a href="#run">The run</a>
-    <a href="#key">The key</a>
+  <a class="brand" href="#top"><img src="mark.png" alt="">Forgingstack</a>
+  <div class="links">
+    <a href="#method">Method</a>
+    <a href="#proof">Proof</a>
+    <a href="#request">Request</a>
     <a class="btn" href="https://buy.stripe.com/cNieV69Jp1XY4oXegGffy00">Pay $199</a>
   </div>
 </nav>
 <header id="top">
   <div>
-    <h1>A recording becomes a client.</h1>
-    <p class="lede">mimicplus reads one HAR of an API you are allowed to call and writes a spec, a typed Python client, OpenAPI, tests, and a check that fails when a later recording breaks the contract.</p>
+    <div class="kicker">mimicplus · spec delivery</div>
+    <h1>The recording becomes the contract.</h1>
+    <p class="lede">One HAR of an API you are allowed to call. Back comes a versioned spec, a typed Python client, OpenAPI, tests, and a check that fails when a later recording breaks the contract. No model in the path.</p>
     <div class="actions">
-      <a class="btn" href="https://buy.stripe.com/cNieV69Jp1XY4oXegGffy00">Pay $199, get one key</a>
-      <a class="btn ghost" href="#run">Watch the shop run</a>
+      <a class="btn" href="https://buy.stripe.com/cNieV69Jp1XY4oXegGffy00">Pay $199 for one key</a>
+      <a class="btn line" href="#proof">See the shop run</a>
     </div>
   </div>
-  <div class="panel" id="run">
-    <header><span>live shop</span><span id="step">ready</span></header>
-    <pre id="log"></pre>
-  </div>
+  <div class="frame"><img src="hero.jpg" alt="A waveform form becoming a specification sheet"></div>
 </header>
-<section>
-  <h2>What you are buying</h2>
-  <div class="grid">
-    <article><strong>One recording</strong><p>A HAR you are allowed to make. Secrets stay out of the spec.</p></article>
-    <article><strong>One client</strong><p>Sync and async Python, OpenAPI, tests, and an MCP server with writes off.</p></article>
-    <article><strong>One gate</strong><p>A second recording fails the build when a field is renamed or removed.</p></article>
+<section id="method">
+  <div class="split">
+    <div class="frame"><img src="desk.jpg" alt="A contract page and a metal waveform on a dark bench"></div>
+    <div>
+      <h2>What a serious buyer gets</h2>
+      <div class="steps">
+        <div class="step"><b>01</b><span>A spec from the capture, not a rewritten guess.</span></div>
+        <div class="step"><b>02</b><span>Sync and async clients, OpenAPI, tests, MCP with writes off.</span></div>
+        <div class="step"><b>03</b><span>A second recording fails the build if a field moves.</span></div>
+      </div>
+    </div>
   </div>
 </section>
-<section id="key">
-  <h2>After Stripe pays</h2>
-  <div class="panel">
-    <p>The key arrives by email. It is checked in the private repo, then mimicplus runs. This page does not store keys and cannot run the generator.</p>
-    <form id="keyform">
-      <input id="key" name="key" placeholder="mp1.job.signature" autocomplete="off" required>
-      <textarea id="note" rows="3" placeholder="What the recording is. Attach the HAR in the email, secrets removed."></textarea>
-      <button class="btn" type="submit">Check key and draft the email</button>
-      <div class="status" id="status"></div>
-    </form>
-  </div>
+<section id="proof">
+  <h2>Proof, not a promise</h2>
+  <p class="lede">This is the live shop run. Login, five products, Desk Lamp at 39.99, two lamps from GraphQL, order o-1 shipped, a cart write, a revoke the client recovered from, and a wrong password rejected. A second recording failed because price became price_cents.</p>
 </section>
-<footer>forgingstack.com · mimicplus spec delivery · $199 one time · only for an API you are allowed to call.</footer>
+<section id="request">
+  <h2>Send the recording from this page</h2>
+  <p class="lede">GitHub cannot receive mail. The form opens your mail app to hello@forgingstack.com. Namecheap forwards that address to your inbox. You do not run a mail server.</p>
+  <form id="req">
+    <input id="key" placeholder="One-time key, mp1.job.signature" required>
+    <textarea id="note" rows="4" placeholder="The API you are allowed to call. Attach the HAR in the draft, secrets removed."></textarea>
+    <button class="btn" type="submit">Draft the request</button>
+    <div class="status" id="status"></div>
+  </form>
+</section>
+<footer>Forgingstack · only for an API you are allowed to call · $199 one delivery.</footer>
 <script>
-const lines = [
-  ["login", "demo plan=pro"],
-  ["paginate", "5 items · Red Mug, Blue Mug, Walnut Desk, Desk Lamp, Floor Lamp"],
-  ["get_product", "Desk Lamp · 39.99"],
-  ["graphql", "lamp search returned 2"],
-  ["order", "o-1 shipped"],
-  ["write", "cart_size=1"],
-  ["revoke", "next read still returned Floor Lamp"],
-  ["bad password", "rejected"]
-];
-const log = document.getElementById("log");
-const step = document.getElementById("step");
-let i = 0;
-function tick() {
-  if (i >= lines.length) { step.textContent = "accept"; return; }
-  const [name, detail] = lines[i++];
-  step.textContent = i + " / " + lines.length;
-  log.innerHTML += '<span class="ok">' + name + "</span>  " + detail + "\n";
-  setTimeout(tick, 700);
-}
-tick();
-document.getElementById("keyform").addEventListener("submit", function (event) {
-  event.preventDefault();
-  const key = document.getElementById("key").value.trim();
-  const note = document.getElementById("note").value.trim();
-  const status = document.getElementById("status");
+document.getElementById("req").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var key = document.getElementById("key").value.trim();
+  var note = document.getElementById("note").value.trim();
+  var status = document.getElementById("status");
   if (!/^mp1\.[A-Za-z0-9_-]+\.[A-Fa-f0-9]{24}$/.test(key)) {
-    status.textContent = "That is not a delivery key. It looks like mp1.job.24hex.";
+    status.textContent = "The key should look like mp1.job.24 hex characters. Stripe sends it after payment.";
     return;
   }
-  const body = encodeURIComponent("Key: " + key + "\n\n" + note + "\n\nHAR attached, secrets removed.");
-  status.textContent = "Format matches. Your mail app will open. The signature is checked privately, not here.";
-  window.location.href = "mailto:hello@forgingstack.com?subject=" + encodeURIComponent("mimicplus delivery") + "&body=" + body;
+  status.textContent = "Opening your mail app. Attach the HAR there.";
+  var body = encodeURIComponent("Key: " + key + "\n\n" + note + "\n\nHAR attached. Secrets removed.");
+  location.href = "mailto:hello@forgingstack.com?subject=" + encodeURIComponent("mimicplus delivery") + "&body=" + body;
 });
 </script>
 </body>
