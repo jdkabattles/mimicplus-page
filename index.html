@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mimicplus</title>
+<style>
+  body { margin:0; background:#0b1020; color:#eef2ff; font:16px/1.5 Georgia, serif; }
+  main { max-width:760px; margin:0 auto; padding:32px 20px; }
+  img { width:140px; height:140px; border-radius:20px; }
+  h1 { font:600 32px/1.2 system-ui, sans-serif; }
+  p, li { color:#a9b4d0; }
+  .card { background:#141a2e; border:1px solid #2a3354; border-radius:16px; padding:16px 18px; margin:14px 0; }
+  a.btn { display:inline-block; background:#8b7cff; color:#fff; text-decoration:none; font:600 16px system-ui, sans-serif; padding:12px 16px; border-radius:10px; }
+  pre { background:#0a0e1c; color:#d7def8; padding:12px; border-radius:10px; overflow:auto; }
+  input, textarea { width:100%; background:#0a0e1c; color:#eef2ff; border:1px solid #2a3354; border-radius:8px; padding:10px; }
+  button { margin-top:12px; background:#fff; color:#111; border:0; border-radius:10px; padding:10px 14px; font:600 15px system-ui, sans-serif; }
+</style>
+</head>
+<body>
+<main>
+  <img src="mark.png" alt="mimicplus">
+  <h1>A recording you are allowed to use becomes a client.</h1>
+  <p>Pay once. A one-time key arrives by email. That key is checked in the private repo, then mimicplus runs on the HAR you upload. This page does not hold keys.</p>
+  <p><a class="btn" href="https://buy.stripe.com/cNieV69Jp1XY4oXegGffy00">Pay $199</a></p>
+  <div class="card">
+    <p>Live shop run, before you pay:</p>
+    <pre>login demo plan=pro
+paginate 5 items
+get_product Desk Lamp 39.99
+graphql lamp search 2
+order o-1 shipped
+cart write cart_size=1
+revoke then refresh Floor Lamp
+bad password rejected</pre>
+  </div>
+  <div class="card">
+    <p>After the key email, open a private delivery request. Do not paste a raw token in a public issue. Attach the HAR with secrets removed and put the key in the email reply.</p>
+    <form action="mailto:jdkabattles@users.noreply.github.com" method="post" enctype="text/plain">
+      <input name="key" placeholder="one-time key from the receipt email" required>
+      <textarea name="note" rows="4" placeholder="API you are allowed to call. HAR attached separately."></textarea>
+      <button type="submit">Send delivery request</button>
+    </form>
+  </div>
+</main>
+</body>
+</html>
