@@ -101,8 +101,28 @@
   .pane pre { margin: 0; padding: 16px; overflow: auto; font: 12.5px/1.55 ui-monospace, monospace; color: #d7def8; }
   .ok { color: #9be7c4; } .bad { color: #ff8aae; } .dim { color: #7d86a3; }
   @media (max-width: 860px) { .steps, .sample { grid-template-columns: 1fr; } }
-  footer { padding: 24px 4vw 40px; display: flex; justify-content: space-between; gap: 16px; align-items: center; color: var(--muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; border-top: 1px solid var(--line); }
-  footer img { width: 36px; height: 36px; border-radius: 8px; }
+  footer {
+    position: relative; z-index: 3; clear: both;
+    margin-top: 8vh; padding: 28px 4vw 48px;
+    display: grid; grid-template-columns: auto 1fr; gap: 18px 28px; align-items: center;
+    color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+    border-top: 1px solid var(--line);
+  }
+  footer .brandline { display: flex; align-items: center; gap: 12px; color: var(--ink); letter-spacing: 0; text-transform: none; font-size: 16px; font-weight: 700; }
+  footer img { width: 36px; height: 36px; border-radius: 8px; flex: none; }
+  footer p { margin: 0; line-height: 1.6; }
+  .live { padding-top: 4vh; }
+  .term {
+    margin-top: 28px; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: #07091a;
+    min-height: 420px;
+  }
+  .term header { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+  .term pre { margin: 0; padding: 18px 16px 28px; min-height: 360px; font: 13px/1.6 ui-monospace, monospace; color: #d7def8; white-space: pre-wrap; }
+  .caret { display: inline-block; width: 8px; height: 1em; background: var(--violet-2); transform: translateY(2px); animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (max-width: 860px) {
+    footer { grid-template-columns: 1fr; }
+  }
   @media (max-width: 860px) {
     .hero, .split, .cards, .buy-grid { grid-template-columns: 1fr; }
     .mark-stage { width: 100%; justify-self: start; }
@@ -119,7 +139,7 @@
     <div class="nav-links">
       <a href="#buy-what">What you buy</a>
       <a href="#why">Why</a>
-      <a href="#key">Paid key</a>
+      <a href="#live">Live run</a>
       <a class="pay" href="https://buy.stripe.com/cNieV69Jp1XY4oXegGffy00">Pay $199</a>
     </div>
   </nav>
@@ -229,13 +249,82 @@
     </div>
   </section>
 
+  <section class="live" id="live">
+    <div class="index">04 — Live run</div>
+    <h2>Key in. <em>mimicplus</em> runs.</h2>
+    <p class="lede">A customer pastes the key from the receipt. The same field accepts a master key. This is the execution from the delivery run, played back as it happened.</p>
+    <div class="term" aria-live="polite">
+      <header><span>mimicplus</span><button class="pay" id="replay" type="button">Replay</button></header>
+      <pre id="screen"><span class="caret"></span></pre>
+    </div>
+  </section>
+
   <footer>
-    <span style="display:flex;gap:10px;align-items:center"><img src="mark.png" alt="" /> mimicplus</span>
-    <span>Pay once · key by email · only an API you are allowed to call</span>
+    <div class="brandline"><img src="mark.png" alt="mimicplus logo" /> mimicplus</div>
+    <p>Pay once. The key arrives by email. Only an API you are allowed to call.</p>
   </footer>
-<p class="fine" id="vipStatus" role="status" style="padding:0 4vw 24px"></p>
+<p class="fine" id="vipStatus" role="status" style="padding:0 4vw 8px"></p>
 <script>
 const MASTER_HASHES = ["dc045355bb97b5f0975aebd30e7d4bcff06a7702524d432722a33d60df1bd6aa", "86e87b52e7f5dfda4e6951ff8415b3fb226212332c09f68665c118f50d20a786", "263ab24273be8b66aae8a78802953f63d529bb9248f0cbd5d84585d1fcdb1603", "ca6cbbe4d59561e8ced1833b0956aa043c23d3d94b865d659d02b4d94c7e835b", "51f27f10a30a115338bcdfaa87005a1b178a6510e8a6c86d9751d0fb085f0e67", "8b6312ba86f9c102c2cc0bf142e8f5523fb403b9975cb0cb412828399933970f", "b3762d0b8a403b29ec5da285e18a18f667852a6c677078f13c48e707e9ecdcf2"];
+const SCREEN = document.getElementById("screen");
+const LINES = [
+  ["$", " paste key"],
+  ["vip", " mp1.paid-••••••••.••••••••••••••••••••••••"],
+  ["", " VIP recognized. Paid key accepted."],
+  ["$", " mimicplus learn session.har -o spec.json"],
+  ["", " 127.0.0.1  mode=auth  base=http://127.0.0.1:8765"],
+  ["", " 17 flows -> 15 API calls (2 noise: html-document=1, static=1)"],
+  ["", " auth headers (names only, values never stored): authorization"],
+  ["", " POST   /api/auth/login            -> login(username, password)"],
+  ["", " GET    /api/me                    -> get_me()"],
+  ["", " GET    /api/products              -> list_products(page, per_page)"],
+  ["", " GET    /api/products/{product_id} -> get_product(product_id)"],
+  ["", " POST   /api/cart/items            -> create_item(product_id, qty)"],
+  ["", " POST   /graphql                   -> search_products(q, first)"],
+  ["", " POST   /graphql                   -> get_order(id)"],
+  ["", " POST   /graphql                   -> add_review(productId, rating, text)"],
+  ["", " POST   /api/auth/refresh          -> refresh(refresh_token)"],
+  ["", " wrote spec.json"],
+  ["$", " mimicplus gen spec.json -o acme_client.py --flavor both --tests --mcp --openapi openapi.json"],
+  ["", " wrote acme_client.py"],
+  ["", " wrote acme_client_async.py"],
+  ["", " wrote openapi.json"],
+  ["", " wrote test_acme_client.py"],
+  ["", " wrote acme_client_mcp.py"],
+  ["$", " mimicplus diff acme_v1.har acme_v2.har --fail-on-breaking"],
+  ["bad", " 4 breaking, 3 non-breaking (9 -> 8 endpoints)"],
+  ["bad", " endpoint-removed  GET /api/me"],
+  ["bad", " response-removed  items[].price"],
+  ["bad", " response-removed  product.price"],
+  ["bad", " response-removed  order.total"],
+  ["ok", " response-added    items[].price_cents"],
+  ["ok", " response-added    order.grandTotal"],
+  ["", " exit 1 — the gate stops the build"]
+];
+let timer;
+function play() {
+  clearInterval(timer);
+  SCREEN.textContent = "";
+  let i = 0;
+  timer = setInterval(() => {
+    if (i >= LINES.length) {
+      clearInterval(timer);
+      SCREEN.insertAdjacentHTML("beforeend", '<span class="caret"></span>');
+      return;
+    }
+    const [kind, text] = LINES[i++];
+    const row = document.createElement("div");
+    if (kind === "$") row.innerHTML = '<span class="dim">$</span>' + text;
+    else if (kind === "vip") row.innerHTML = '<span class="dim">vip</span>' + text;
+    else if (kind === "bad") row.innerHTML = '<span class="bad">' + text + "</span>";
+    else if (kind === "ok") row.innerHTML = '<span class="ok">' + text + "</span>";
+    else row.textContent = text;
+    SCREEN.appendChild(row);
+    SCREEN.parentElement.scrollTop = SCREEN.parentElement.scrollHeight;
+  }, 280);
+}
+play();
+document.getElementById("replay").addEventListener("click", play);
 async function sha256(value) {
   const bytes = new TextEncoder().encode(value.trim());
   const digest = await crypto.subtle.digest("SHA-256", bytes);
