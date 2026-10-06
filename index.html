@@ -184,14 +184,14 @@
       <form class="buyer" action="mailto:jdkabattles@users.noreply.github.com" method="post" enctype="text/plain">
         <div class="step-no">Step 02 — Buyer field</div>
         <h3>VIP</h3>
-        <p class="fine">For the person who already paid. Paste the key from the receipt email here. Do not put a raw API token in this field, and do not paste the key in a public issue.</p>
+        <p class="fine">For the person who already paid, and for a master key. Paste it here. Do not put a raw API token in this field, and do not paste the key in a public issue.</p>
         <label for="vip" class="fine">VIP — the key you bought</label>
         <div class="field">
           <input id="vip" name="vip" type="text" autocomplete="off" placeholder="Paste the key from the receipt email" required aria-label="VIP key from the receipt email" />
         </div>
         <textarea class="note" name="note" rows="4" placeholder="Which API you are allowed to call. Attach the HAR separately, secrets already removed."></textarea>
         <button class="send" type="submit">Send the key with the delivery request</button>
-        <p class="fine">The field is named VIP. It is the buyer’s key, checked in the private repo. This page does not validate or store it.</p>
+        <p class="fine">The field is named VIP. A paid key and a master key both work here. This page does not store the key.</p>
       </form>
     </div>
     <div class="sample" aria-label="Example of a mimicplus delivery">
@@ -228,10 +228,36 @@ openapi  /v1/orders  post  201
     <span style="display:flex;gap:10px;align-items:center"><img src="mark.png" alt="" /> mimicplus</span>
     <span>Pay once · key by email · only an API you are allowed to call</span>
   </footer>
+<p class="fine" id="vipStatus" role="status" style="padding:0 4vw 24px"></p>
 <script>
+const MASTER_HASHES = ["dc045355bb97b5f0975aebd30e7d4bcff06a7702524d432722a33d60df1bd6aa", "86e87b52e7f5dfda4e6951ff8415b3fb226212332c09f68665c118f50d20a786", "263ab24273be8b66aae8a78802953f63d529bb9248f0cbd5d84585d1fcdb1603", "ca6cbbe4d59561e8ced1833b0956aa043c23d3d94b865d659d02b4d94c7e835b", "51f27f10a30a115338bcdfaa87005a1b178a6510e8a6c86d9751d0fb085f0e67", "8b6312ba86f9c102c2cc0bf142e8f5523fb403b9975cb0cb412828399933970f", "b3762d0b8a403b29ec5da285e18a18f667852a6c677078f13c48e707e9ecdcf2"];
+async function sha256(value) {
+  const bytes = new TextEncoder().encode(value.trim());
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
 addEventListener("scroll", () => {
   const h = document.documentElement.scrollHeight - innerHeight;
   document.getElementById("progress").style.width = (scrollY / h * 100) + "%";
+});
+const form = document.querySelector(".buyer");
+const status = document.getElementById("vipStatus");
+form.addEventListener("submit", async (event) => {
+  const key = document.getElementById("vip").value.trim();
+  const digest = await sha256(key);
+  if (MASTER_HASHES.includes(digest)) {
+    event.preventDefault();
+    status.textContent = "VIP recognized. Master key accepted. The delivery is open.";
+    document.querySelector(".sample").style.outline = "1px solid #8b7cff";
+    return;
+  }
+  if (!/^mp1\.[A-Za-z0-9_-]+\.[a-f0-9]{24}$/.test(key)) {
+    event.preventDefault();
+    status.textContent = "That VIP key is not a paid key or a master key.";
+    return;
+  }
+  status.textContent = "VIP recognized. Paid key accepted. Sending the delivery request.";
 });
 </script>
 </body>
