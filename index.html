@@ -88,6 +88,19 @@
   .fine { color: var(--muted); font-size: 13px; line-height: 1.5; }
   .run { font: 14px/1.7 ui-monospace, monospace; color: var(--muted); }
   .run i { color: var(--violet-2); font-style: normal; }
+  .buyer {
+    margin-top: 28px; border: 1px solid var(--line); border-radius: 28px; padding: 28px;
+    background: rgba(7,9,26,.55);
+  }
+  .buyer h3 { margin: 8px 0 6px; font-size: clamp(28px, 3vw, 40px); letter-spacing: -.03em; }
+  .steps { display: grid; grid-template-columns: 180px 1fr; gap: 28px; align-items: start; }
+  .step-no { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--violet-2); }
+  .sample { margin-top: 28px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
+  .pane { border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #07091a; }
+  .pane header { display: flex; justify-content: space-between; padding: 12px 14px; border-bottom: 1px solid var(--line); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .pane pre { margin: 0; padding: 16px; overflow: auto; font: 12.5px/1.55 ui-monospace, monospace; color: #d7def8; }
+  .ok { color: #9be7c4; } .bad { color: #ff8aae; } .dim { color: #7d86a3; }
+  @media (max-width: 860px) { .steps, .sample { grid-template-columns: 1fr; } }
   footer { padding: 24px 4vw 40px; display: flex; justify-content: space-between; gap: 16px; align-items: center; color: var(--muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; border-top: 1px solid var(--line); }
   footer img { width: 36px; height: 36px; border-radius: 8px; }
   @media (max-width: 860px) {
@@ -160,33 +173,55 @@
 
   <section id="key" class="buy">
     <div class="index">03 — Paid key</div>
-    <div class="buy-grid">
+    <h2>Buy the key. Then this field is <em>yours.</em></h2>
+    <div class="steps">
       <div>
-        <p class="price">$199 <small>once</small></p>
-        <p class="lede">Stripe takes the payment. The key is issued from the private repo and sent to the receipt email.</p>
+        <div class="step-no">Step 01 — Pay</div>
+        <p class="price">$199 <small>+ tax</small></p>
+        <p class="lede">Stripe takes the payment. The one-time key is issued from the private repo and sent to the receipt email. This page does not hold it.</p>
         <p><a class="pay" href="https://buy.stripe.com/cNieV69Jp1XY4oXegGffy00">Pay $199</a></p>
       </div>
-      <div>
-        <b style="letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:#c9c2ff">After the email</b>
-        <p class="fine">Open a private delivery request. Do not paste a raw token in a public issue. Attach the HAR with secrets removed. Put the key in the reply.</p>
-        <p class="fine">Live shop run, before you pay: login, paginate, product, graphql, order, cart write, revoke, rejected password.</p>
-      </div>
-      <form action="mailto:jdkabattles@users.noreply.github.com" method="post" enctype="text/plain">
-        <label for="vip" class="index">VIP</label>
+      <form class="buyer" action="mailto:jdkabattles@users.noreply.github.com" method="post" enctype="text/plain">
+        <div class="step-no">Step 02 — Buyer field</div>
+        <h3>VIP</h3>
+        <p class="fine">For the person who already paid. Paste the key from the receipt email here. Do not put a raw API token in this field, and do not paste the key in a public issue.</p>
+        <label for="vip" class="fine">VIP — the key you bought</label>
         <div class="field">
-          <input id="vip" name="vip" type="text" autocomplete="off" placeholder="VIP — one-time key from the receipt email" required aria-label="VIP" />
+          <input id="vip" name="vip" type="text" autocomplete="off" placeholder="Paste the key from the receipt email" required aria-label="VIP key from the receipt email" />
         </div>
-        <textarea class="note" name="note" rows="4" placeholder="API you are allowed to call. HAR attached separately. Secrets already removed."></textarea>
-        <button class="send" type="submit">Send delivery request</button>
-        <p class="fine">The field is VIP. This page does not check or store the key.</p>
+        <textarea class="note" name="note" rows="4" placeholder="Which API you are allowed to call. Attach the HAR separately, secrets already removed."></textarea>
+        <button class="send" type="submit">Send the key with the delivery request</button>
+        <p class="fine">The field is named VIP. It is the buyer’s key, checked in the private repo. This page does not validate or store it.</p>
       </form>
     </div>
-  </section>
+    <div class="sample" aria-label="Example of a mimicplus delivery">
+      <div class="pane">
+        <header><span>orders.client.py</span><span>returned with the key</span></header>
+        <pre><span class="dim"># generated from the HAR, not written by hand</span>
+class Orders:
+    def create(self, sku: str, qty: int) -> Order:
+        <span class="dim">"""POST /v1/orders  201</span>
+<span class="dim">        body: sku, qty, idempotency_key</span>
+<span class="dim">        returns: id, status, total_cents, placed_at"""</span>
+        ...
 
-  <section>
-    <div class="index">04 — Already run</div>
-    <h2>The shape of a <em>delivery.</em></h2>
-    <div class="run" id="run"></div>
+    def get(self, order_id: str) -> Order:
+        <span class="dim">"""GET /v1/orders/{id}</span>
+<span class="dim">        status: placed | paid | shipped | cancelled"""</span>
+        ...</pre>
+      </div>
+      <div class="pane">
+        <header><span>contract check</span><span>next recording</span></header>
+        <pre>spec     orders.create  4 required fields
+client   Orders.create(sku, qty) -> Order
+openapi  /v1/orders  post  201
+
+<span class="bad">FAIL</span>  status renamed  placed -> submitted
+<span class="bad">FAIL</span>  total_cents removed
+<span class="ok">PASS</span>  auth still bearer, secrets absent
+<span class="dim">gate stops the build before the old client ships</span></pre>
+      </div>
+    </div>
   </section>
 
   <footer>
@@ -197,15 +232,6 @@
 addEventListener("scroll", () => {
   const h = document.documentElement.scrollHeight - innerHeight;
   document.getElementById("progress").style.width = (scrollY / h * 100) + "%";
-});
-const lines = ["login  demo plan=pro","paginate  5 items","product  Desk Lamp 39.99","graphql  2 lamps","order  o-1 shipped","write  cart_size=1","revoke  Floor Lamp","password  rejected"];
-const box = document.getElementById("run");
-lines.forEach((line, n) => {
-  setTimeout(() => {
-    const row = document.createElement("div");
-    row.innerHTML = "<i>0" + (n + 1) + "</i>  " + line;
-    box.appendChild(row);
-  }, 260 * n);
 });
 </script>
 </body>
