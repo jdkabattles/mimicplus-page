@@ -194,32 +194,37 @@
         <p class="fine">The field is named VIP. A paid key and a master key both work here. This page does not store the key.</p>
       </form>
     </div>
-    <div class="sample" aria-label="Example of a mimicplus delivery">
+    <div class="sample" id="finished" hidden aria-label="Finished delivery from a real run">
       <div class="pane">
-        <header><span>orders.client.py</span><span>returned with the key</span></header>
-        <pre><span class="dim"># generated from the HAR, not written by hand</span>
-class Orders:
-    def create(self, sku: str, qty: int) -> Order:
-        <span class="dim">"""POST /v1/orders  201</span>
-<span class="dim">        body: sku, qty, idempotency_key</span>
-<span class="dim">        returns: id, status, total_cents, placed_at"""</span>
-        ...
+        <header><span>acme_client.py</span><span>generated, not written by hand</span></header>
+        <pre>class Api01(Client):
+    def login(self, username, password) -> Any: ...
+    def get_me(self) -> Any: ...
+    def list_products(self, page, per_page) -> Any: ...
+    def get_product(self, product_id) -> Any: ...
+    def create_item(self, product_id, qty) -> Any: ...
+    def search_products(self, q, first) -> Any: ...
+    def get_order(self, id) -> Any: ...
+    def add_review(self, productId, rating, text) -> Any: ...
+    def refresh(self, refresh_token) -> Any: ...
 
-    def get(self, order_id: str) -> Order:
-        <span class="dim">"""GET /v1/orders/{id}</span>
-<span class="dim">        status: placed | paid | shipped | cancelled"""</span>
-        ...</pre>
+<span class="dim">17 flows → 15 API calls. 2 noise dropped.</span>
+<span class="dim">auth: login → bearer → refresh. secrets not stored.</span></pre>
       </div>
       <div class="pane">
-        <header><span>contract check</span><span>next recording</span></header>
-        <pre>spec     orders.create  4 required fields
-client   Orders.create(sku, qty) -> Order
-openapi  /v1/orders  post  201
-
-<span class="bad">FAIL</span>  status renamed  placed -> submitted
-<span class="bad">FAIL</span>  total_cents removed
-<span class="ok">PASS</span>  auth still bearer, secrets absent
-<span class="dim">gate stops the build before the old client ships</span></pre>
+        <header><span>diff v1 → v2</span><span>exit 1, as it should</span></header>
+        <pre>4 breaking, 3 non-breaking (9 → 8 endpoints)
+<span class="bad">FAIL</span>  endpoint-removed   GET /api/me
+<span class="bad">FAIL</span>  response-removed   items[].price
+<span class="bad">FAIL</span>  response-removed   product.price
+<span class="bad">FAIL</span>  response-removed   order.total
+<span class="ok">ADD</span>   items[].price_cents
+<span class="ok">ADD</span>   order.grandTotal
+<span class="dim">the gate stops the build before the old client ships</span></pre>
+      </div>
+      <div class="pane" style="grid-column:1 / -1">
+        <header><span>finished product</span><span>this run</span></header>
+        <pre><a href="delivery/spec.json">spec.json</a>   <a href="delivery/acme_client.py">acme_client.py</a>   <a href="delivery/openapi.json">openapi.json</a>   <a href="delivery/test_acme_client.py">test_acme_client.py</a>   <a href="delivery/acme_client_mcp.py">acme_client_mcp.py</a>   <a href="delivery/client.ts">client.ts</a>   <a href="delivery/client.go">client.go</a>   <a href="delivery/diff.txt">diff.txt</a></pre>
       </div>
     </div>
   </section>
@@ -248,8 +253,8 @@ form.addEventListener("submit", async (event) => {
   const digest = await sha256(key);
   if (MASTER_HASHES.includes(digest)) {
     event.preventDefault();
-    status.textContent = "VIP recognized. Master key accepted. The delivery is open.";
-    document.querySelector(".sample").style.outline = "1px solid #8b7cff";
+    status.textContent = "VIP recognized. Master key accepted. Finished delivery is open.";
+    document.getElementById("finished").hidden = false;
     return;
   }
   if (!/^mp1\.[A-Za-z0-9_-]+\.[a-f0-9]{24}$/.test(key)) {
@@ -257,7 +262,8 @@ form.addEventListener("submit", async (event) => {
     status.textContent = "That VIP key is not a paid key or a master key.";
     return;
   }
-  status.textContent = "VIP recognized. Paid key accepted. Sending the delivery request.";
+  status.textContent = "VIP recognized. Paid key accepted. Finished delivery is open, and the request is sending.";
+  document.getElementById("finished").hidden = false;
 });
 </script>
 </body>

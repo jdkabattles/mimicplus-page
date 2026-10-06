@@ -1,0 +1,8 @@
+examples/fake-app/captures/acme_v1.har -> examples/fake-app/captures/acme_v2.har: 4 breaking, 3 non-breaking (9 -> 8 endpoints)
+  ! endpoint-removed       GET /api/me (get_me)    not seen in the new capture
+  ! response-removed       GET /api/products (list_products)  $.items[].price  field missing from live response
+  ! response-removed       GET /api/products/{product_id} (get_product)  $.price  field missing from live response
+  ! response-removed       POST /graphql (get_order)  $.data.order.total  field missing from live response
+  ~ response-added         GET /api/products (list_products)  $.items[].price_cents  new field
+  ~ response-added         GET /api/products/{product_id} (get_product)  $.price_cents  new field
+  ~ response-added         POST /graphql (get_order)  $.data.order.grandTotal  new field

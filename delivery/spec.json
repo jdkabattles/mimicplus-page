@@ -1,0 +1,1158 @@
+{
+  "mimicplus_spec": 4,
+  "host": "127.0.0.1",
+  "hosts": {},
+  "base_url": "http://127.0.0.1:8765",
+  "mode": "auth",
+  "auth_headers": [
+    "authorization"
+  ],
+  "auth_query_params": [],
+  "default_headers": {
+    "accept": "application/json"
+  },
+  "generated_at": "",
+  "stats": {
+    "flows": 17,
+    "noise_dropped": 2,
+    "api_flows": 15,
+    "hosts": 1,
+    "noise_reasons": {
+      "html-document": 1,
+      "static": 1
+    }
+  },
+  "endpoints": [
+    {
+      "name": "login",
+      "method": "POST",
+      "path": "/api/auth/login",
+      "host": "127.0.0.1",
+      "path_params": [],
+      "query_params": [],
+      "body_kind": "json",
+      "request_content_type": "application/json",
+      "body_template": {
+        "username": "",
+        "password": ""
+      },
+      "body_params": [
+        {
+          "name": "username",
+          "py": "username",
+          "type": "str",
+          "example": "<redacted>",
+          "varies": false,
+          "secret": true
+        },
+        {
+          "name": "password",
+          "py": "password",
+          "type": "str",
+          "example": "<redacted>",
+          "varies": false,
+          "secret": true
+        }
+      ],
+      "body_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "username": {
+            "type": [
+              "string"
+            ]
+          },
+          "password": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "required": [
+          "password",
+          "username"
+        ]
+      },
+      "response_content_type": "application/json",
+      "response_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "access_token": {
+            "type": [
+              "string"
+            ]
+          },
+          "refresh_token": {
+            "type": [
+              "string"
+            ]
+          },
+          "token_type": {
+            "type": [
+              "string"
+            ]
+          },
+          "expires_in": {
+            "type": [
+              "integer"
+            ]
+          }
+        },
+        "required": [
+          "access_token",
+          "expires_in",
+          "refresh_token",
+          "token_type"
+        ]
+      },
+      "response_example": null,
+      "statuses": [
+        200
+      ],
+      "samples": 1,
+      "items_path": null,
+      "id_key": null,
+      "query_param": null,
+      "pagination": null,
+      "safe": false,
+      "idempotent": false,
+      "probe": null,
+      "graphql": null,
+      "auth_role": "login"
+    },
+    {
+      "name": "get_me",
+      "method": "GET",
+      "path": "/api/me",
+      "host": "127.0.0.1",
+      "path_params": [],
+      "query_params": [],
+      "body_kind": "none",
+      "request_content_type": "",
+      "body_template": null,
+      "body_params": [],
+      "body_schema": null,
+      "response_content_type": "application/json",
+      "response_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "id": {
+            "type": [
+              "integer"
+            ]
+          },
+          "username": {
+            "type": [
+              "string"
+            ]
+          },
+          "email": {
+            "type": [
+              "string"
+            ]
+          },
+          "plan": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "required": [
+          "email",
+          "id",
+          "plan",
+          "username"
+        ]
+      },
+      "response_example": null,
+      "statuses": [
+        200
+      ],
+      "samples": 1,
+      "items_path": null,
+      "id_key": null,
+      "query_param": null,
+      "pagination": null,
+      "safe": true,
+      "idempotent": true,
+      "probe": {
+        "path": "/api/me",
+        "query": [],
+        "body": null,
+        "status": 200
+      },
+      "graphql": null
+    },
+    {
+      "name": "list_products",
+      "method": "GET",
+      "path": "/api/products",
+      "host": "127.0.0.1",
+      "path_params": [],
+      "query_params": [
+        {
+          "name": "page",
+          "py": "page",
+          "type": "int",
+          "example": "1",
+          "required": true,
+          "varies": true,
+          "secret": false
+        },
+        {
+          "name": "per_page",
+          "py": "per_page",
+          "type": "int",
+          "example": "2",
+          "required": true,
+          "varies": false,
+          "secret": false
+        }
+      ],
+      "body_kind": "none",
+      "request_content_type": "",
+      "body_template": null,
+      "body_params": [],
+      "body_schema": null,
+      "response_content_type": "application/json",
+      "response_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "items": {
+            "type": [
+              "array"
+            ],
+            "items": {
+              "type": [
+                "object"
+              ],
+              "properties": {
+                "id": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "in_stock": {
+                  "type": [
+                    "boolean"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "price": {
+                  "type": [
+                    "number"
+                  ]
+                },
+                "tags": {
+                  "type": [
+                    "array"
+                  ],
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "in_stock",
+                "name",
+                "price",
+                "tags"
+              ]
+            }
+          },
+          "next_page": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "page": {
+            "type": [
+              "integer"
+            ]
+          },
+          "per_page": {
+            "type": [
+              "integer"
+            ]
+          },
+          "total": {
+            "type": [
+              "integer"
+            ]
+          }
+        },
+        "required": [
+          "items",
+          "next_page",
+          "page",
+          "per_page",
+          "total"
+        ]
+      },
+      "response_example": null,
+      "statuses": [
+        200
+      ],
+      "samples": 3,
+      "items_path": "items",
+      "id_key": "id",
+      "query_param": null,
+      "pagination": {
+        "items_path": "items",
+        "total_path": "total",
+        "size_param": "per_page",
+        "style": "page",
+        "param": "page",
+        "start": 1
+      },
+      "safe": true,
+      "idempotent": true,
+      "probe": {
+        "path": "/api/products",
+        "query": [
+          [
+            "page",
+            "3"
+          ],
+          [
+            "per_page",
+            "2"
+          ]
+        ],
+        "body": null,
+        "status": 200
+      },
+      "graphql": null
+    },
+    {
+      "name": "get_product",
+      "method": "GET",
+      "path": "/api/products/{product_id}",
+      "host": "127.0.0.1",
+      "path_params": [
+        {
+          "name": "product_id",
+          "example": "102",
+          "type": "int"
+        }
+      ],
+      "query_params": [],
+      "body_kind": "none",
+      "request_content_type": "",
+      "body_template": null,
+      "body_params": [],
+      "body_schema": null,
+      "response_content_type": "application/json",
+      "response_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "id": {
+            "type": [
+              "integer"
+            ]
+          },
+          "in_stock": {
+            "type": [
+              "boolean"
+            ]
+          },
+          "name": {
+            "type": [
+              "string"
+            ]
+          },
+          "price": {
+            "type": [
+              "number"
+            ]
+          },
+          "tags": {
+            "type": [
+              "array"
+            ],
+            "items": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "in_stock",
+          "name",
+          "price",
+          "tags"
+        ]
+      },
+      "response_example": null,
+      "statuses": [
+        200
+      ],
+      "samples": 4,
+      "items_path": null,
+      "id_key": null,
+      "query_param": null,
+      "pagination": null,
+      "safe": true,
+      "idempotent": true,
+      "probe": {
+        "path": "/api/products/102",
+        "query": [],
+        "body": null,
+        "status": 200
+      },
+      "graphql": null
+    },
+    {
+      "name": "create_item",
+      "method": "POST",
+      "path": "/api/cart/items",
+      "host": "127.0.0.1",
+      "path_params": [],
+      "query_params": [],
+      "body_kind": "json",
+      "request_content_type": "application/json",
+      "body_template": {
+        "product_id": 104,
+        "qty": 1
+      },
+      "body_params": [
+        {
+          "name": "product_id",
+          "py": "product_id",
+          "type": "int",
+          "example": 104,
+          "varies": false,
+          "secret": false
+        },
+        {
+          "name": "qty",
+          "py": "qty",
+          "type": "int",
+          "example": 1,
+          "varies": false,
+          "secret": false
+        }
+      ],
+      "body_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "product_id": {
+            "type": [
+              "integer"
+            ]
+          },
+          "qty": {
+            "type": [
+              "integer"
+            ]
+          }
+        },
+        "required": [
+          "product_id",
+          "qty"
+        ]
+      },
+      "response_content_type": "application/json",
+      "response_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "cart_size": {
+            "type": [
+              "integer"
+            ]
+          },
+          "item": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "product_id": {
+                "type": [
+                  "integer"
+                ]
+              },
+              "qty": {
+                "type": [
+                  "integer"
+                ]
+              }
+            },
+            "required": [
+              "product_id",
+              "qty"
+            ]
+          }
+        },
+        "required": [
+          "cart_size",
+          "item"
+        ]
+      },
+      "response_example": null,
+      "statuses": [
+        201
+      ],
+      "samples": 1,
+      "items_path": null,
+      "id_key": null,
+      "query_param": null,
+      "pagination": null,
+      "safe": false,
+      "idempotent": false,
+      "probe": null,
+      "graphql": null
+    },
+    {
+      "name": "search_products",
+      "method": "POST",
+      "path": "/graphql",
+      "host": "127.0.0.1",
+      "path_params": [],
+      "query_params": [],
+      "body_kind": "json",
+      "request_content_type": "application/json",
+      "body_template": {
+        "operationName": "SearchProducts",
+        "query": "query SearchProducts($q: String!, $first: Int) { searchProducts(q: $q, first: $first) { totalCount nodes { id name price } } }",
+        "variables": {
+          "q": "lamp",
+          "first": 5
+        }
+      },
+      "body_params": [
+        {
+          "name": "q",
+          "py": "q",
+          "type": "str",
+          "example": "mug",
+          "varies": true,
+          "secret": false,
+          "path": [
+            "variables",
+            "q"
+          ]
+        },
+        {
+          "name": "first",
+          "py": "first",
+          "type": "int",
+          "example": 5,
+          "varies": false,
+          "secret": false,
+          "path": [
+            "variables",
+            "first"
+          ]
+        }
+      ],
+      "body_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "operationName": {
+            "type": [
+              "string"
+            ]
+          },
+          "query": {
+            "type": [
+              "string"
+            ]
+          },
+          "variables": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "first": {
+                "type": [
+                  "integer"
+                ]
+              },
+              "q": {
+                "type": [
+                  "string"
+                ]
+              }
+            },
+            "required": [
+              "first",
+              "q"
+            ]
+          }
+        },
+        "required": [
+          "operationName",
+          "query",
+          "variables"
+        ]
+      },
+      "response_content_type": "application/json",
+      "response_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "data": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "searchProducts": {
+                "type": [
+                  "object"
+                ],
+                "properties": {
+                  "nodes": {
+                    "type": [
+                      "array"
+                    ],
+                    "items": {
+                      "type": [
+                        "object"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "price": {
+                          "type": [
+                            "number"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name",
+                        "price"
+                      ]
+                    }
+                  },
+                  "totalCount": {
+                    "type": [
+                      "integer"
+                    ]
+                  }
+                },
+                "required": [
+                  "nodes",
+                  "totalCount"
+                ]
+              }
+            },
+            "required": [
+              "searchProducts"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "response_example": null,
+      "statuses": [
+        200
+      ],
+      "samples": 2,
+      "items_path": "data.searchProducts.nodes",
+      "id_key": "id",
+      "query_param": "q",
+      "pagination": null,
+      "safe": true,
+      "idempotent": true,
+      "probe": {
+        "path": "/graphql",
+        "query": [],
+        "body": "{\"operationName\": \"SearchProducts\", \"query\": \"query SearchProducts($q: String!, $first: Int) { searchProducts(q: $q, first: $first) { totalCount nodes { id name price } } }\", \"variables\": {\"q\": \"lamp\", \"first\": 5}}",
+        "status": 200
+      },
+      "graphql": {
+        "operation_type": "query",
+        "operation_name": "SearchProducts",
+        "document": "query SearchProducts($q: String!, $first: Int) { searchProducts(q: $q, first: $first) { totalCount nodes { id name price } } }",
+        "persisted_hash": null,
+        "variables": [
+          "first",
+          "q"
+        ]
+      }
+    },
+    {
+      "name": "get_order",
+      "method": "POST",
+      "path": "/graphql",
+      "host": "127.0.0.1",
+      "path_params": [],
+      "query_params": [],
+      "body_kind": "json",
+      "request_content_type": "application/json",
+      "body_template": {
+        "operationName": "GetOrder",
+        "query": "query GetOrder($id: ID!) { order(id: $id) { id status total items } }",
+        "variables": {
+          "id": "o-1"
+        }
+      },
+      "body_params": [
+        {
+          "name": "id",
+          "py": "id",
+          "type": "str",
+          "example": "o-1",
+          "varies": false,
+          "secret": false,
+          "path": [
+            "variables",
+            "id"
+          ]
+        }
+      ],
+      "body_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "operationName": {
+            "type": [
+              "string"
+            ]
+          },
+          "query": {
+            "type": [
+              "string"
+            ]
+          },
+          "variables": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "id": {
+                "type": [
+                  "string"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        "required": [
+          "operationName",
+          "query",
+          "variables"
+        ]
+      },
+      "response_content_type": "application/json",
+      "response_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "data": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "order": {
+                "type": [
+                  "object"
+                ],
+                "properties": {
+                  "id": {
+                    "type": [
+                      "string"
+                    ]
+                  },
+                  "status": {
+                    "type": [
+                      "string"
+                    ]
+                  },
+                  "total": {
+                    "type": [
+                      "number"
+                    ]
+                  },
+                  "items": {
+                    "type": [
+                      "array"
+                    ],
+                    "items": {
+                      "type": [
+                        "integer"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "items",
+                  "status",
+                  "total"
+                ]
+              }
+            },
+            "required": [
+              "order"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "response_example": null,
+      "statuses": [
+        200
+      ],
+      "samples": 1,
+      "items_path": null,
+      "id_key": null,
+      "query_param": null,
+      "pagination": null,
+      "safe": true,
+      "idempotent": true,
+      "probe": {
+        "path": "/graphql",
+        "query": [],
+        "body": "{\"operationName\": \"GetOrder\", \"query\": \"query GetOrder($id: ID!) { order(id: $id) { id status total items } }\", \"variables\": {\"id\": \"o-1\"}}",
+        "status": 200
+      },
+      "graphql": {
+        "operation_type": "query",
+        "operation_name": "GetOrder",
+        "document": "query GetOrder($id: ID!) { order(id: $id) { id status total items } }",
+        "persisted_hash": null,
+        "variables": [
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "add_review",
+      "method": "POST",
+      "path": "/graphql",
+      "host": "127.0.0.1",
+      "path_params": [],
+      "query_params": [],
+      "body_kind": "json",
+      "request_content_type": "application/json",
+      "body_template": {
+        "operationName": "AddReview",
+        "query": "mutation AddReview($productId: ID!, $rating: Int!, $text: String) { addReview(productId: $productId, rating: $rating, text: $text) { id rating ok } }",
+        "variables": {
+          "productId": "101",
+          "rating": 5,
+          "text": "great"
+        }
+      },
+      "body_params": [
+        {
+          "name": "productId",
+          "py": "product_id",
+          "type": "str",
+          "example": "101",
+          "varies": false,
+          "secret": false,
+          "path": [
+            "variables",
+            "productId"
+          ]
+        },
+        {
+          "name": "rating",
+          "py": "rating",
+          "type": "int",
+          "example": 5,
+          "varies": false,
+          "secret": false,
+          "path": [
+            "variables",
+            "rating"
+          ]
+        },
+        {
+          "name": "text",
+          "py": "text",
+          "type": "str",
+          "example": "great",
+          "varies": false,
+          "secret": false,
+          "path": [
+            "variables",
+            "text"
+          ]
+        }
+      ],
+      "body_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "operationName": {
+            "type": [
+              "string"
+            ]
+          },
+          "query": {
+            "type": [
+              "string"
+            ]
+          },
+          "variables": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "productId": {
+                "type": [
+                  "string"
+                ]
+              },
+              "rating": {
+                "type": [
+                  "integer"
+                ]
+              },
+              "text": {
+                "type": [
+                  "string"
+                ]
+              }
+            },
+            "required": [
+              "productId",
+              "rating",
+              "text"
+            ]
+          }
+        },
+        "required": [
+          "operationName",
+          "query",
+          "variables"
+        ]
+      },
+      "response_content_type": "application/json",
+      "response_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "data": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "addReview": {
+                "type": [
+                  "object"
+                ],
+                "properties": {
+                  "id": {
+                    "type": [
+                      "string"
+                    ]
+                  },
+                  "rating": {
+                    "type": [
+                      "integer"
+                    ]
+                  },
+                  "ok": {
+                    "type": [
+                      "boolean"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "ok",
+                  "rating"
+                ]
+              }
+            },
+            "required": [
+              "addReview"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "response_example": null,
+      "statuses": [
+        200
+      ],
+      "samples": 1,
+      "items_path": null,
+      "id_key": null,
+      "query_param": "text",
+      "pagination": null,
+      "safe": false,
+      "idempotent": false,
+      "probe": null,
+      "graphql": {
+        "operation_type": "mutation",
+        "operation_name": "AddReview",
+        "document": "mutation AddReview($productId: ID!, $rating: Int!, $text: String) { addReview(productId: $productId, rating: $rating, text: $text) { id rating ok } }",
+        "persisted_hash": null,
+        "variables": [
+          "productId",
+          "rating",
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "refresh",
+      "method": "POST",
+      "path": "/api/auth/refresh",
+      "host": "127.0.0.1",
+      "path_params": [],
+      "query_params": [],
+      "body_kind": "json",
+      "request_content_type": "application/json",
+      "body_template": {
+        "refresh_token": ""
+      },
+      "body_params": [
+        {
+          "name": "refresh_token",
+          "py": "refresh_token",
+          "type": "str",
+          "example": "<redacted>",
+          "varies": false,
+          "secret": true
+        }
+      ],
+      "body_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "refresh_token": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "required": [
+          "refresh_token"
+        ]
+      },
+      "response_content_type": "application/json",
+      "response_schema": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "access_token": {
+            "type": [
+              "string"
+            ]
+          },
+          "refresh_token": {
+            "type": [
+              "string"
+            ]
+          },
+          "token_type": {
+            "type": [
+              "string"
+            ]
+          },
+          "expires_in": {
+            "type": [
+              "integer"
+            ]
+          }
+        },
+        "required": [
+          "access_token",
+          "expires_in",
+          "refresh_token",
+          "token_type"
+        ]
+      },
+      "response_example": null,
+      "statuses": [
+        200
+      ],
+      "samples": 1,
+      "items_path": null,
+      "id_key": null,
+      "query_param": null,
+      "pagination": null,
+      "safe": false,
+      "idempotent": false,
+      "probe": null,
+      "graphql": null,
+      "auth_role": "refresh"
+    }
+  ],
+  "auth_flows": [
+    {
+      "login_endpoint": "login",
+      "token_path": "access_token",
+      "token_in": "header",
+      "token_name": "authorization",
+      "token_format": "Bearer {token}",
+      "expires_in_path": "expires_in",
+      "refresh_endpoint": "refresh",
+      "refresh_token_path": "refresh_token",
+      "refresh_param": "refresh_token",
+      "uses": [
+        "get_me",
+        "list_products",
+        "get_product",
+        "create_item",
+        "search_products",
+        "get_order",
+        "add_review"
+      ]
+    }
+  ],
+  "session": null,
+  "channels": [],
+  "security": {
+    "audit": "clean",
+    "redactions": 0,
+    "secret_kinds": {}
+  }
+}
