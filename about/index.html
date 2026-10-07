@@ -46,6 +46,7 @@
         <a href="https://forgingstack.com/">Delivery</a>
         <a href="https://forgingstack.com/blog/">The missing spec</a>
         <a href="https://forgingstack.com/about/">About</a>
+        <a href="https://forgingstack.com/contact/">Contact</a>
         <a href="https://forgingstack.com/gate/">Contract Gate</a>
       </div>
     </details>
@@ -55,7 +56,12 @@
     <p>mimicplus is a delivery. You record an API you are allowed to call. The recording becomes a versioned spec, a typed Python client, OpenAPI, tests, and a check that fails when a later recording removes or renames a field. Secrets stay out of the spec. The price is $199 once.</p>
     <p>Jonathan Battles builds it. This page is not a biography. The product is the subject. Mail goes to jdkabattles@gmail.com. The site is <a href="https://forgingstack.com/">forgingstack.com</a>.</p>
   </article>
-  <footer><a href="https://forgingstack.com/">mimicplus</a></footer>
+  <footer><a href="https://forgingstack.com/">mimicplus</a> · <span id="views">Views —</span></footer>
+  <script>
+    fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-about").then((r) => r.json()).then((d) => {
+      document.getElementById("views").textContent = "Views " + d.value;
+    }).catch(() => {});
+  </script>
   <script>
     addEventListener("scroll", () => {
       const h = document.documentElement.scrollHeight - innerHeight;

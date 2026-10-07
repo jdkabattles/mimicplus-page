@@ -159,6 +159,7 @@
         <a href="https://forgingstack.com/">Delivery</a>
         <a href="https://forgingstack.com/blog/">The missing spec</a>
         <a href="https://forgingstack.com/about/">About</a>
+        <a href="https://forgingstack.com/contact/">Contact</a>
         <a href="https://forgingstack.com/gate/">Contract Gate</a>
       </div>
     </details>
@@ -281,7 +282,7 @@
 
   <footer>
     <div class="brandline"><img src="mark.png" alt="mimicplus logo" /> mimicplus</div>
-    <p>Pay once. The key arrives by email. Only an API you are allowed to call.</p>
+    <p>Pay once. The key arrives by email. Only an API you are allowed to call. <span id="views">Views —</span></p>
   </footer>
 <p class="fine" id="vipStatus" role="status" style="padding:0 4vw 8px"></p>
 <script>
@@ -351,6 +352,13 @@ async function sha256(value) {
   return [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, "0")).join("");
 }
 
+document.querySelectorAll('a[href*="buy.stripe.com"]').forEach((link) => {
+  link.addEventListener("click", () => fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-pay-click").catch(() => {}));
+});
+fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-home").then((r) => r.json()).then((d) => {
+  const node = document.getElementById("views");
+  if (node) node.textContent = "Views " + d.value;
+}).catch(() => {});
 addEventListener("scroll", () => {
   const h = document.documentElement.scrollHeight - innerHeight;
   document.getElementById("progress").style.width = (scrollY / h * 100) + "%";

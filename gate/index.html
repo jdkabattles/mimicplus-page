@@ -54,6 +54,7 @@
         <a href="https://forgingstack.com/">Delivery</a>
         <a href="https://forgingstack.com/blog/">The missing spec</a>
         <a href="https://forgingstack.com/about/">About</a>
+        <a href="https://forgingstack.com/contact/">Contact</a>
         <a href="https://forgingstack.com/gate/">Contract Gate</a>
       </div>
     </details>
@@ -78,8 +79,13 @@
   <footer>
     <span style="display:flex;gap:10px;align-items:center"><img src="../mark.png" alt="" /> mimicplus</span>
     <span>Contract Gate sits on the delivery. It does not replace it.</span>
+    <span id="views">Views —</span>
   </footer>
   <script>
+    fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-gate").then((r) => r.json()).then((d) => {
+      const node = document.getElementById("views");
+      if (node) node.textContent = "Views " + d.value;
+    }).catch(() => {});
     addEventListener("scroll", () => {
       const h = document.documentElement.scrollHeight - innerHeight;
       document.getElementById("progress").style.width = (h ? scrollY / h * 100 : 0) + "%";

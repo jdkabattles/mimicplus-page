@@ -60,6 +60,7 @@
         <a href="https://forgingstack.com/">Delivery</a>
         <a href="https://forgingstack.com/blog/">The missing spec</a>
         <a href="https://forgingstack.com/about/">About</a>
+        <a href="https://forgingstack.com/contact/">Contact</a>
         <a href="https://forgingstack.com/gate/">Contract Gate</a>
       </div>
     </details>
@@ -74,7 +75,12 @@
     <p><a href="https://forgingstack.com/">mimicplus</a> takes one HAR you are allowed to record. It writes a versioned spec, a typed Python client, OpenAPI, and offline tests. A later recording fails the build when a field is removed or renamed. Secrets stay out of the spec. The delivery is $199. The site is <a href="https://forgingstack.com/">forgingstack.com</a>.</p>
     <p>Reply with one recording you are allowed to share, secrets removed. The key is sent after that reply. It is not on this page.</p>
   </article>
-  <footer><img src="../mark.png" alt="" /> <a href="https://forgingstack.com/">mimicplus</a> · <a href="https://forgingstack.com/">forgingstack.com</a></footer>
+  <footer><img src="../mark.png" alt="" /> <a href="https://forgingstack.com/">mimicplus</a> · <a href="https://forgingstack.com/">forgingstack.com</a> · <span id="views">Views —</span></footer>
+  <script>
+    fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-blog").then((r) => r.json()).then((d) => {
+      document.getElementById("views").textContent = "Views " + d.value;
+    }).catch(() => {});
+  </script>
   <script>
     addEventListener("scroll", () => {
       const h = document.documentElement.scrollHeight - innerHeight;
