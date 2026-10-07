@@ -4,24 +4,28 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>API breaking-change check from a HAR | mimicplus</title>
-<meta name="description" content="mimicplus compares two HAR recordings and fails when a field is removed or renamed. $199 once." />
+<meta name="description" content="mimicplus compares two HAR recordings and fails when a field is removed or renamed. The sample names four breaks. $199 once. Jonathan Battles." />
 <link rel="canonical" href="https://forgingstack.com/api-diff/" />
 <link rel="icon" href="../mark.png" />
 <style>
   body { margin: 0; background: #07091a; color: #f4f1ec; font-family: Georgia, serif; }
   a { color: #c9c2ff; }
-  header, article, footer { padding: 28px 6vw; }
+  header, article, footer { padding: 28px 6vw; max-width: 760px; }
   header { border-bottom: 1px solid rgba(244,241,236,.14); }
-  h1 { font-size: clamp(36px, 6vw, 64px); line-height: .95; }
-  p { color: #a9b0c7; font-size: 18px; line-height: 1.55; max-width: 40rem; }
+  h1 { font-size: clamp(36px, 6vw, 60px); line-height: .95; }
+  h2 { font-size: 22px; margin-top: 2rem; }
+  p, li { color: #a9b0c7; font-size: 18px; line-height: 1.55; }
 </style>
 </head>
 <body>
   <header><a href="https://forgingstack.com/">mimicplus</a></header>
   <article>
     <h1>The breaking-change check.</h1>
-    <p>A first recording against the next one sets off the alarm: a page removed, a price removed, a price added in cents, an order total removed, a grand total added. <a href="https://forgingstack.com/">mimicplus</a> fails the run when a field is gone or renamed. $199 once.</p>
-    <p>The site is <a href="https://forgingstack.com/">forgingstack.com</a>.</p>
+    <p>Written by <a href="https://forgingstack.com/about/">Jonathan Battles</a>. A checklist does not compare this recording with the last one. <a href="https://forgingstack.com/">mimicplus</a> does.</p>
+    <h2>The sample</h2>
+    <p>A first recording against the next one sets off the alarm: a page removed, a price removed, a price added in cents, an order total removed, a grand total added. That is the known sample. It is a shape, not a claim that a named payer or carrier is wrong.</p>
+    <h2>The price</h2>
+    <p>$199 once. One recording you are allowed to make. The next partner is another $199. The OpenAPI write-up is on <a href="https://forgingstack.com/har-to-openapi/">HAR to OpenAPI</a>.</p>
   </article>
   <footer><a href="https://forgingstack.com/">forgingstack.com</a></footer>
 </body>
