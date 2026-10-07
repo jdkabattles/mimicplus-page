@@ -34,10 +34,15 @@
   .bad { color: #ff8aae; } .ok { color: #9be7c4; } .dim { color: #7d86a3; }
   footer { padding: 28px 4vw 48px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 18px; color: var(--muted); }
   footer img { width: 36px; height: 36px; border-radius: 8px; }
-  @media (max-width: 860px) { .cards, footer { display: block; } .nav-links a:not(.pay) { display: none; } }
+  .progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; z-index: 40; background: linear-gradient(90deg, var(--violet), #fff); }
+  .grain { pointer-events: none; position: fixed; inset: 0; z-index: 30; opacity: .14; mix-blend-mode: overlay; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.55'/></svg>"); }
+  .reveal { opacity: 0; transform: translateY(16px); animation: rise .8s cubic-bezier(.22,1,.36,1) forwards; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
 </style>
 </head>
 <body>
+  <div class="grain"></div>
+  <div class="progress" id="progress"></div>
   <header class="bar">
     <div class="row">
       <a class="brand" href="https://forgingstack.com/"><img src="../mark.png" alt="mimicplus logo" /> mimicplus</a>
@@ -55,7 +60,7 @@
   </header>
   <main>
     <div class="kicker">Contract Gate — after the first delivery</div>
-    <h1>The next recording has to <em>match.</em></h1>
+    <h1 class="reveal">The next recording has to <em>match.</em></h1>
     <p class="lede">mimicplus turns one allowed recording into the client. Contract Gate keeps that spec as the last approved contract. A later HAR fails the build when a field is removed or renamed. One named approval can waive that break. It cannot hide the others.</p>
     <div class="cards">
       <article class="card"><b>For a team, not a file</b><p>A bank, insurer, carrier, or hospital integration desk has more than one partner API. The gate is the registry of those contracts.</p></article>
@@ -74,5 +79,15 @@
     <span style="display:flex;gap:10px;align-items:center"><img src="../mark.png" alt="" /> mimicplus</span>
     <span>Contract Gate sits on the delivery. It does not replace it.</span>
   </footer>
+  <script>
+    addEventListener("scroll", () => {
+      const h = document.documentElement.scrollHeight - innerHeight;
+      document.getElementById("progress").style.width = (h ? scrollY / h * 100 : 0) + "%";
+    });
+    document.querySelectorAll(".card, pre, .lede").forEach((node, i) => {
+      node.classList.add("reveal");
+      node.style.animationDelay = (0.1 + i * 0.06) + "s";
+    });
+  </script>
 </body>
 </html>
