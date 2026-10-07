@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contract Gate — the later recording has to match</title>
+<meta name="description" content="Contract Gate keeps the last approved mimicplus spec and fails the build when a later recording removes or renames a field." />
+<link rel="icon" href="../mark.png" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg:#07091a; --ink:#f4f1ec; --muted:#a9b0c7; --line:rgba(244,241,236,.14); --violet:#8b7cff; --violet-2:#c9c2ff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Syne, sans-serif; }
+  a { color: inherit; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 4vw; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 750; }
+  .brand img { width: 42px; height: 42px; border-radius: 10px; }
+  .nav-links { display: flex; gap: 22px; align-items: center; }
+  .nav-links a { text-decoration: none; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  .pay { border-radius: 999px; background: var(--violet); color: #fff; text-decoration: none; padding: 11px 16px; letter-spacing: .14em; font-size: 11px; text-transform: uppercase; font-weight: 700; }
+  main { padding: 8vh 4vw 12vh; max-width: 1100px; }
+  .kicker { letter-spacing: .26em; text-transform: uppercase; color: var(--violet-2); font-size: 11px; }
+  h1 { font-size: clamp(46px, 6vw, 84px); line-height: .9; letter-spacing: -.045em; margin: 14px 0; }
+  h1 em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; color: var(--violet-2); }
+  .lede { color: var(--muted); font-size: 18px; line-height: 1.55; max-width: 42rem; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 42px; }
+  .card { border: 1px solid var(--line); border-radius: 22px; padding: 24px; min-height: 180px; }
+  .card b { display: block; color: var(--violet-2); letter-spacing: .16em; text-transform: uppercase; font-size: 12px; margin-bottom: 12px; }
+  .card p { color: var(--muted); line-height: 1.55; }
+  pre { margin-top: 36px; border: 1px solid var(--line); border-radius: 18px; padding: 18px; background: #0c1022; color: #d7def8; font: 13px/1.6 ui-monospace, monospace; overflow: auto; }
+  .bad { color: #ff8aae; } .ok { color: #9be7c4; } .dim { color: #7d86a3; }
+  footer { padding: 28px 4vw 48px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 18px; color: var(--muted); }
+  footer img { width: 36px; height: 36px; border-radius: 8px; }
+  @media (max-width: 860px) { .cards, footer { display: block; } .nav-links a:not(.pay) { display: none; } }
+</style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="../"><img src="../mark.png" alt="mimicplus logo" /> mimicplus</a>
+    <div class="nav-links">
+      <a href="../">Delivery</a>
+      <a href="./">Contract Gate</a>
+      <a class="pay" href="https://buy.stripe.com/cNieV69Jp1XY4oXegGffy00">Pay $199</a>
+    </div>
+  </nav>
+  <main>
+    <div class="kicker">Contract Gate — after the first delivery</div>
+    <h1>The next recording has to <em>match.</em></h1>
+    <p class="lede">mimicplus turns one allowed recording into the client. Contract Gate keeps that spec as the last approved contract. A later HAR fails the build when a field is removed or renamed. One named approval can waive that break. It cannot hide the others.</p>
+    <div class="cards">
+      <article class="card"><b>For a team, not a file</b><p>A bank, insurer, carrier, or hospital integration desk has more than one partner API. The gate is the registry of those contracts.</p></article>
+      <article class="card"><b>Same differ</b><p>It runs mimicplus diff. It does not invent a second opinion. The acme proof still fails on four breaks.</p></article>
+      <article class="card"><b>Not for sale yet</b><p>The $199 key buys the delivery. The monthly gate is planned. There is no second checkout on this page.</p></article>
+    </div>
+    <pre>acme_v1.har -> acme_v2.har
+<span class="bad">FAIL</span>  endpoint-removed   GET /api/me
+<span class="bad">FAIL</span>  response-removed   $.price
+<span class="bad">FAIL</span>  response-removed   $.price
+<span class="bad">FAIL</span>  response-removed   order.total
+<span class="ok">WAIVE</span> $.price only — the other three still fail
+<span class="dim">fail closed until the mimicplus differ is on the runner</span></pre>
+  </main>
+  <footer>
+    <span style="display:flex;gap:10px;align-items:center"><img src="../mark.png" alt="" /> mimicplus</span>
+    <span>Contract Gate sits on the delivery. It does not replace it.</span>
+  </footer>
+</body>
+</html>
