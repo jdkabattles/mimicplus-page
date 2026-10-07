@@ -36,7 +36,8 @@
   }
   .nav-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 4vw; }
   .nav-links { display: flex; gap: 22px; align-items: center; }
-  .menu summary { padding: 0; }
+  .menu { clear: both; }
+  .menu summary { padding: 0 4vw 12px; display: block; }
   .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 750; letter-spacing: -.03em; }
   .brand img { width: 42px; height: 42px; border-radius: 10px; }
   .menu { position: static; }
@@ -134,6 +135,8 @@
     .hero, .split, .cards, .buy-grid { grid-template-columns: 1fr; }
     .mark-stage { width: 100%; justify-self: start; }
     .nav-links a:not(.pay) { display: none; }
+    .nav-links { margin-left: auto; }
+    .pay { position: static; }
     .buy { padding: 28px 18px; }
   }
 </style>
