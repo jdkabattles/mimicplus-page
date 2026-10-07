@@ -230,16 +230,16 @@
         <p><a class="pay" href="https://buy.stripe.com/cNieV69Jp1XY4oXegGffy00">Pay $199</a></p>
       </div>
       <form class="buyer" action="mailto:jdkabattles@users.noreply.github.com" method="post" enctype="text/plain">
-        <div class="step-no">Step 02 — Buyer field</div>
-        <h3>VIP</h3>
-        <p class="fine">For the person who already paid, and for a master key. Paste it here. Do not put a raw API token in this field, and do not paste the key in a public issue.</p>
-        <label for="vip" class="fine">VIP — the key you bought</label>
+        <div class="step-no">Step 02 — Key</div>
+        <h3>Key from the receipt</h3>
+        <p class="fine">Paste the key from the receipt email. Do not put a raw API token in this field, and do not paste the key in a public issue.</p>
+        <label for="vip" class="fine">Key from the receipt</label>
         <div class="field">
           <input id="vip" name="vip" type="text" autocomplete="off" placeholder="Paste the key from the receipt email" required aria-label="VIP key from the receipt email" />
         </div>
-        <textarea class="note" name="note" rows="4" placeholder="Which API you are allowed to call. Attach the HAR separately, secrets already removed."></textarea>
+        <textarea class="note" name="note" rows="4" placeholder="Name the API you are allowed to call. Attach the HAR separately, secrets already removed."></textarea>
         <button class="send" type="submit">Send the key with the delivery request</button>
-        <p class="fine">The field is named VIP. A paid key and a master key both work here. This page does not store the key.</p>
+        <p class="fine">This page does not store the key.</p>
       </form>
     </div>
     <div class="sample" id="finished" hidden aria-label="Finished delivery from a real run">
@@ -285,6 +285,14 @@
       <header><span>mimicplus</span><button class="pay" id="replay" type="button">Replay</button></header>
       <pre id="screen"><span class="caret"></span></pre>
     </div>
+  </section>
+
+  <section>
+    <div class="index">05 — How the run works</div>
+    <h2>From a HAR to a client.</h2>
+    <p class="lede">A HAR is the recording a browser already made. mimicplus reads one recording you are allowed to make, secrets already removed, and writes a versioned spec, a typed Python client, OpenAPI, and tests. A second recording fails the run when a field is removed or renamed.</p>
+    <p class="lede">The sample is a shape. A page removed. A price removed. A price added in cents. An order total removed. A grand total added. It is not a claim that a named payer, carrier, or hospital system is wrong.</p>
+    <p class="lede">Read the <a href="https://forgingstack.com/blog/">article</a>, the <a href="https://forgingstack.com/har-to-openapi/">HAR to OpenAPI</a> page, and the <a href="https://forgingstack.com/api-diff/">breaking-change check</a>. Public notes, with no keys, are at <a href="https://github.com/jdkabattles/mimicplus-docs">jdkabattles/mimicplus-docs</a>.</p>
   </section>
 
   <footer>
