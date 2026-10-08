@@ -164,6 +164,7 @@
         <a href="https://forgingstack.com/blog/">The missing spec</a>
         <a href="https://forgingstack.com/about/">About</a>
         <a href="https://forgingstack.com/contact/">Contact</a>
+        <a href="https://forgingstack.com/what-it-does/">What goes in</a>
         <a href="https://forgingstack.com/har-to-openapi/">HAR to OpenAPI</a>
         <a href="https://forgingstack.com/api-diff/">Breaking-change check</a>
         <a href="https://forgingstack.com/gate/">Contract Gate</a>
@@ -288,11 +289,11 @@
   </section>
 
   <section>
-    <div class="index">05 — How the run works</div>
-    <h2>From a HAR to a client.</h2>
-    <p class="lede">A HAR is the recording a browser already made. mimicplus reads one recording you are allowed to make, secrets already removed, and writes a versioned spec, a typed Python client, OpenAPI, and tests. A second recording fails the run when a field is removed or renamed.</p>
-    <p class="lede">The sample is a shape. A page removed. A price removed. A price added in cents. An order total removed. A grand total added. It is not a claim that a named payer, carrier, or hospital system is wrong.</p>
-    <p class="lede">Read the <a href="https://forgingstack.com/blog/">article</a>, the <a href="https://forgingstack.com/har-to-openapi/">HAR to OpenAPI</a> page, and the <a href="https://forgingstack.com/api-diff/">breaking-change check</a>. Public notes, with no keys, are at <a href="https://github.com/jdkabattles/mimicplus-docs">jdkabattles/mimicplus-docs</a>.</p>
+    <div class="index">05 — What goes in, what comes out</div>
+    <h2>You feed it a recording. It hands back a list and a way to call it again.</h2>
+    <p class="lede">A child can follow this. You used a screen. The screen talked to another computer. The browser can save that talk as a file. That file is the only thing you feed mimicplus. It is called a HAR. It is a list of questions the screen asked and answers the other computer sent. Take the passwords and tokens out first. Use a recording you are allowed to make.</p>
+    <p class="lede">What comes out is four things. A written list of what that other computer actually sent. A copy of that list to hold against next time. A small program a coder can run to ask the same questions again. An alarm if next time a piece is missing or has a new name.</p>
+    <p class="lede">The alarm in the sample is simple. A page is gone. A price is gone. A price comes back in cents. An order total is gone. A grand total is added. $199 once. The next recording is another $199.</p>
   </section>
 
   <footer>
