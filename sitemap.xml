@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://forgingstack.com/</loc></url>
+  <url><loc>https://forgingstack.com/how-to/</loc></url>
+  <url><loc>https://forgingstack.com/technical/</loc></url>
   <url><loc>https://forgingstack.com/blog/</loc></url>
   <url><loc>https://forgingstack.com/about/</loc></url>
   <url><loc>https://forgingstack.com/contact/</loc></url>
@@ -9,4 +11,6 @@
   <url><loc>https://forgingstack.com/api-diff/</loc></url>
   <url><loc>https://forgingstack.com/gate/</loc></url>
   <url><loc>https://forgingstack.com/gate/what-it-does/</loc></url>
+  <url><loc>https://forgingstack.com/gate/how-to/</loc></url>
+  <url><loc>https://forgingstack.com/gate/technical/</loc></url>
 </urlset>

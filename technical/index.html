@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>mimicplus technical page — HAR to OpenAPI, client, and breaking check</title>
+<meta name="description" content="mimicplus reads a HAR you are allowed to record, writes a versioned spec, a typed Python client, OpenAPI, and tests, and fails when a later HAR drops or renames a field. $199 once." />
+<link rel="canonical" href="https://forgingstack.com/technical/" />
+<link rel="icon" href="../mark.png" />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #07091a; color: #f4f1ec; font-family: Syne, sans-serif; }
+  a { color: #c9c2ff; }
+  article { max-width: 760px; padding: 8vh 4vw; }
+  p, li { color: #a9b0c7; line-height: 1.6; }
+  pre { border: 1px solid rgba(244,241,236,.14); border-radius: 16px; padding: 16px; overflow: auto; color: #d7def8; }
+</style>
+</head>
+<body>
+  <article>
+    <p><a href="https://forgingstack.com/">mimicplus</a> · <a href="https://forgingstack.com/how-to/">Plain how-to</a></p>
+    <h1>What the programmer gets.</h1>
+    <p>The pain is a client written from memory. A partner drops a field or renames one. The old client ships. The miss shows up as a payment that did not post or a claim that came back.</p>
+    <p>mimicplus takes one HAR you are allowed to record, secrets already removed. It writes a versioned spec, a typed Python client, OpenAPI, and tests from the calls that returned. A later HAR checked with <code>mimicplus diff --fail-on-breaking</code> exits 1 when a field is removed or renamed.</p>
+    <pre>mimicplus diff last.har next.har --fail-on-breaking</pre>
+    <p>$199 once. Not a subscription. The key is emailed after Stripe says paid. This page does not hold keys. The plain steps are on <a href="https://forgingstack.com/how-to/">the how-to</a>.</p>
+  </article>
+</body>
+</html>

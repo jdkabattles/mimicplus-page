@@ -9,7 +9,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"mimicplus","operatingSystem":"Cross-platform","applicationCategory":"DeveloperApplication","description":"Turns a HAR network recording you are allowed to make into a versioned spec, a typed Python client, OpenAPI, tests, and a failing check when a later recording drops or renames a field.","offers":{"@type":"Offer","price":"199","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ForgingStack","url":"https://forgingstack.com"}}
 </script>
-<link rel="icon" href="mark.png" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoObject","name":"mimicplus mark","description":"The mimicplus mark: a waveform becoming a document. mimicplus turns a browser recording you are allowed to save into a client.","thumbnailUrl":"https://forgingstack.com/media/mimicplus-poster.jpg","uploadDate":"2026-10-09","contentUrl":"https://forgingstack.com/media/mimicplus.mp4","duration":"PT15S"}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -64,7 +66,7 @@
     justify-self: end; width: min(42vw, 460px); aspect-ratio: 1; border-radius: 32px; overflow: hidden;
     border: 1px solid var(--line); background: #0b1020; box-shadow: 0 40px 120px rgba(139,124,255,.18);
   }
-  .mark-stage img { width: 100%; height: 100%; object-fit: cover; }
+  .mark-stage video, .mark-stage img { width: 100%; height: 100%; object-fit: cover; }
   .marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; white-space: nowrap; padding: 14px 0; }
   .marquee span { display: inline-block; animation: slide 28s linear infinite; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); padding-right: 40px; }
   @keyframes slide { to { transform: translateX(-50%); } }
@@ -167,7 +169,10 @@
         <a href="https://forgingstack.com/contact/">Contact</a>
         <a href="https://forgingstack.com/har-to-openapi/">HAR to OpenAPI</a>
         <a href="https://forgingstack.com/api-diff/">Breaking-change check</a>
-        <a href="https://forgingstack.com/gate/">Contract Gate</a>
+        <a href="https://forgingstack.com/how-to/">How to use it</a>
+        <a href="https://forgingstack.com/technical/">For the programmer</a>
+        <a href="https://forgingstack.com/gate/how-to/">Contract Gate, plain</a>
+        <a href="https://forgingstack.com/gate/technical/">Contract Gate, technical</a>
       </div>
     </details>
   </nav>
@@ -184,7 +189,9 @@
       </div>
     </div>
     <div class="mark-stage">
-      <img src="mark.png" alt="mimicplus mark: a waveform becoming a document" />
+      <video controls muted playsinline preload="metadata" poster="media/mimicplus-poster.jpg" width="544" height="544" aria-label="mimicplus mark, a waveform becoming a document">
+        <source src="media/mimicplus.mp4" type="video/mp4" />
+      </video>
     </div>
   </header>
 
