@@ -7,27 +7,64 @@
 <meta name="description" content="You feed mimicplus one recording a browser already saved. It hands back a written list, a copy to hold, a way to call it again, and an alarm if a piece is gone." />
 <link rel="canonical" href="https://forgingstack.com/what-it-does/" />
 <link rel="icon" href="../mark.png" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
 <style>
-  body { margin: 0; background: #07091a; color: #f4f1ec; font-family: Georgia, serif; }
-  a { color: #c9c2ff; }
-  header, article, footer { padding: 28px 6vw; max-width: 760px; }
-  header { border-bottom: 1px solid rgba(244,241,236,.14); }
-  h1 { font-size: clamp(36px, 6vw, 60px); line-height: .95; }
+  :root { --bg:#07091a; --ink:#f4f1ec; --muted:#a9b0c7; --line:rgba(244,241,236,.14); --violet:#8b7cff; --violet-2:#c9c2ff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Syne, sans-serif; }
+  a { color: var(--violet-2); }
+  header.bar { position: sticky; top: 0; z-index: 20; background: rgba(7,9,26,.94); border-bottom: 1px solid var(--line); }
+  .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 4vw; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 750; color: var(--ink); }
+  .brand img { width: 42px; height: 42px; border-radius: 10px; }
+  .pay { border-radius: 999px; background: var(--violet); color: #fff; text-decoration: none; padding: 11px 16px; letter-spacing: .14em; font-size: 11px; text-transform: uppercase; font-weight: 700; }
+  .menu summary { list-style: none; cursor: pointer; letter-spacing: .16em; text-transform: uppercase; font-size: 12px; color: var(--muted); padding: 0 4vw 12px; }
+  .menu summary::-webkit-details-marker { display: none; }
+  .menu .list { display: grid; padding: 0 4vw 14px; }
+  .menu a { display: block; text-decoration: none; color: var(--ink); padding: 10px 0; border-top: 1px solid var(--line); }
+  article { padding: 8vh 4vw 12vh; max-width: 720px; }
+  h1 { font-size: clamp(40px, 6vw, 68px); line-height: .92; letter-spacing: -.04em; }
+  h1 em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; color: var(--violet-2); }
   h2 { font-size: 22px; margin-top: 2rem; }
-  p, li { color: #a9b0c7; font-size: 18px; line-height: 1.55; }
+  p { color: var(--muted); line-height: 1.6; font-size: 17px; }
+  footer { padding: 28px 4vw 48px; border-top: 1px solid var(--line); color: var(--muted); }
 </style>
 </head>
 <body>
-  <header><a href="https://forgingstack.com/">mimicplus</a></header>
+  <header class="bar">
+    <div class="row">
+      <a class="brand" href="https://forgingstack.com/"><img src="../mark.png" alt="mimicplus logo" /> mimicplus</a>
+      <a class="pay" href="https://buy.stripe.com/cNieV69Jp1XY4oXegGffy00">Pay $199</a>
+    </div>
+    <details class="menu">
+      <summary>Pages</summary>
+      <div class="list">
+        <a href="https://forgingstack.com/">Delivery</a>
+        <a href="https://forgingstack.com/what-it-does/">What goes in</a>
+        <a href="https://forgingstack.com/blog/">The missing spec</a>
+        <a href="https://forgingstack.com/about/">About</a>
+        <a href="https://forgingstack.com/contact/">Contact</a>
+        <a href="https://forgingstack.com/har-to-openapi/">HAR to OpenAPI</a>
+        <a href="https://forgingstack.com/api-diff/">Breaking-change check</a>
+        <a href="https://forgingstack.com/gate/">Contract Gate</a>
+      </div>
+    </details>
+  </header>
   <article>
-    <h1>What you feed it. What comes out.</h1>
+    <h1>What you feed it. <em>What comes out.</em></h1>
     <p>You used a screen. The screen talked to another computer. The browser can save that talk. That saved talk is the only thing you feed <a href="https://forgingstack.com/">mimicplus</a>.</p>
     <h2>The input</h2>
     <p>The file is called a HAR. It is a list. Each line is a question the screen asked, and the answer the other computer sent. Take the passwords and tokens out first. Use a recording you are allowed to make. A second recording, from later, is how the alarm works.</p>
     <h2>The output</h2>
     <p>Four things. A written list of what that other computer actually sent. A copy of that list to hold against next time. A small program a coder can run to ask the same questions again. An alarm if next time a piece is missing or has a new name.</p>
     <p>The alarm in the sample is a page gone, a price gone, a price back in cents, an order total gone, a grand total added. $199 once. The next recording is another $199.</p>
+    <p><a class="pay" href="https://buy.stripe.com/cNieV69Jp1XY4oXegGffy00">Pay $199</a></p>
   </article>
-  <footer><a href="https://forgingstack.com/">forgingstack.com</a></footer>
+  <footer><a href="https://forgingstack.com/">mimicplus</a> · <span id="views">Views —</span></footer>
+  <script>
+    fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-what-it-does").then((r) => r.json()).then((d) => {
+      document.getElementById("views").textContent = "Views " + d.value;
+    }).catch(() => {});
+  </script>
 </body>
 </html>
