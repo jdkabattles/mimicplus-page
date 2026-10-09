@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://forgingstack.com/sitemap.xml
+Sitemap: https://forgingstack.com/video-sitemap.xml

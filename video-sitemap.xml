@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://forgingstack.com/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://forgingstack.com/media/mimicplus-poster.jpg</video:thumbnail_loc>
+      <video:title>mimicplus mark</video:title>
+      <video:description>A waveform becoming a document. mimicplus turns a browser recording you are allowed to save into a client.</video:description>
+      <video:content_loc>https://forgingstack.com/media/mimicplus.mp4</video:content_loc>
+      <video:publication_date>2026-10-09</video:publication_date>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://forgingstack.com/gate/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://forgingstack.com/media/gate-poster.jpg</video:thumbnail_loc>
+      <video:title>Contract Gate mark</video:title>
+      <video:description>Last month's file against this month's file. A missing box stops the check.</video:description>
+      <video:content_loc>https://forgingstack.com/media/gate.mp4</video:content_loc>
+      <video:publication_date>2026-10-09</video:publication_date>
+    </video:video>
+  </url>
+</urlset>
