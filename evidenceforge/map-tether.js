@@ -1,1 +1,166 @@
-LyogRGlyZWN0b3J5IE1hcHMgdGV0aGVyIGZvciBFdmlkZW5jZUZvcmdlLiBWYW5pbGxhLCB6ZXJvLWRlcGVuZGVuY3ksIG5vIHRyYWNraW5nLCBubyBleHRlcm5hbCBmZXRjaGVzLgogICBIT05FU1RZIFJVTEU6IGEgJ2J1aWx0JyBlbnRyeSBtdXN0IGxpbmsgdG8gYSBVUkwgdGhhdCBhY3R1YWxseSBzZXJ2ZXMgdGhhdCBzaXRlIHRvZGF5LgogICBTdGFnZWQgLyBwbGFubmVkIC8gbm90LXlldC1saXZlIHRhcmdldHMgYXJlICdjb21pbmdfc29vbicsIG5ldmVyICdidWlsdCcgd2l0aCBhIGRlYWQgbGluay4KICAgRXZpZGVuY2VGb3JnZSBpcyBpdHMgb3duIHdlYnNpdGUsIG9ubHkgdGV0aGVyZWQgYnkgdGhlIG9uZSBkb21haW4uICovCihmdW5jdGlvbiAoKSB7CiAgJ3VzZSBzdHJpY3QnOwogIHZhciBESVJFQ1RPUlkgPSBbCiAgICB7IGdyb3VwOiAnaHViJywgbmFtZTogJ0dvbGQgSXMgVGhlIFJlY2VpcHQgaHViJywgdXJsOiAnaHR0cHM6Ly93d3cuZm9yZ2luZ3N0YWNrLmNvbS9odWIvJywgc3RhdHVzOiAnYnVpbHQnLCBkZXNjOiAnVGhlIGh1Yi4gTGl2ZSBhdCAvaHViLy4nIH0sCiAgICB7IGdyb3VwOiAnc3RhbmRhcmQnLCBuYW1lOiAnQWxnb3JpdGhtaWMgR29sZCcsIHVybDogJ2h0dHBzOi8vamRrYWJhdHRsZXMuZ2l0aHViLmlvL2FsZ29yaXRobWljLWdvbGQvJywgc3RhdHVzOiAnYnVpbHQnLCBkZXNjOiAnVGhlIHNpeC1nYXRlIHZlcmlmaWNhdGlvbiBzdGFuZGFyZC4gSG9tZSBpcyB0aGUgb3JpZ2luYWwgQWxnb3JpdGhtaWMgR29sZCBwYWdlLicgfSwKICAgIHsgZ3JvdXA6ICdsZWFybicsIG5hbWU6ICdCbG9nJywgdXJsOiAnaHR0cHM6Ly9qZGthYmF0dGxlcy5naXRodWIuaW8vYWxnb3JpdGhtaWMtZ29sZC9ibG9nLycsIHN0YXR1czogJ2J1aWx0JywgZGVzYzogJ0Vzc2F5cyBiZWhpbmQgdGhlIHN0YW5kYXJkLicgfSwKICAgIHsgZ3JvdXA6ICdsZWFybicsIG5hbWU6ICdQYXR0ZXJuIEF0bGFzJywgdXJsOiAnaHR0cHM6Ly9qZGthYmF0dGxlcy5naXRodWIuaW8vYWxnb3JpdGhtaWMtZ29sZC9wYXR0ZXJucy8nLCBzdGF0dXM6ICdidWlsdCcsIGRlc2M6ICc0OSBjaXRlZCBwYXR0ZXJucyBiZWhpbmQgdGhlIGdhdGVzLicgfSwKICAgIHsgZ3JvdXA6ICdwcm9kdWN0cycsIG5hbWU6ICdQcm9kdWN0cycsIHVybDogJ2h0dHBzOi8vamRrYWJhdHRsZXMuZ2l0aHViLmlvL2FsZ29yaXRobWljLWdvbGQvcHJvZHVjdHMvJywgc3RhdHVzOiAnYnVpbHQnLCBkZXNjOiAnTGl2ZSBwcm9kdWN0cyB1bmRlciB0aGUgc3RhbmRhcmQuJyB9LAogICAgeyBncm91cDogJ3Byb2R1Y3RzJywgbmFtZTogJ0F2Y2FsLUFnZW50JywgdXJsOiAnaHR0cHM6Ly93d3cuZm9yZ2luZ3N0YWNrLmNvbS9hdmNhbC1hZ2VudC8nLCBzdGF0dXM6ICdidWlsdCcsIGRlc2M6ICdTYW5kYm94ZWQgaGlkZGVuLXN1aXRlIHZlcmlmaWNhdGlvbi4gTGl2ZSBhdCAvYXZjYWwtYWdlbnQvLiBGYWlsIGNsb3NlZC4nIH0sCiAgICB7IGdyb3VwOiAncHJvZHVjdHMnLCBuYW1lOiAnaGFyd2F0Y2gnLCB1cmw6ICdodHRwczovL3d3dy5mb3JnaW5nc3RhY2suY29tL2hhcndhdGNoLycsIHN0YXR1czogJ2J1aWx0JywgZGVzYzogJ0xpdmUgYXQgL2hhcndhdGNoLyBvbiB0aGlzIGRvbWFpbiAoaG9zdGVkIGluIHRoZSBNaW1pY3BsdXMgc2l0ZSByZXBvKS4nIH0sCiAgICB7IGdyb3VwOiAncHJvZHVjdHMnLCBuYW1lOiAnbWltaWNwbHVzJywgdXJsOiAnaHR0cHM6Ly93d3cuZm9yZ2luZ3N0YWNrLmNvbS8nLCBzdGF0dXM6ICdidWlsdCcsIGRlc2M6ICdMaXZlIGF0IGZvcmdpbmdzdGFjay5jb20gKGl0cyBob21lKS4gQ2xpZW50LXNpZGUgSEFSIHNhbml0aXplciB0aGF0IG5ldmVyIHVwbG9hZHMgZGF0YS4nIH0sCiAgICB7IGdyb3VwOiAncHJvZHVjdHMnLCBuYW1lOiAnQ29udHJhY3QgR2F0ZScsIHVybDogJ2h0dHBzOi8vd3d3LmZvcmdpbmdzdGFjay5jb20vZ2F0ZS8nLCBzdGF0dXM6ICdidWlsdCcsIGRlc2M6ICdMaXZlIGF0IC9nYXRlLy4gSXRzIG93biB3ZWJzaXRlLCBzZXBhcmF0ZSBmcm9tIG1pbWljcGx1cy4nIH0sCiAgICB7IGdyb3VwOiAncHJvZHVjdHMnLCBuYW1lOiAnR292ZXJuZWQgQWdlbnQgRW5naW5lJywgdXJsOiAnaHR0cHM6Ly93d3cuZm9yZ2luZ3N0YWNrLmNvbS9nb3Zlcm5lZC1hZ2VudC1lbmdpbmUvJywgc3RhdHVzOiAnY29taW5nX3Nvb24nLCBkZXNjOiAnTm90IHlldCBidWlsdC4gQ29taW5nIFNvb24uJyB9LAogICAgeyBncm91cDogJ3Byb2R1Y3RzJywgbmFtZTogJ0V2aWRlbmNlRm9yZ2UnLCB1cmw6ICdpbmRleC5odG1sJywgc3RhdHVzOiAnYnVpbHQnLCBkZXNjOiAnVGhpcyBzaXRlLiBBdWRpdGFibGUsIGV2aWRlbmNlLWNpdGluZyBBSSBhZ2VudHMuIEZyZWUgY29yZSwgTUlULicgfSwKICAgIHsgZ3JvdXA6ICdwcm9kdWN0cycsIG5hbWU6ICdWZXJpdHknLCB1cmw6ICdodHRwczovL3d3dy5mb3JnaW5nc3RhY2suY29tL3Zlcml0eS8nLCBzdGF0dXM6ICdjb21pbmdfc29vbicsIGRlc2M6ICdTaXRlIGV4aXN0cyBpbiBpdHMgcmVwbyAoZG9jcy9pbmRleC5odG1sKSBhbmQgbmVlZHMgd29yazsgbm90IHlldCBsaXZlIG9uIHRoaXMgZG9tYWluLiBDb21pbmcgU29vbi4nIH0KICBdOwogIHZhciBHUk9VUFMgPSBbCiAgICB7IGtleTogJ2h1YicsIGxhYmVsOiAnSHViJyB9LAogICAgeyBrZXk6ICdzdGFuZGFyZCcsIGxhYmVsOiAnU3RhbmRhcmQnIH0sCiAgICB7IGtleTogJ2xlYXJuJywgbGFiZWw6ICdMZWFybicgfSwKICAgIHsga2V5OiAncHJvZHVjdHMnLCBsYWJlbDogJ1Byb2R1Y3RzJyB9CiAgXTsKCiAgZnVuY3Rpb24gYnVpbGREcmF3ZXIoKSB7CiAgICB2YXIgc2NyaW0gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsKICAgIHNjcmltLmNsYXNzTmFtZSA9ICdndC10ZXRoZXItc2NyaW0nOwogICAgc2NyaW0uc2V0QXR0cmlidXRlKCdkYXRhLXRldGhlci1zY3JpbScsICcnKTsKICAgIHNjcmltLmhpZGRlbiA9IHRydWU7CiAgICB2YXIgZHJhd2VyID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnYXNpZGUnKTsKICAgIGRyYXdlci5jbGFzc05hbWUgPSAnZ3QtdGV0aGVyLWRyYXdlcic7CiAgICBkcmF3ZXIuc2V0QXR0cmlidXRlKCdhcmlhLWxhYmVsJywgJ0RpcmVjdG9yeSBNYXBzJyk7CiAgICBkcmF3ZXIuaGlkZGVuID0gdHJ1ZTsKICAgIHZhciBoZWFkID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7CiAgICBoZWFkLmNsYXNzTmFtZSA9ICdndC10ZXRoZXItaGVhZCc7CiAgICB2YXIgdGl0bGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdoMicpOwogICAgdGl0bGUudGV4dENvbnRlbnQgPSAnRGlyZWN0b3J5IE1hcHMnOwogICAgdmFyIGNsb3NlID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnYnV0dG9uJyk7CiAgICBjbG9zZS50eXBlID0gJ2J1dHRvbic7CiAgICBjbG9zZS5jbGFzc05hbWUgPSAnZ3QtdGV0aGVyLWNsb3NlLXgnOwogICAgY2xvc2Uuc2V0QXR0cmlidXRlKCdhcmlhLWxhYmVsJywgJ0Nsb3NlIERpcmVjdG9yeSBNYXBzJyk7CiAgICBjbG9zZS50ZXh0Q29udGVudCA9ICdYJzsKICAgIGhlYWQuYXBwZW5kQ2hpbGQodGl0bGUpOwogICAgaGVhZC5hcHBlbmRDaGlsZChjbG9zZSk7CiAgICB2YXIgaW50cm8gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdwJyk7CiAgICBpbnRyby50ZXh0Q29udGVudCA9ICdFdmVyeSBzaXRlLiBCdWlsdCBlbnRyaWVzIGxpbmsgdG8gdGhlaXIgcGFnZS4gVW5idWlsdCBlbnRyaWVzIHNheSBDb21pbmcgU29vbi4nOwogICAgdmFyIGxhYmVsID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnbGFiZWwnKTsKICAgIGxhYmVsLmNsYXNzTmFtZSA9ICdndC10ZXRoZXItc2VhcmNoLWxhYmVsJzsKICAgIGxhYmVsLnNldEF0dHJpYnV0ZSgnZm9yJywgJ2d0LXRldGhlci1zZWFyY2gnKTsKICAgIGxhYmVsLnRleHRDb250ZW50ID0gJ1NlYXJjaCBzaXRlcyc7CiAgICB2YXIgc2VhcmNoID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnaW5wdXQnKTsKICAgIHNlYXJjaC5pZCA9ICdndC10ZXRoZXItc2VhcmNoJzsKICAgIHNlYXJjaC5jbGFzc05hbWUgPSAnZ3QtdGV0aGVyLXNlYXJjaCc7CiAgICBzZWFyY2gudHlwZSA9ICdzZWFyY2gnOwogICAgc2VhcmNoLnBsYWNlaG9sZGVyID0gJ1NlYXJjaCBzaXRlcywgZS5nLiBDb250cmFjdCwgVmVyaXR5JzsKICAgIHNlYXJjaC5hdXRvY29tcGxldGUgPSAnb2ZmJzsKICAgIGRyYXdlci5hcHBlbmRDaGlsZChoZWFkKTsKICAgIGRyYXdlci5hcHBlbmRDaGlsZChpbnRybyk7CiAgICBkcmF3ZXIuYXBwZW5kQ2hpbGQobGFiZWwpOwogICAgZHJhd2VyLmFwcGVuZENoaWxkKHNlYXJjaCk7CiAgICB2YXIgZ3JvdXBzRWwgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsKICAgIGdyb3Vwc0VsLmNsYXNzTmFtZSA9ICdndC10ZXRoZXItZ3JvdXBzJzsKICAgIEdST1VQUy5mb3JFYWNoKGZ1bmN0aW9uIChnKSB7CiAgICAgIHZhciBzZWMgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzZWN0aW9uJyk7CiAgICAgIHNlYy5jbGFzc05hbWUgPSAnZ3QtdGV0aGVyLWdyb3VwJzsKICAgICAgc2VjLnNldEF0dHJpYnV0ZSgnZGF0YS1ncm91cCcsIGcua2V5KTsKICAgICAgdmFyIGggPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdoMycpOwogICAgICBoLnRleHRDb250ZW50ID0gZy5sYWJlbDsKICAgICAgc2VjLmFwcGVuZENoaWxkKGgpOwogICAgICB2YXIgdWwgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCd1bCcpOwogICAgICBESVJFQ1RPUlkuZmlsdGVyKGZ1bmN0aW9uIChkKSB7IHJldHVybiBkLmdyb3VwID09PSBnLmtleTsgfSkuZm9yRWFjaChmdW5jdGlvbiAoZCkgewogICAgICAgIHZhciBsaSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2xpJyk7CiAgICAgICAgaWYgKGQuc3RhdHVzID09PSAnYnVpbHQnKSB7CiAgICAgICAgICB2YXIgYSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2EnKTsKICAgICAgICAgIGEuaHJlZiA9IGQudXJsOwogICAgICAgICAgYS50ZXh0Q29udGVudCA9IGQubmFtZTsKICAgICAgICAgIGxpLmFwcGVuZENoaWxkKGEpOwogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICB2YXIgc3Ryb25nID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc3Ryb25nJyk7CiAgICAgICAgICBzdHJvbmcuY2xhc3NOYW1lID0gJ2d0LXRldGhlci1jb21pbmctdGl0bGUnOwogICAgICAgICAgc3Ryb25nLnRleHRDb250ZW50ID0gZC5uYW1lOwogICAgICAgICAgdmFyIHNvb24gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzcGFuJyk7CiAgICAgICAgICBzb29uLmNsYXNzTmFtZSA9ICdndC10ZXRoZXItY29taW5nLXNvb24nOwogICAgICAgICAgc29vbi50ZXh0Q29udGVudCA9ICdDb21pbmcgU29vbic7CiAgICAgICAgICBsaS5hcHBlbmRDaGlsZChzdHJvbmcpOwogICAgICAgICAgbGkuYXBwZW5kQ2hpbGQoc29vbik7CiAgICAgICAgfQogICAgICAgIHZhciBzcGFuID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc3BhbicpOwogICAgICAgIHNwYW4udGV4dENvbnRlbnQgPSBkLmRlc2M7CiAgICAgICAgbGkuYXBwZW5kQ2hpbGQoc3Bhbik7CiAgICAgICAgdWwuYXBwZW5kQ2hpbGQobGkpOwogICAgICB9KTsKICAgICAgc2VjLmFwcGVuZENoaWxkKHVsKTsKICAgICAgZ3JvdXBzRWwuYXBwZW5kQ2hpbGQoc2VjKTsKICAgIH0pOwogICAgZHJhd2VyLmFwcGVuZENoaWxkKGdyb3Vwc0VsKTsKICAgIHZhciBlbXB0eSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ3AnKTsKICAgIGVtcHR5LmNsYXNzTmFtZSA9ICdndC10ZXRoZXItZW1wdHknOwogICAgZW1wdHkuaGlkZGVuID0gdHJ1ZTsKICAgIGVtcHR5LnRleHRDb250ZW50ID0gJ05vIHNpdGVzIG1hdGNoIHRoYXQgc2VhcmNoLic7CiAgICBkcmF3ZXIuYXBwZW5kQ2hpbGQoZW1wdHkpOwogICAgZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChzY3JpbSk7CiAgICBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGRyYXdlcik7CiAgICBmdW5jdGlvbiBmaWx0ZXIoKSB7CiAgICAgIHZhciBxID0gc2VhcmNoLnZhbHVlLnRyaW0oKS50b0xvd2VyQ2FzZSgpOwogICAgICB2YXIgYW55ID0gZmFsc2U7CiAgICAgIGRyYXdlci5xdWVyeVNlbGVjdG9yQWxsKCcuZ3QtdGV0aGVyLWdyb3VwJykuZm9yRWFjaChmdW5jdGlvbiAoc2VjKSB7CiAgICAgICAgdmFyIHNlY0FueSA9IGZhbHNlOwogICAgICAgIHNlYy5xdWVyeVNlbGVjdG9yQWxsKCdsaScpLmZvckVhY2goZnVuY3Rpb24gKGxpKSB7CiAgICAgICAgICB2YXIgc2hvdyA9ICFxIHx8IGxpLnRleHRDb250ZW50LnRvTG93ZXJDYXNlKCkuaW5kZXhPZihxKSAhPT0gLTE7CiAgICAgICAgICBsaS5oaWRkZW4gPSAhc2hvdzsKICAgICAgICAgIGlmIChzaG93KSB7IHNlY0FueSA9IHRydWU7IGFueSA9IHRydWU7IH0KICAgICAgICB9KTsKICAgICAgICBzZWMuaGlkZGVuID0gIXNlY0FueTsKICAgICAgfSk7CiAgICAgIGVtcHR5LmhpZGRlbiA9IGFueTsKICAgIH0KICAgIHNlYXJjaC5hZGRFdmVudExpc3RlbmVyKCdpbnB1dCcsIGZpbHRlcik7CiAgICByZXR1cm4geyBzY3JpbTogc2NyaW0sIGRyYXdlcjogZHJhd2VyLCBjbG9zZTogY2xvc2UgfTsKICB9CgogIGZ1bmN0aW9uIGluaXQoKSB7CiAgICB2YXIgdWkgPSBidWlsZERyYXdlcigpOwogICAgdmFyIGxhc3RGb2N1cyA9IG51bGw7CiAgICBmdW5jdGlvbiBvcGVuKCkgewogICAgICBsYXN0Rm9jdXMgPSBkb2N1bWVudC5hY3RpdmVFbGVtZW50OwogICAgICB1aS5zY3JpbS5oaWRkZW4gPSBmYWxzZTsKICAgICAgdWkuZHJhd2VyLmhpZGRlbiA9IGZhbHNlOwogICAgICBkb2N1bWVudC5ib2R5LmNsYXNzTGlzdC5hZGQoJ2d0LXRldGhlci1vcGVuJyk7CiAgICAgIHVpLmNsb3NlLmZvY3VzKCk7CiAgICB9CiAgICBmdW5jdGlvbiBjbG9zZURyYXdlcigpIHsKICAgICAgdWkuc2NyaW0uaGlkZGVuID0gdHJ1ZTsKICAgICAgdWkuZHJhd2VyLmhpZGRlbiA9IHRydWU7CiAgICAgIGRvY3VtZW50LmJvZHkuY2xhc3NMaXN0LnJlbW92ZSgnZ3QtdGV0aGVyLW9wZW4nKTsKICAgICAgaWYgKGxhc3RGb2N1cyAmJiBsYXN0Rm9jdXMuZm9jdXMpIHsgbGFzdEZvY3VzLmZvY3VzKCk7IH0KICAgIH0KICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJ1tkYXRhLW9wZW4tbWFwXScpLmZvckVhY2goZnVuY3Rpb24gKGJ0bikgewogICAgICBidG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBvcGVuKTsKICAgIH0pOwogICAgdWkuY2xvc2UuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBjbG9zZURyYXdlcik7CiAgICB1aS5zY3JpbS5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGNsb3NlRHJhd2VyKTsKICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2tleWRvd24nLCBmdW5jdGlvbiAoZSkgewogICAgICBpZiAoZS5rZXkgPT09ICdFc2NhcGUnICYmICF1aS5kcmF3ZXIuaGlkZGVuKSB7IGNsb3NlRHJhd2VyKCk7IH0KICAgIH0pOwogICAgLy8gSW5saW5lIG1vdW50OiBob3N0IHBsYWNlcyA8c3BhbiBkYXRhLXRldGhlci1tb3VudD48L3NwYW4+IHdoZXJlIHRoZSB0YWIgZ29lcy4KICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJ1tkYXRhLXRldGhlci1tb3VudF0nKS5mb3JFYWNoKGZ1bmN0aW9uIChtb3VudCkgewogICAgICB2YXIgdGFiID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnYnV0dG9uJyk7CiAgICAgIHRhYi50eXBlID0gJ2J1dHRvbic7CiAgICAgIHRhYi5jbGFzc05hbWUgPSAnZ3QtdGV0aGVyLXRhYic7CiAgICAgIHRhYi5zZXRBdHRyaWJ1dGUoJ2RhdGEtb3Blbi1tYXAnLCAnJyk7CiAgICAgIHRhYi50ZXh0Q29udGVudCA9ICdEaXJlY3RvcnkgTWFwcyc7CiAgICAgIHRhYi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIG9wZW4pOwogICAgICBtb3VudC5yZXBsYWNlV2l0aCh0YWIpOwogICAgfSk7CiAgfQogIGlmIChkb2N1bWVudC5yZWFkeVN0YXRlID09PSAnbG9hZGluZycpIHsKICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ0RPTUNvbnRlbnRMb2FkZWQnLCBpbml0KTsKICB9IGVsc2UgewogICAgaW5pdCgpOwogIH0KfSkoKTsKCg==
+/* Directory Maps tether for EvidenceForge. Vanilla, zero-dependency, no tracking, no external fetches.
+   HONESTY RULE: a 'built' entry must link to a URL that actually serves that site today.
+   Staged / planned / not-yet-live targets are 'coming_soon', never 'built' with a dead link.
+   EvidenceForge is its own website, only tethered by the one domain. */
+(function () {
+  'use strict';
+  var DIRECTORY = [
+    { group: 'hub', name: 'Gold Is The Receipt hub', url: 'https://www.forgingstack.com/hub/', status: 'built', desc: 'The hub. Live at /hub/.' },
+    { group: 'standard', name: 'Algorithmic Gold', url: 'https://jdkabattles.github.io/algorithmic-gold/', status: 'built', desc: 'The six-gate verification standard. Home is the original Algorithmic Gold page.' },
+    { group: 'learn', name: 'Blog', url: 'https://jdkabattles.github.io/algorithmic-gold/blog/', status: 'built', desc: 'Essays behind the standard.' },
+    { group: 'learn', name: 'Pattern Atlas', url: 'https://jdkabattles.github.io/algorithmic-gold/patterns/', status: 'built', desc: '49 cited patterns behind the gates.' },
+    { group: 'products', name: 'Products', url: 'https://jdkabattles.github.io/algorithmic-gold/products/', status: 'built', desc: 'Live products under the standard.' },
+    { group: 'products', name: 'Avcal-Agent', url: 'https://www.forgingstack.com/avcal-agent/', status: 'built', desc: 'Sandboxed hidden-suite verification. Live at /avcal-agent/. Fail closed.' },
+    { group: 'products', name: 'harwatch', url: 'https://www.forgingstack.com/harwatch/', status: 'built', desc: 'Live at /harwatch/ on this domain (hosted in the Mimicplus site repo).' },
+    { group: 'products', name: 'mimicplus', url: 'https://www.forgingstack.com/', status: 'built', desc: 'Live at forgingstack.com (its home). Client-side HAR sanitizer that never uploads data.' },
+    { group: 'products', name: 'Contract Gate', url: 'https://www.forgingstack.com/gate/', status: 'built', desc: 'Live at /gate/. Its own website, separate from mimicplus.' },
+    { group: 'products', name: 'Governed Agent Engine', url: 'https://www.forgingstack.com/governed-agent-engine/', status: 'built', desc: 'Live at /governed-agent-engine/.' },
+    { group: 'products', name: 'EvidenceForge', url: 'index.html', status: 'built', desc: 'This site. Auditable, evidence-citing AI agents. Free core, MIT.' },
+    { group: 'products', name: 'Verity', url: 'https://www.forgingstack.com/verity/', status: 'coming_soon', desc: 'Site exists in its repo (docs/index.html) and needs work; not yet live on this domain. Coming Soon.' }
+  ];
+  var GROUPS = [
+    { key: 'hub', label: 'Hub' },
+    { key: 'standard', label: 'Standard' },
+    { key: 'learn', label: 'Learn' },
+    { key: 'products', label: 'Products' }
+  ];
+
+  function buildDrawer() {
+    var scrim = document.createElement('div');
+    scrim.className = 'gt-tether-scrim';
+    scrim.setAttribute('data-tether-scrim', '');
+    scrim.hidden = true;
+    var drawer = document.createElement('aside');
+    drawer.className = 'gt-tether-drawer';
+    drawer.setAttribute('aria-label', 'Directory Maps');
+    drawer.hidden = true;
+    var head = document.createElement('div');
+    head.className = 'gt-tether-head';
+    var title = document.createElement('h2');
+    title.textContent = 'Directory Maps';
+    var close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'gt-tether-close-x';
+    close.setAttribute('aria-label', 'Close Directory Maps');
+    close.textContent = 'X';
+    head.appendChild(title);
+    head.appendChild(close);
+    var intro = document.createElement('p');
+    intro.textContent = 'Every site. Built entries link to their page. Unbuilt entries say Coming Soon.';
+    var label = document.createElement('label');
+    label.className = 'gt-tether-search-label';
+    label.setAttribute('for', 'gt-tether-search');
+    label.textContent = 'Search sites';
+    var search = document.createElement('input');
+    search.id = 'gt-tether-search';
+    search.className = 'gt-tether-search';
+    search.type = 'search';
+    search.placeholder = 'Search sites, e.g. Contract, Verity';
+    search.autocomplete = 'off';
+    drawer.appendChild(head);
+    drawer.appendChild(intro);
+    drawer.appendChild(label);
+    drawer.appendChild(search);
+    var groupsEl = document.createElement('div');
+    groupsEl.className = 'gt-tether-groups';
+    GROUPS.forEach(function (g) {
+      var sec = document.createElement('section');
+      sec.className = 'gt-tether-group';
+      sec.setAttribute('data-group', g.key);
+      var h = document.createElement('h3');
+      h.textContent = g.label;
+      sec.appendChild(h);
+      var ul = document.createElement('ul');
+      DIRECTORY.filter(function (d) { return d.group === g.key; }).forEach(function (d) {
+        var li = document.createElement('li');
+        if (d.status === 'built') {
+          var a = document.createElement('a');
+          a.href = d.url;
+          a.textContent = d.name;
+          li.appendChild(a);
+        } else {
+          var strong = document.createElement('strong');
+          strong.className = 'gt-tether-coming-title';
+          strong.textContent = d.name;
+          var soon = document.createElement('span');
+          soon.className = 'gt-tether-coming-soon';
+          soon.textContent = 'Coming Soon';
+          li.appendChild(strong);
+          li.appendChild(soon);
+        }
+        var span = document.createElement('span');
+        span.textContent = d.desc;
+        li.appendChild(span);
+        ul.appendChild(li);
+      });
+      sec.appendChild(ul);
+      groupsEl.appendChild(sec);
+    });
+    drawer.appendChild(groupsEl);
+    var empty = document.createElement('p');
+    empty.className = 'gt-tether-empty';
+    empty.hidden = true;
+    empty.textContent = 'No sites match that search.';
+    drawer.appendChild(empty);
+    document.body.appendChild(scrim);
+    document.body.appendChild(drawer);
+    function filter() {
+      var q = search.value.trim().toLowerCase();
+      var any = false;
+      drawer.querySelectorAll('.gt-tether-group').forEach(function (sec) {
+        var secAny = false;
+        sec.querySelectorAll('li').forEach(function (li) {
+          var show = !q || li.textContent.toLowerCase().indexOf(q) !== -1;
+          li.hidden = !show;
+          if (show) { secAny = true; any = true; }
+        });
+        sec.hidden = !secAny;
+      });
+      empty.hidden = any;
+    }
+    search.addEventListener('input', filter);
+    return { scrim: scrim, drawer: drawer, close: close };
+  }
+
+  function init() {
+    var ui = buildDrawer();
+    var lastFocus = null;
+    function open() {
+      lastFocus = document.activeElement;
+      ui.scrim.hidden = false;
+      ui.drawer.hidden = false;
+      document.body.classList.add('gt-tether-open');
+      ui.close.focus();
+    }
+    function closeDrawer() {
+      ui.scrim.hidden = true;
+      ui.drawer.hidden = true;
+      document.body.classList.remove('gt-tether-open');
+      if (lastFocus && lastFocus.focus) { lastFocus.focus(); }
+    }
+    document.querySelectorAll('[data-open-map]').forEach(function (btn) {
+      btn.addEventListener('click', open);
+    });
+    ui.close.addEventListener('click', closeDrawer);
+    ui.scrim.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !ui.drawer.hidden) { closeDrawer(); }
+    });
+    // Inline mount: host places <span data-tether-mount></span> where the tab goes.
+    document.querySelectorAll('[data-tether-mount]').forEach(function (mount) {
+      var tab = document.createElement('button');
+      tab.type = 'button';
+      tab.className = 'gt-tether-tab';
+      tab.setAttribute('data-open-map', '');
+      tab.textContent = 'Directory Maps';
+      tab.addEventListener('click', open);
+      mount.replaceWith(tab);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+

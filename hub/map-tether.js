@@ -15,7 +15,7 @@
     { group: 'products', name: 'harwatch', url: 'https://www.forgingstack.com/harwatch/', status: 'built', desc: 'harwatch, its own website under the domain.' },
     { group: 'products', name: 'mimicplus', url: 'https://www.forgingstack.com/', status: 'built', desc: 'Live at forgingstack.com (its home). Client-side HAR sanitizer that never uploads data.' },
     { group: 'products', name: 'Contract Gate', url: 'https://www.forgingstack.com/gate/', status: 'built', desc: 'Live at /gate/. Its own website, separate from mimicplus.' },
-    { group: 'products', name: 'Governed Agent Engine', url: 'https://www.forgingstack.com/governed-agent-engine/', status: 'coming_soon', desc: 'Not yet built. Coming Soon.' },
+    { group: 'products', name: 'Governed Agent Engine', url: 'https://www.forgingstack.com/governed-agent-engine/', status: 'built', desc: 'Live at /governed-agent-engine/.' },
     { group: 'products', name: 'EvidenceForge', url: 'https://www.forgingstack.com/evidenceforge/', status: 'built', desc: 'Auditable, evidence-citing AI agents. Free core, MIT.' },
     { group: 'products', name: 'Verity', url: 'https://www.forgingstack.com/verity/', status: 'coming_soon', desc: 'Site exists in its repo (docs/index.html) and needs work; not yet live on this domain. Coming Soon.' }
   ];
