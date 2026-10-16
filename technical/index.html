@@ -16,6 +16,8 @@
 <link rel="icon" href="../mark.png" />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
 <style>
+  .skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
   body { margin: 0; background: #07091a; color: #f4f1ec; font-family: Syne, sans-serif; }
   a { color: #c9c2ff; }
   article { max-width: 760px; padding: 8vh 4vw; }
@@ -59,6 +61,8 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <main id="main">
   <article>
     <span data-tether-mount></span>
     <p><a href="https://forgingstack.com/">mimicplus</a> · <a href="https://forgingstack.com/how-to/">Plain how-to</a></p>
@@ -67,7 +71,8 @@
     <p>mimicplus takes one HAR you are allowed to record, secrets already removed. It writes a versioned spec, a typed Python client, OpenAPI, and tests from the calls that returned. A later HAR checked with <code>mimicplus diff --fail-on-breaking</code> exits 1 when a field is removed or renamed.</p>
     <pre>mimicplus diff last.har next.har --fail-on-breaking</pre>
     <p>$199 once. Not a subscription. The key is emailed after Stripe says paid. This page does not hold keys. The plain steps are on <a href="https://forgingstack.com/how-to/">the how-to</a>.</p>
-  </article>
+    </article>
+  </main>
   <script defer src="../map-tether.js"></script>
 </body>
 </html>
