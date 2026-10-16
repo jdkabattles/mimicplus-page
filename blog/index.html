@@ -16,6 +16,8 @@
 <link rel="icon" href="../mark.png" />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
 <style>
+  .skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
   :root { --bg:#07091a; --ink:#f4f1ec; --muted:#a9b0c7; --line:rgba(244,241,236,.14); --violet:#8b7cff; --violet-2:#c9c2ff; }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--ink); font-family: Syne, sans-serif; }
@@ -89,6 +91,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="grain"></div>
   <div class="progress" id="progress"></div>
   <header class="bar">
@@ -115,6 +118,7 @@
       </div>
     </details>
   </header>
+  <main id="main">
   <article>
     <div class="kicker">The work, the miss, the alarm</div>
     <h1>A partner screen can change <em>overnight.</em></h1>
@@ -138,7 +142,8 @@
     <h2>The sample is a shape</h2>
     <p>It is not a claim that a bank core, a payer, a carrier, or a hospital system is wrong. A first recording against the next one sets off the alarm: a page removed, a price removed, a price added in cents, an order total removed, a grand total added.</p>
     <p>Reply with that one recording, secrets already removed. The key is sent after the reply. It is not on this page. Mail is <a href="mailto:jdkabattles@gmail.com">jdkabattles@gmail.com</a>.</p>
-  </article>
+    </article>
+  </main>
   <footer><img src="../mark.png" alt="" /> <a href="https://forgingstack.com/">mimicplus</a> · <a href="https://forgingstack.com/">forgingstack.com</a> · <span id="views">Views —</span></footer>
   <script>
     fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-blog").then((r) => r.json()).then((d) => {
