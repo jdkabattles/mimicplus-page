@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Governed Agent Engine — An Agent That Cannot Outrun Its Own Rules</title>
+<meta name="description" content="Governed Agent Engine is a small governed multi-agent engine that installs on an Android phone (Termux) with one command and runs at $0. APCK governance, a doctrine gate on every plan, and hash-chained evidence. MIT.">
+<!-- Canonical: live at https://www.forgingstack.com/governed-agent-engine/ -->
+<link rel="canonical" href="https://www.forgingstack.com/governed-agent-engine/">
+<!-- TODO: paste real Google Search Console verification code, then uncomment. -->
+<!-- <meta name="google-site-verification" content="TODO"> -->
+<!-- TODO: paste real Bing Webmaster verification code, then uncomment. -->
+<!-- <meta name="msvalidate.01" content="TODO"> -->
+<!-- TRACKING: none. Classification UNVERIFIED. No GTM / GA4 / Clarity — not even commented — until Jonny confirms the classification. Search Console / Bing verification TODO only. -->
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf8f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12181a" media="(prefers-color-scheme: dark)">
+<meta name="msapplication-TileColor" content="#0e3a3c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<!-- Open Graph / Twitter: values from this page's own content. No invented URLs. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Governed Agent Engine">
+<meta property="og:title" content="Governed Agent Engine — An Agent That Cannot Outrun Its Own Rules">
+<meta property="og:description" content="A small governed multi-agent engine. Installs on an Android phone (Termux) with one command, runs at $0. APCK governance, a doctrine gate on every plan, hash-chained evidence.">
+<meta property="og:url" content="https://www.forgingstack.com/governed-agent-engine/">
+<meta property="og:image" content="https://www.forgingstack.com/governed-agent-engine/icon.svg">
+<meta property="og:image:alt" content="Governed Agent Engine mark: a gate seal">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Governed Agent Engine — An Agent That Cannot Outrun Its Own Rules">
+<meta name="twitter:description" content="Governed multi-agent engine. Termux one-command install. Runs at $0. APCK governance, doctrine gate, hash-chained evidence. MIT.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="manifest" href="site.webmanifest">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<!-- Content Security Policy: restrictive, same-origin. No external resources on this page. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Governed Agent Engine",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Android (Termux), Linux, macOS",
+  "license": "https://opensource.org/licenses/MIT",
+  "isAccessibleForFree": true,
+  "url": "https://www.forgingstack.com/governed-agent-engine/",
+  "description": "A small governed multi-agent engine that installs on an Android phone (Termux) with one command and runs at $0. APCK governance, a doctrine gate on every plan, and hash-chained evidence."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Governed Agent Engine",
+  "url": "https://www.forgingstack.com/governed-agent-engine/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Governed Agent Engine",
+  "url": "https://www.forgingstack.com/governed-agent-engine/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Built for the Full-Stack Product Architect",
+  "description": "Governed Agent Engine is built for the Full-Stack Product Architect: what each builder does, where each fails, and how governance gates per phase turn shipped claims into provable claims.",
+  "url": "https://www.forgingstack.com/governed-agent-engine/#architect-title",
+  "about": "Governed Agent Engine gives the Full-Stack Product Architect an agent that cannot outrun its own rules: APCK governance, a doctrine gate on every plan, and evidence for every done.",
+  "author": {
+    "@type": "Organization",
+    "name": "Governed Agent Engine"
+  }
+}
+</script>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="map-tether.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="gae-header">
+  <div class="gae-header-inner">
+    <a class="gae-brand" href="https://www.forgingstack.com/governed-agent-engine/" aria-label="Governed Agent Engine, home">
+      <span class="gae-mark" aria-hidden="true">G</span>
+      <span class="gae-brand-text">Governed Agent Engine</span>
+    </a>
+    <p class="gae-version" aria-label="Version">v0.1.0 · Python 3.11+ · MIT · $0</p>
+    <nav class="gae-nav" aria-label="Sections">
+      <a href="#loop">Loop</a>
+      <a href="#governance">Governance</a>
+      <a href="#gate">Gate</a>
+      <a href="#quickstart">Get started</a>
+    </nav>
+    <span data-tether-mount></span>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Hero: repo's own words. -->
+  <section class="hero">
+    <p class="eyebrow">Governed multi-agent engine · $0 · MIT</p>
+    <h1>An agent that cannot <span class="accent">outrun its own rules.</span></h1>
+    <p class="lede">Governed Agent Engine is a small, governed multi-agent engine that installs on an Android phone (Termux) with one command and runs at $0. The core is Python stdlib plus PyYAML: no Rust, no compiler.</p>
+    <p class="hero-note">Most agent frameworks ask the model to behave. This one does not take the model's word for it. Every plan is checked before it reaches the backlog. Every done needs evidence. Governance changes halt the agent. The rules are not suggestions — they are enforced, in code, before anything runs.</p>
+    <div class="loop-line"><code>inbox → normalize → validate (governance) → route → execute or plan → backlog → replay → evidence</code></div>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#quickstart">Get started</a>
+      <a class="btn btn-ghost" href="#gate">Try the doctrine gate</a>
+    </div>
+    <p class="hero-proof">Everything personal ships as an <strong>example you replace</strong>: the doctrine statement, the agents, their directives, and the capability scores (neutral 0.5 until you run <code>gae bench</code>).</p>
+  </section>
+
+  <!-- How it works: the orchestrator loop. -->
+  <section aria-labelledby="loop-title" id="loop">
+    <h2 id="loop-title">How it works: the loop</h2>
+    <p class="section-lede">One <code>gae run --once</code> cycle. Each step is enforced; a failure stops the cycle instead of sliding past it.</p>
+    <ol class="steps">
+      <li><strong>1 · Governance integrity.</strong> The <code>governance.yaml</code> fingerprint must equal the one loaded at start. A change while running halts the agent.</li>
+      <li><strong>2 · Intake.</strong> Every <code>artifacts/inbox/*.json</code> file, sorted, is parsed.</li>
+      <li><strong>3 · Normalize.</strong> <code>{"task": {...}}</code> envelopes are unwrapped; <code>type</code> / <code>action</code> are trimmed and lower-cased.</li>
+      <li><strong>4 · Validate — APCK governance, deny by default.</strong> Strict task parsing, then the APCK check: task type, action allowlist, recursion depth, input size, governance mutation (always refused), human-approval flag. Rejected files move to <code>inbox/rejected/</code>.</li>
+      <li><strong>5 · Route — pure function.</strong> Tasks that require Grok go to Grok, always. Cognition-only types go to cognition. Grok AVAILABLE goes to Grok; otherwise cognition with the per-type chain.</li>
+      <li><strong>6 · Execute or plan.</strong> Grok: a <code>BacklogEntry</code> is written — the handoff. Cognition: a strategy produces a <code>Plan</code> (advisory only) written to <code>artifacts/plans/</code>.</li>
+      <li><strong>7 · Backlog.</strong> Immutable entry. Human-gated actions start in <code>awaiting_approval</code>.</li>
+      <li><strong>8 · Replay on AVAILABLE.</strong> The heartbeat is re-probed; if Grok is (or just became) AVAILABLE, evidence is reconciled and outstanding Grok entries are re-dispatched in <code>(created_at, priority, entry_id)</code> order.</li>
+      <li><strong>9 · Evidence.</strong> <code>GrokResult</code> files + <code>heartbeat.json</code>, written by the executor. A <code>done</code> without the required evidence is reconciled as FAILED.</li>
+    </ol>
+    <p class="architect-note">Determinism where it counts: injected clocks, hash-derived entry ids, a pure router, sorted inbox and backlog iteration, <code>temperature: 0</code>. LLM text stays non-deterministic and is confined to <code>Plan.raw_text</code>.</p>
+  </section>
+
+  <!-- APCK governance. -->
+  <section aria-labelledby="governance-title" id="governance">
+    <h2 id="governance-title">Governance: APCK — Artifacts, Process, Constraints, Knowledge</h2>
+    <p class="section-lede">Defined in <code>config/governance.yaml</code>, typed as <code>GovernanceConfig</code>, enforced by the orchestrator. Loaded once, fingerprinted; any change while running halts the agent.</p>
+    <div class="table-wrap">
+    <table>
+      <caption>APCK pillars and the rules each enforces.</caption>
+      <thead><tr><th scope="col">Pillar</th><th scope="col">Enforced rules</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">A · Artifacts</th><td>Writes only under <code>write_roots</code> (default <code>artifacts/</code>). <code>done</code> requires an evidence file.</td></tr>
+        <tr><th scope="row">P · Process</th><td>Fixed lifecycle. <code>allowed_task_types</code>. Human-approval actions only enter the backlog as <code>awaiting_approval</code> and only with <code>human_approval: true</code>. Top-level tasks need a human issuer (see identities).</td></tr>
+        <tr><th scope="row">C · Constraints</th><td>Deny-by-default <code>allowed_actions</code>. <code>max_recursion_depth</code> (sub-tasks must name <code>parent_task_id</code>). <code>max_inputs_bytes</code>. <code>cost_ceiling_usd</code> must be 0.0. <code>governance_mutable</code> must be false.</td></tr>
+        <tr><th scope="row">K · Knowledge</th><td>Only <code>allowed_endpoints</code> may be consulted. <code>sensitive</code> tasks never go to <code>third_party_proxy</code> / <code>community</code> endpoints unless explicitly allowed. Cognition output is advisory only.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3>Hard-coded, not configurable</h3>
+    <ul class="failure-list">
+      <li><strong>Human-approval actions:</strong> <code>send_message</code>, <code>delete</code>, <code>purchase</code>, <code>publish</code>, <code>trade</code>, <code>modify_governance</code>. Config can add to this set, never remove from it. No flag disables it.</li>
+      <li><strong><code>modify_governance</code> is refused even with <code>human_approval: true</code>.</strong> Governance changes happen only by a human editing <code>config/governance.yaml</code> in a reviewed commit and restarting.</li>
+      <li><strong>A running agent re-fingerprints <code>governance.yaml</code> before every cycle and every submit</strong> — and halts if it changed.</li>
+      <li><strong><code>cost_usd</code> on every endpoint and <code>cost_ceiling_usd</code> must be exactly 0.0</strong>, or config will not load. $0 is enforced, not aspirational.</li>
+    </ul>
+    <h3>Approving a gated entry</h3>
+    <p>Change only <code>status</code> from <code>awaiting_approval</code> to <code>approved</code> in the backlog JSON (append a <code>status_history</code> item), commit, push. The executor picks it up on its next run.</p>
+  </section>
+
+  <!-- Doctrine gate + interactive demo. -->
+  <section aria-labelledby="gate-title" id="gate">
+    <h2 id="gate-title">The doctrine gate: every plan is checked</h2>
+    <p class="section-lede">Example doctrine: do the work completely, ground every claim in evidence, analyse every failure, and improve after each run. That statement is pinned in code and in config — the loader rejects any rewording, and the running agent stops if the file changes.</p>
+    <p>A <code>PlanStep</code> is <code>index, description, kind (gather | analyze | execute | verify | improve), evidence_required, failure_modes</code>. Cognition models are asked for this JSON shape, and their system prompt starts with the doctrine statement. Plans in the old numbered-text format still parse, but their steps have no <code>kind</code> — so the gate rejects them.</p>
+    <ol class="steps">
+      <li><strong>Minimum steps and length.</strong> A lazy-plan floor (<code>min_steps</code>, <code>min_step_chars</code>). Duplicate steps are also rejected.</li>
+      <li><strong>Typed step kinds.</strong> Execute / verify steps must set <code>evidence_required</code>; a verify step must exist.</li>
+      <li><strong>Failure modes.</strong> Execute steps must list <code>failure_modes</code>; every rejection is written as evidence.</li>
+      <li><strong>Improve after verify.</strong> A <code>kind: improve</code> step must come after a <code>kind: verify</code> step.</li>
+      <li><strong>Truth first.</strong> <code>truth_priority: 1</code> is the only accepted value — truth outranks speed, brevity, and convenience.</li>
+    </ol>
+    <p><strong>Enforcement flow:</strong> the planner asks the best-ranked model; the gate checks the parsed plan — for every plan, whichever model wrote it, before the backlog. If the plan breaks the doctrine, the orchestrator writes a rejection as evidence (violations, model, the full plan, doctrine fingerprint), the model gets the laziness penalty and is excluded, and the next model in the fallback chain is asked (up to 4 models). If every model fails, <code>DoctrineError</code> is raised, nothing enters the backlog, the CLI exits with code 5, and inbox files move to <code>rejected/</code>.</p>
+
+    <h3 id="demo-title">Try it: four plans, four verdicts</h3>
+    <p class="section-lede">Tap a plan to see the gate's verdict. The cases below are illustrative plans built from the gate rules in <code>docs/doctrine.md</code> — they show exactly what fails and why. Nothing here is live engine output. You drive it.</p>
+    <div class="demo" id="demo">
+      <div class="demo-claims" role="group" aria-label="Plans to inspect">
+        <button type="button" class="demo-claim is-active" data-demo="valid" aria-pressed="true">Plan A · Valid plan — PASS</button>
+        <button type="button" class="demo-claim" data-demo="noImprove" aria-pressed="false">Plan B · No improve step — FAIL</button>
+        <button type="button" class="demo-claim" data-demo="substring" aria-pressed="false">Plan C · The substring trick — FAIL</button>
+        <button type="button" class="demo-claim" data-demo="noEvidence" aria-pressed="false">Plan D · Done without evidence — FAIL</button>
+      </div>
+      <div class="demo-detail" id="demo-detail" role="status">
+        <h3>Plan A — PASS</h3>
+        <p><span class="stamp stamp-pass">PASS</span></p>
+        <p><strong>Result:</strong> Passes the doctrine gate. Enters the backlog.</p>
+        <p><strong>Steps:</strong> gather (evidence_required) → analyze → execute (evidence_required, failure_modes) → verify (evidence_required) → improve (after verify).</p>
+        <p><strong>Rule fired:</strong> None. Typed kinds, evidence flags, failure modes, and improve-after-verify all present.</p>
+      </div>
+      <p class="demo-note">The four outcomes, without JS: A passes and enters the backlog. B is rejected (no improve step) — model penalized, next model tried. C is rejected — the word “improve” in the text does not count. D passed the gate but reported done without evidence — reconciled as FAILED, agent penalized.</p>
+    </div>
+    <p class="architect-note">Why <code>kind == "improve"</code> and not substring matching: a check like <code>"improve" in description</code> passes for “verify, then improve nothing”. Any model learns to sprinkle the word in, so the check says nothing about whether the plan improves anything. A typed <code>kind</code>, placed after a <code>verify</code> step, is a structural claim the gate can check — and a test proves that adding the word “improve” to the text does not pass.</p>
+  </section>
+
+  <!-- Identities & authority. -->
+  <section aria-labelledby="identity-title">
+    <h2 id="identity-title">Identities &amp; authority: code, not config</h2>
+    <p class="section-lede">One file per principal in <code>identities/</code>, restated for humans and other tools — but the code is the source of truth. A YAML edit cannot mint a new high-authority principal. A non-human identity is not allowed to hold authority ≥ 50.</p>
+    <div class="table-wrap">
+    <table>
+      <caption>Principals: type and authority. Only humans hold authority ≥ 50, except the Overseer at exactly 50.</caption>
+      <thead><tr><th scope="col">Identity</th><th scope="col">Type</th><th scope="col">Authority</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Owner</th><td>human</td><td>100 (final)</td></tr>
+        <tr><th scope="row">Overseer Agent</th><td>overseer</td><td>50 (exactly, hard-coded)</td></tr>
+        <tr><th scope="row">Executor Agent (Grok)</th><td>executor</td><td>10</td></tr>
+        <tr><th scope="row">Acquisition Agent</th><td>acquisition</td><td>5</td></tr>
+        <tr><th scope="row">Analyst Agent</th><td>cognition</td><td>3</td></tr>
+        <tr><th scope="row">Free model endpoints</th><td>cognition</td><td>1 (<code>cognition:&lt;endpoint&gt;</code>)</td></tr>
+        <tr><th scope="row">Missing / unrecognised</th><td>—</td><td>0</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <ul class="failure-list">
+      <li><strong>Top-level tasks need a human issuer</strong> with authority ≥ <code>min_top_level_authority</code> (default 100, bounded 50–100, so config can never let an executor or cognition model start work). The Overseer may issue them only if governance sets <code>overseer_may_issue_top_level: true</code> — and can never approve human-approval actions.</li>
+      <li><strong>Child tasks</strong> can be issued by any known identity, within <code>max_recursion_depth</code>. The provenance chain must end at <code>parent_task_id</code>, match the parent's recorded chain in the backlog, and lead back to a root issued by sufficient human authority.</li>
+      <li><strong><code>gae submit</code> stamps <code>issued_by: owner</code></strong> when the task names no issuer: the person at the terminal is the human. <strong>Inbox files get no default</strong> — a file without a valid human <code>issued_by</code> is rejected for top-level work.</li>
+    </ul>
+  </section>
+
+  <!-- Agent selection & routing penalty. -->
+  <section aria-labelledby="selection-title">
+    <h2 id="selection-title">Agent selection &amp; routing penalty: lazy is expensive</h2>
+    <p class="section-lede">Two penalties, no double counting. A plan rejected by the doctrine gate never reaches the backlog, so it can never also produce an agent routing record. Each failure is penalised once, at the layer that caused it.</p>
+    <div class="table-wrap">
+    <table>
+      <caption>Per-model penalty vs agent-level routing penalty.</caption>
+      <thead><tr><th scope="col"></th><th scope="col">Per-cognition-model penalty</th><th scope="col">Agent-level routing penalty</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Who</th><td>A free model endpoint</td><td>Grok, Acquirer, Analyst</td></tr>
+        <tr><th scope="row">When</th><td>A model's plan fails the doctrine gate, before the backlog</td><td>A reconciled run lacks required artifacts / evidence</td></tr>
+        <tr><th scope="row">Value</th><td><code>laziness_penalty</code> (0.5) on that model's fallback score</td><td>The agent's <code>LAZINESS_PENALTY</code> from <code>.grok</code></td></tr>
+        <tr><th scope="row">Effect</th><td>Demotes the model in the cognition fallback chain</td><td>Routing record in the hash-chained ledger</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <ul class="failure-list">
+      <li><strong>Selection window:</strong> the last <strong>N = 10</strong> completed runs of the agent. <code>routing_score = penalty ** lazy_in_window</code>. With the shared penalty <code>high = 0.5</code>: 1 lazy → 0.5 eligible; 2 lazy → 0.25 <strong>blocked</strong> (threshold 0.50). Honest failure (the executor reports <code>failed</code>) is not lazy and writes no run record. Lazy means the run claimed <code>done</code> without the required artifacts or evidence.</li>
+      <li><strong>Blocks are sticky.</strong> After a block, lazy runs ageing out of the window do <strong>not</strong> unblock. Only an Owner-signed record in <code>migrations/unblocks/*.grok</code> unblocks. The Overseer is never selectable.</li>
+      <li><strong>Held, not dropped.</strong> A task whose agent is blocked is created in the backlog with status <code>blocked_agent</code> and is never dispatched. Each replay re-selects held entries; once the agent is eligible the entry moves to <code>pending</code> (or <code>awaiting_approval</code>).</li>
+      <li><strong>Hash-chained ledgers</strong> under <code>artifacts/evidence/routing/</code>: routing records, selection records, block records. Editing, deleting, or reordering a line breaks the chain. Tamper-evident, not tamper-proof — the ledger is also committed with the artifacts.</li>
+      <li><strong>Every block writes a block report</strong> — WHO, WHAT, WHERE, WHEN, HOW, WHY — hash-linked into the chain. The audit marks it NON_COMPLIANT when a block has no report, a report is missing or altered, or a report does not describe that block.</li>
+    </ul>
+  </section>
+
+  <!-- .grok spec + binding. -->
+  <section aria-labelledby="grok-title">
+    <h2 id="grok-title">The <code>.grok</code> spec: a constitution the code can check</h2>
+    <p class="section-lede"><code>.grok</code> is a strict subset of YAML 1.2 that any language can parse. Native code is primary and executable; the <code>.grok</code> files are the read-only constitutional mirror and audit source of truth.</p>
+    <ul class="failure-list">
+      <li><strong>Startup binds them and fails fast</strong> with a named error code — <code>IDENTITY_MISMATCH</code>, <code>DOCTRINE_MISMATCH</code>, <code>DIRECTIVE_MISMATCH</code>, <code>GOVERNANCE_MISMATCH</code>, <code>COGNITION_MISMATCH</code>, <code>ACQUISITION_MISMATCH</code>, <code>CLARIFICATION_RULE_MISSING</code>, <code>NON_COMPLIANT</code>. The runtime exposes one <code>AgentIdentity</code> per agent — always the native object.</li>
+      <li><strong>Drift detection:</strong> the orchestrator re-computes the charter fingerprint before submit, replay, approve, block, and every run cycle. A change halts with <code>UNAUTHORIZED_GROK_CHANGE</code> unless <code>migrations/</code> contains a matching Owner-signed migration record.</li>
+      <li><strong>Every enforced native rule is derivable from <code>doctrine.grok</code>.</strong> The laziness-penalty thresholds (low 0.9 / medium 0.75 / high 0.5 / maximum 0.25) were approved by Owner on 2026-10-11.</li>
+      <li><strong>Overseer audit:</strong> <code>gae audit</code> runs every check without stopping at the first, writes <code>artifacts/evidence/audits/audit-&lt;UTC&gt;.json</code>, and exits 0 when compliant, 6 otherwise.</li>
+    </ul>
+  </section>
+
+  <!-- Free cognition. -->
+  <section aria-labelledby="cognition-title">
+    <h2 id="cognition-title">Free cognition: seven adapters, advisory only</h2>
+    <p class="section-lede">Pollinations, LLM7, OVH, AI Horde, OpenRouter free, Gemini, and Groq. Health tracking and rate limits, plus cross-checks: JSON repair, code verification, honesty audit, majority vote.</p>
+    <ul class="failure-list">
+      <li><strong>Cognition plans; it never executes.</strong> Strategy selects endpoints by type affinity, enabled state, K-policy, health, and token buckets. <code>cognition_is_advisory: true</code>.</li>
+      <li><strong>Optional free keys come from the environment only:</strong> <code>OPENROUTER_API_KEY</code>, <code>GEMINI_API_KEY</code>, <code>GROQ_API_KEY</code>. Never hard-coded, never committed. <code>gae smoke</code> is a live ping of enabled endpoints — opt-in, uses network.</li>
+      <li><strong><code>gae bench --write-capabilities</code></strong> measures your providers and writes <code>config/capabilities.yaml</code>. Until you run it, capability scores stay neutral at 0.5.</li>
+    </ul>
+  </section>
+
+  <!-- Executor transport. -->
+  <section aria-labelledby="transport-title">
+    <h2 id="transport-title">Executor transport: a git / file queue</h2>
+    <p class="section-lede">Backlog out, evidence and heartbeat back. It works with any executor that can read and write files, such as a scheduled Grok Bot routine.</p>
+    <ol class="steps">
+      <li><strong><code>git pull</code>.</strong></li>
+      <li><strong>For each backlog entry</strong> with status <code>pending</code> or <code>approved</code>, sorted by <code>(created_at, priority, entry_id)</code>: validate against the backlog-entry schema, do the work under the executor's own governance, write <code>artifacts/evidence/&lt;entry_id&gt;.json</code>.</li>
+      <li><strong>Never execute</strong> <code>awaiting_approval</code>, <code>rejected</code>, <code>done</code>, or <code>failed</code> entries.</li>
+      <li><strong>Write <code>artifacts/evidence/heartbeat.json</code>.</strong></li>
+      <li><strong>Commit + push evidence only.</strong></li>
+    </ol>
+    <p><strong>Evidence of truth:</strong> when a backlog entry has a plan, the result's <code>outputs.evidence</code> must map each <code>evidence_required</code> step index (as a string) to a non-empty file under <code>artifacts/</code>. A <code>done</code> result without it is reconciled as FAILED.</p>
+  </section>
+
+  <!-- Quickstart. -->
+  <section aria-labelledby="quickstart-title" id="quickstart">
+    <h2 id="quickstart-title">Get started</h2>
+    <h3>Termux (Android)</h3>
+    <pre><code>curl -fsSL https://raw.githubusercontent.com/jdkabattles/governed-agent-engine/main/termux/install.sh | bash</code></pre>
+    <p>Or clone and run the installer. It runs <code>pkg install python git</code> (prebuilt packages only), creates a venv, runs <code>pip install -e .</code>, puts a <code>gae</code> launcher on <code>PATH</code>, and validates the config. Overrides: <code>GAE_DIR</code>, <code>GAE_REPO_URL</code>, <code>GAE_BRANCH</code>, <code>GAE_RUN_ONCE=1</code>.</p>
+    <h3>Linux / macOS</h3>
+    <pre><code>git clone https://github.com/jdkabattles/governed-agent-engine &amp;&amp; cd governed-agent-engine
+python3 -m venv .venv &amp;&amp; .venv/bin/pip install -e ".[dev]"</code></pre>
+    <h3>Use</h3>
+    <pre><code>gae validate                     # load + validate all config
+gae status                       # executor state in plain words, backlog counts, blocks
+gae example --out task.json      # write a valid example task (--type research|market_watch|...)
+gae submit examples/task.json    # or --json '{...}' or stdin
+gae run --once                   # one cycle
+gae audit                        # overseer audit -&gt; artifacts/evidence/audits/
+gae blocks                       # agent blocks, scores, held tasks
+gae smoke                        # LIVE ping of enabled endpoints (opt-in, uses network)
+gae bench --write-capabilities   # LIVE capability benchmark -&gt; config/capabilities.yaml</code></pre>
+    <p>Bad input prints one line (<code>gae: error: ...</code>) and exits non-zero. <code>GAE_DEBUG=1</code> shows a traceback.</p>
+    <h3>Make it yours</h3>
+    <ol class="steps">
+      <li><strong>Doctrine:</strong> set your statement in <code>core/doctrine.py</code> <code>DOCTRINE_STATEMENT</code>, <code>config/doctrine.yaml</code>, <code>doctrine/doctrine.yaml</code>, <code>config/doctrine.grok</code>, and every <code>config/agents/*.grok</code>. The binding keeps all copies identical (startup fails otherwise).</li>
+      <li><strong>Agents:</strong> identities are fixed in <code>core/identity.py</code> and restated in <code>identities/*.yaml</code>, <code>config/identity.grok</code>, and <code>config/agents/*.grok</code>. Edit all of them together.</li>
+      <li><strong>Directives:</strong> replace <code>DIRECTIVE</code> / <code>RESPONSE_WINDOW</code> in <code>config/directive.grok</code> and the agent packages.</li>
+      <li><strong>Capabilities:</strong> <code>gae bench --write-capabilities</code> measures your providers.</li>
+      <li><strong>After the first deployment,</strong> record every change to these files as an owner-signed <code>migrations/*.grok</code> record (drift protection).</li>
+    </ol>
+    <h3>Using the engine from a private deployment</h3>
+    <p>Keep your own doctrine, agents, and history in a private repo and consume this engine as a dependency. <code>--root</code> (or <code>GAE_ROOT</code>) points the engine at a directory holding your <code>config/</code>, <code>identities/</code>, <code>doctrine/</code>, <code>migrations/</code>, and <code>artifacts/</code>. The doctrine statement and identity table stay pinned in code — a private deployment that changes them carries a small overlay of those two modules until they become configurable.</p>
+    <pre><code>pip install "governed-agent-engine @ git+https://github.com/jdkabattles/governed-agent-engine@v0.1.0"
+gae --root /path/to/private-config-repo status</code></pre>
+  </section>
+
+  <!-- Built for the Full-Stack Product Architect: Jonny's positioning, NOT a repo feature.
+       Governed Agent Engine is built FOR this builder. It does not provide the builder's stack.
+       The "Governed Agent Engine gate" lines are positioning inferences from the engine's
+       enforced rules (doctrine gate, APCK, evidence-of-truth), not new features. -->
+  <section aria-labelledby="architect-title">
+    <h2 id="architect-title">Built for the Full-Stack Product Architect</h2>
+    <p class="eyebrow">The Complete Product Builder</p>
+    <blockquote class="architect-quote">
+      <p>A Full-Stack Developer can build anything. A Product Engineer knows what to build. The Full-Stack Product Architect knows what to build, builds it right, builds it beautiful, and ships it so users pay for it.</p>
+    </blockquote>
+    <p class="section-lede">That sentence is the anchor. This section earns it: what each builder actually does, where each one fails, and what the hybrid fixes — then what Governed Agent Engine adds, which is proof enforced by gates, not promised by vibes.</p>
+    <p>Build like an engineer, think like a product owner, ship like a founder. Governed Agent Engine is built for the builder who does all three — and it supplies the one thing neither builder gets for free: an agent that cannot ship an unproven claim, because the gate says no before the backlog says yes.</p>
+
+    <h3>The three builders, compared — honestly</h3>
+    <p>Job titles have no universal definition; the same role can be labelled differently by company, size, and culture. What follows is a working comparison, not a strawman. Each builder is real, each has a failure mode, and the hybrid exists to keep the strengths and kill the failure modes.</p>
+    <div class="compare-wrap">
+    <table class="compare-table">
+      <caption>Three builders: what each answers, what each is strong at, where each fails, and what Governed Agent Engine adds.</caption>
+      <thead>
+        <tr><th scope="col">Builder</th><th scope="col">Core question</th><th scope="col">Strength</th><th scope="col">Failure mode</th><th scope="col">What Governed Agent Engine adds</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Full-Stack Developer</th>
+          <td>Can I build it, end to end?</td>
+          <td>Builds anything across frontend, backend, APIs, and database. Ships features end to end.</td>
+          <td>Breadth without depth does not scale. Drifts into over-engineering and technical purity — building for scale before proof, which slows the product down and makes it harder to change.</td>
+          <td>Proof of the build. The agent's plan is not asserted; it is gate-checked, and a done without evidence is reconciled as FAILED. The architecture is enforced, not described.</td>
+        </tr>
+        <tr>
+          <th scope="row">Product Engineer</th>
+          <td>Why build this, and for whom?</td>
+          <td>Knows what to build. Engages with the why, studies how people use the product, joins product decisions, and aims at outcomes rather than implementations. Reduces waste by cutting features nobody needs.</td>
+          <td>Bad ones cut too many corners. Shortcut fragility: a fast build that cannot be defended, because the depth was skipped. Minimum lovable needs the right depth.</td>
+          <td>Proof of the product. Speed stays, hand-waving goes. The doctrine gate kills lazy plans before they reach the backlog, and the routing penalty makes lazy agents expensive to keep using.</td>
+        </tr>
+        <tr>
+          <th scope="row">Full-Stack Product Architect</th>
+          <td>What to build, built right, beautiful, and shippable so users pay?</td>
+          <td>Both. Technical depth and product judgment in one builder. Chooses the stack for the product, not for fashion. Balances speed with reliability and makes the now-versus-scale trade-off explicitly.</td>
+          <td>Still human. Even the right product, built right, can ship unproven claims — hallucinated requirements, unvalidated features, and agent output no one can audit.</td>
+          <td>The proof layer. Governed Agent Engine is the gate that turns “we built it right” into “here is the evidence, claim by claim, with a hash-chained ledger behind it.” Fast <em>and</em> governed, because every plan must prove itself before it runs.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="architect-note">On titles: a full-stack developer builds across the stack and ships features; a full-stack engineer carries added responsibility for how the product holds up as it scales — one asks “does this work?”, the other asks “does this work, and will it keep working?” Product-minded engineers want to understand why decisions are made and how people use the product. The hybrid in this section combines all three questions.</p>
+
+    <h3>Why products fail without governance</h3>
+    <p>The common thread in product failure is not bad engineering. It is a disconnect between what founders build and what customers will pay for — and that disconnect is measured in conversations and evidence that never happened.</p>
+    <ul class="failure-list">
+      <li><strong>Building before validating.</strong> Products built on assumptions, not validation. Teams fall in love with an idea and sprint to build before confirming anyone has the problem. Validation is not optional.</li>
+      <li><strong>Overbuilding instead of solving.</strong> Launching with dozens of features and complicated dashboards instead of solving one problem really well. More features means more confusion and more delay — and no one knows if anyone needs them.</li>
+      <li><strong>Building in isolation.</strong> No feedback loop. Teams guess instead of learning. They listen to what users <em>said</em> — “would you pay for this?” — instead of what users <em>did</em>. Hypothetical answers are hypothetical.</li>
+      <li><strong>Building for scale before proof.</strong> Clean architecture for a million users, launched to a handful who barely engage. Over-engineered early products are harder to change, harder to pivot, and create attachment to decisions that need to be killed.</li>
+      <li><strong>Shipping unprovable AI output.</strong> A confidently wrong answer in finance, healthcare, legal, or compliance costs trust, deals, and sometimes penalties. “The AI suggested it” is not an answer when a regulator, auditor, or customer asks how a decision was made.</li>
+    </ul>
+    <p>Discovery research gives the antidote a name: <strong>evidence, not opinions</strong>. Validate an insight against more than one kind of evidence — what people <em>do</em> (behaviour), what people <em>say</em> (attitude), and the <em>context</em> around them — before committing to a build. Run cheap experiments before expensive builds. Treat a discovery stage that never produces a kill decision as a formality, not a gate. A single data point from an actual transaction is worth more than a dozen enthusiastic nods in a stakeholder meeting.</p>
+
+    <h3>How Governed Agent Engine fixes the failure mode</h3>
+    <p>Governed Agent Engine does not replace discovery, design, or engineering judgment. It makes each of them checkable. The doctrine gate and APCK governance are the mechanism: every plan is checked, every done needs evidence, or the run fails.</p>
+    <ol class="steps">
+      <li><strong>Doctrine gate — kills lazy plans.</strong> Typed step kinds, evidence flags, failure modes, and improve-after-verify. A plan that cannot say how it will prove its work never reaches the backlog. The substring trick does not pass.</li>
+      <li><strong>APCK governance — kills ungoverned actions.</strong> Deny-by-default actions, hard-coded human-approval actions, a fingerprint that halts the agent on change, and a $0 cost ceiling that config cannot loosen. The agent cannot talk itself past its own rules.</li>
+      <li><strong>Evidence of truth — kills “done” without proof.</strong> A done result without the required evidence is reconciled as FAILED, with an <code>evidence_check.json</code> recording why. The failure is visible, fixable, and fast — not discovered by a customer after launch.</li>
+      <li><strong>Hash-chained ledgers + block reports — the trail that earns trust.</strong> Routing, selection, and block records, hash-linked. Every block writes a WHO / WHAT / WHERE / WHEN / HOW / WHY report. When an auditor or buyer asks how a decision was made, the answer is a reconstructable trail — not a summary from memory.</li>
+    </ol>
+
+    <h3>The four phases, with a governance gate at the end of each</h3>
+    <p>Each phase below ends in a gate. The gate is the same every time: no plan moves forward without passing the doctrine check, and no done counts without evidence.</p>
+    <ol class="steps">
+      <li><strong>Phase 1 · Product Discovery &amp; Architecture — Gate: no requirement without evidence.</strong> The Architect translates an idea into user flows and information architecture, defines the product data model — the core entities and their relationships — and chooses the right stack for the product, not just what is trendy. <strong>Governed Agent Engine gate:</strong> the doctrine statement and governance fingerprint are pinned before anything runs. A plan for discovery work must carry typed steps, evidence flags, and failure modes — a requirement with no evidence path does not enter the backlog.</li>
+      <li><strong>Phase 2 · Frontend, Product-Grade UI — Gate: no UI claim without evidence.</strong> Pixel-perfect, state-aware UI that handles the edge cases other builders ignore: loading skeletons, optimistic updates, empty states, error boundaries, undo actions, keyboard shortcuts. <strong>Governed Agent Engine gate:</strong> the agent's plan for UI work is gate-checked the same way, and any done it reports must cite its evidence — screenshots, checks, or artifacts under <code>artifacts/</code>. Optimistic UI still shows a state, but the state it shows is a checked claim, not an invented one.</li>
+      <li><strong>Phase 3 · Backend, Engineer-Grade — Gate: no API claim without evidence.</strong> A typed, self-documenting API. Full auth from day one. The hard stuff: subscriptions and webhooks, roles and permissions, file processing, email queues, real-time. A database designed for growth: proper indexing, migrations, soft deletes, audit logs. <strong>Governed Agent Engine gate:</strong> backend work goes through the same gate, and the human-approval set means the agent can never send, delete, purchase, publish, trade, or change governance on its own. Sensitive tasks never go to third-party or community endpoints unless explicitly allowed.</li>
+      <li><strong>Phase 4 · Ship, Measure, and Scale — Gate: every iteration re-proven.</strong> One-command deploy with CI/CD, preview deployments, monitoring. Ship an MVP fast, measure where users drop off, re-engineer the weak point with scalable code, repeat. <strong>Governed Agent Engine gate:</strong> Governed Agent Engine is the Iteration Engine's truth layer. Ship the MVP fast, measure drop-off, re-engineer the weak point — and the gate re-proves each iteration. Speed does not erode proof; each iteration re-passes the same gate, and lazy agents get penalised out of the rotation.</li>
+    </ol>
+
+    <h3>Why proof is what makes users pay</h3>
+    <p>Customers do not pay for elegance. They pay to make pain go away — lost money, wasted hours, compliance exposure, operational chaos, missed revenue. Those are urgent problems, and urgency is what makes someone pull out a card. But urgency alone does not close an enterprise deal, and it does not survive an audit.</p>
+    <p>What closes the deal is trust, and trust in regulated work is not a feeling — it is evidence. High-risk AI systems are expected to generate logs that let a reviewer trace what happened: the period of use, the sources checked, the input that led to a given output, and who verified the result. Compliance work is largely an evidence-collection exercise: logs, records, and proof that controls operated. A vendor survey of enterprises running AI agents in production reported that most could not fully audit how those systems operated — a gap that becomes compliance debt, security exposure, and lost deals. Governed Agent Engine is built to close exactly that gap at the run level, before it becomes an audit failure: hash-chained ledgers, block reports, and evidence for every done.</p>
+    <p>The final deliverable, then, is not just a website. Not just a pretty app. A Revenue-Ready Digital Product — a complete SaaS, marketplace, or platform that looks designed with care, works reliably, and scales — <em>and</em> proves every claim with evidence, so the buyer, the auditor, and the regulator can all check it.</p>
+    <p><strong>The Architect knows what to build, builds it right, builds it beautiful, and ships it so users pay for it. Governed Agent Engine proves it, plan by plan, with evidence.</strong></p>
+
+    <h3>Sources &amp; further reading</h3>
+    <p class="architect-note">Paraphrased, not quoted at length. Each source below supports a claim in this section. Full citations in TECHNICAL_NOTE.md.</p>
+    <ul class="sources-list">
+      <li><a href="https://blog.pragmaticengineer.com/the-product-minded-engineer/">The Product-Minded Software Engineer — The Pragmatic Engineer</a> — product-minded engineers, the “why”, and why great ones know minimum lovable products need the right depth.</li>
+      <li><a href="https://veritahr.com/full-stack-developer-vs-full-stack-engineer-hiring-guide-for-poland-2026/">Full Stack Developer vs Full Stack Engineer — Verita HR</a> — developer vs engineer, “does this work?” vs “does this work, and will it keep working?”, and no universal title definition.</li>
+      <li><a href="https://medium.com/@pratikchaudhariworks/the-death-of-the-full-stack-developer-or-its-evolution-5cc6a7621ff4">The Death of the “Full-Stack Developer” (Or Its Evolution) — Medium</a> — breadth without depth does not scale; value shifts from writing code to deciding what code should exist.</li>
+      <li><a href="https://medium.com/@cyfgpmqv/why-full-stack-is-becoming-a-meaningless-title-3c83f932d270">Why “Full-Stack” Is Becoming a Meaningless Title — Medium</a> — the real divide becoming technical thinking vs commercial thinking.</li>
+      <li><a href="https://productmanagementresources.com/discovery-triangulation-check-product-management/">The Discovery Triangulation Check — Product Management Resources</a> — validating an insight against behavioural, attitudinal, and contextual evidence before committing to build.</li>
+      <li><a href="https://github.com/adamgold/product-management-ai-agents/blob/HEAD/frameworks/README.md">Product Management Frameworks — Continuous Discovery &amp; Evidence-Guided</a> — assumption testing before building; decisions based on evidence rather than opinions; cheap experiments before expensive builds.</li>
+      <li><a href="https://medium.com/@triconinfotech/digital-product-discovery-how-enterprises-validate-what-to-build-before-they-build-it-e89ad8a83b6a">Digital Product Discovery — Medium</a> — discovery stages that must produce go / iterate / kill decisions; methods that generate evidence, not opinions.</li>
+      <li><a href="https://techstartups.com/2026/07/11/why-building-a-saas-is-the-worst-startup-idea-for-most-first-time-founders/">Why Building a SaaS Is the Worst Startup Idea for Most First-Time Founders — TechStartups</a> — poor product-market fit as the leading failure cause; the disconnect between what founders build and what customers will pay for.</li>
+      <li><a href="https://medium.com/@olivia_medison/how-governed-ai-prevents-hallucinations-in-regulated-workflows-d4c3924bad59">How Governed AI Prevents Hallucinations in Regulated Workflows — Medium</a> — audit trails that log the full chain and stay reconstructable; “the AI suggested it” is not an answer.</li>
+      <li><a href="https://www.businesswire.com/news/home/20260514715268/en/TrueFoundry-Survey-Finds-Most-Enterprises-Cannot-Audit-Their-AI-Systems-as-Agent-Adoption-Surges">TrueFoundry Survey: Most Enterprises Cannot Audit Their AI Systems — Business Wire</a> — vendor survey reporting most enterprises running AI agents in production cannot fully audit them.</li>
+      <li><a href="https://letsbuildsolutions.com/blog/devops/eu-ai-act-compliance-for-engineering-teams-risk-classification-technical-documentation-and-building-audit-ready-ai-systems/">EU AI Act Compliance for Engineering Teams — Let's Build Solutions</a> — high-risk systems must automatically generate logs enabling traceability.</li>
+      <li><a href="https://rends.ai/blog/building-audit-ready-ai-agents-implementing-compliance-logging-for-eu-ai-act-and-nist-rmf-standards">Building Audit-Ready AI Agents — Rends</a> — EU AI Act and NIST RMF logging and audit-trail expectations.</li>
+    </ul>
+    <p class="architect-note">Positioning note: this section is Jonny's positioning for who Governed Agent Engine is built for. It is not a repo feature. Governed Agent Engine does not provide the Architect's stack choices — hosted backends, frameworks, payment providers, or design tools. The Architect chooses the stack. Governed Agent Engine governs the agent that does the work. The “Governed Agent Engine gate” lines are positioning inferences from the engine's enforced rules (doctrine gate, APCK, evidence-of-truth), not new features.</p>
+  </section>
+
+  <!-- Facts. -->
+  <section aria-labelledby="facts-title">
+    <h2 id="facts-title">Facts</h2>
+    <p class="facts">
+      <span>Version 0.1.0</span>
+      <span>Python ≥ 3.11</span>
+      <span>One runtime dep: PyYAML</span>
+      <span>MIT © 2026 Jonathan D Battles</span>
+      <span>Tests: pytest, coverage ≥ 85%, ruff, mypy strict</span>
+      <span>Repo: <a href="https://github.com/jdkabattles/governed-agent-engine">github.com/jdkabattles/governed-agent-engine</a></span>
+    </p>
+    <p>Docs in the repo: <code>docs/architecture.md</code> · <code>docs/governance.md</code> · <code>docs/doctrine.md</code> · <code>docs/grok_format.md</code> · <code>docs/grok_binding.md</code> · <code>docs/routing_penalty.md</code> · <code>docs/agent_selection.md</code> · <code>schemas/CONTRACT.md</code>. Borrowed ideas and licence notes: <code>docs/references.md</code>. No source code was copied from the projects listed there — only design ideas, re-implemented from scratch.</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="site-foot-inner">
+    <p>Governed Agent Engine — its own website, only tethered by forgingstack.com. Live at <code>forgingstack.com/governed-agent-engine/</code>.</p>
+    <p>Zero tracking on this page. No analytics, no tags, no beacons. Classification unverified — Search Console / Bing verification TODO only.</p>
+  </div>
+</footer>
+
+<script src="map-tether.js" defer></script>
+<script src="demo.js" defer></script>
+</body>
+</html>
