@@ -16,6 +16,8 @@
 <link rel="icon" href="../mark.png" />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
 <style>
+  .skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
   :root { --bg:#07091a; --ink:#f4f1ec; --muted:#a9b0c7; --line:rgba(244,241,236,.14); --violet:#8b7cff; --violet-2:#c9c2ff; }
   body { margin: 0; background: var(--bg); color: var(--ink); font-family: Syne, sans-serif; }
   a { color: var(--violet-2); }
@@ -63,8 +65,10 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header><a href="https://forgingstack.com/">mimicplus</a> · <a href="https://forgingstack.com/technical/">For the programmer</a> · <a href="https://forgingstack.com/gate/how-to/">Contract Gate</a></header>
   <span data-tether-mount></span>
+  <main id="main">
   <article>
     <h1>How to use it.</h1>
     <p>You do not type the file. You do not send a Word document. The screen already talked to the other computer. The browser can save that talk.</p>
@@ -77,7 +81,8 @@
     <p>Paste the key on <a href="https://forgingstack.com/">forgingstack.com</a> and attach the HAR. mimicplus reads the talk and writes the program that can call those same steps again, plus a list of the boxes that came back.</p>
     <h2>4. Save the talk again later</h2>
     <p>When the other side changes a box, save a new HAR. The check stops if a box is gone or renamed. That is the alarm. You do not have to read the file yourself.</p>
-  </article>
+    </article>
+  </main>
   <footer><span id="views">Views —</span></footer>
   <script>fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-howto").then(r=>r.json()).then(d=>{document.getElementById("views").textContent="Views "+d.value}).catch(()=>{})</script>
   <script defer src="../map-tether.js"></script>
