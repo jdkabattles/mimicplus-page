@@ -16,6 +16,8 @@
 <link rel="icon" href="../mark.png" />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
 <style>
+  .skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
   :root { --bg:#07091a; --ink:#f4f1ec; --muted:#a9b0c7; --line:rgba(244,241,236,.14); --violet:#8b7cff; --violet-2:#c9c2ff; }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--ink); font-family: Syne, sans-serif; }
@@ -72,6 +74,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="bar">
     <div class="row">
       <a class="brand" href="https://forgingstack.com/"><img src="../mark.png" alt="mimicplus logo" /> mimicplus</a>
@@ -96,11 +99,13 @@
       </div>
     </details>
   </header>
+  <main id="main">
   <article>
     <h1>Contact <em>mimicplus.</em></h1>
     <p>Jonathan Battles reads <a href="mailto:jdkabattles@gmail.com">jdkabattles@gmail.com</a>. Send one recording you are allowed to share, secrets already removed. Do not send a key.</p>
     <p>The delivery is $199. The site is <a href="https://forgingstack.com/">forgingstack.com</a>.</p>
-  </article>
+    </article>
+  </main>
   <footer><a href="https://forgingstack.com/">mimicplus</a> · <span id="views">Views —</span></footer>
   <script>
     fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-contact").then((r) => r.json()).then((d) => {
