@@ -23,6 +23,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
+  .skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
   :root {
     --bg: #07091a;
     --ink: #f4f1ec;
@@ -190,6 +192,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="grain"></div>
   <div class="progress" id="progress"></div>
   <nav>
@@ -238,6 +241,7 @@
       </video>
     </div>
   </header>
+  <main id="main">
 
   <section id="who">
     <div class="index">Who, why, when, where</div>
@@ -351,6 +355,7 @@
     <p class="lede">The alarm in the sample is simple. A page is gone. A price is gone. A price comes back in cents. An order total is gone. A grand total is added. $199 once. The next recording is another $199.</p>
   </section>
 
+    </main>
   <footer>
     <div class="brandline"><img src="mark.png" alt="mimicplus logo" /> mimicplus</div>
     <p>Pay once. The key arrives by email. Only an API you are allowed to call. <span id="views">Views —</span></p>
