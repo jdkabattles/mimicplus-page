@@ -38,8 +38,9 @@
   // HONESTY RULE (AG fix, 2026-10-16): a 'built' entry must link to a URL
   // that actually serves that site today. Staged / planned / not-yet-live
   // targets are 'coming_soon', never 'built' with a dead link.
-  // Avcal-Agent / EvidenceForge / Verity are therefore 'coming_soon' here
-  // (they are NOT live on this domain), even though the older mimicplus
+  // Avcal-Agent / Verity are therefore 'coming_soon' here (they are
+  // NOT live on this domain). EvidenceForge is 'built': live at
+  // /evidenceforge/ since 2026-10-16, even though the older mimicplus
   // tether still lists them as built staged targets. Contract follows the
   // honest rule. Gold Is The Receipt hub is coming_soon: its page is not
   // yet live as its own page, and its planned URL collides with the
@@ -73,7 +74,7 @@
     ] },
     { group: 'products', title: 'Avcal-Agent', url: 'https://forgingstack.com/avcal-agent/', status: 'coming_soon', desc: 'Sandboxed hidden-suite verification for agent-written code. Site exists as code in its repo; not yet live on this domain.' },
     { group: 'products', title: 'harwatch', url: 'https://forgingstack.com/harwatch/', status: 'built', desc: 'Freeze an API, fail when a field is removed. $29 a month. Live in the mimicplus site repo.' },
-    { group: 'products', title: 'EvidenceForge', url: 'https://forgingstack.com/evidenceforge/', status: 'coming_soon', desc: 'EvidenceForge, its own website. Not yet live on this domain.' },
+    { group: 'products', title: 'EvidenceForge', url: 'https://forgingstack.com/evidenceforge/', status: 'built', desc: 'EvidenceForge, its own website. Auditable, evidence-citing AI agents. Live at /evidenceforge/.' },
     { group: 'products', title: 'Verity', url: 'https://forgingstack.com/verity/', status: 'coming_soon', desc: 'Verity, evidence ledger for agent runs. Site exists in its repo and needs work; not yet live on this domain.' },
     { group: 'products', title: 'Governed Agent Engine', url: 'https://forgingstack.com/governed-agent-engine/', status: 'coming_soon', desc: 'Governed Agent Engine, its own website. Not yet built.' }
   ]
