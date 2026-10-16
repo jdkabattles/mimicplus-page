@@ -47,8 +47,9 @@
     // targets are 'coming_soon', never 'built' with a dead link.
     // Gold Is The Receipt hub is coming_soon: its page is not yet live as
     // its own page, and its planned URL collides with this site's home.
-    // Avcal-Agent / EvidenceForge / Verity are coming_soon: their sites
-    // exist as code / in their repos, but are not yet live on this domain.
+    // Avcal-Agent / Verity are coming_soon: their sites exist as code /
+    // in their repos, but are not yet live on this domain. EvidenceForge
+    // is built: live at /evidenceforge/ since 2026-10-16.
     { group: 'hub', title: 'Gold Is The Receipt', url: 'https://forgingstack.com/', status: 'coming_soon', desc: 'The hub. Done is a claim. GOLD is a receipt. Not yet live as its own page — this domain currently serves mimicplus.' },
     { group: 'standard', title: 'Algorithmic Gold', url: 'https://jdkabattles.github.io/algorithmic-gold/', status: 'built', desc: 'The verification standard. Six gates. Real outcomes.', children: [
       { title: 'Blog', url: 'https://jdkabattles.github.io/algorithmic-gold/blog/index.html', status: 'built', desc: 'Essays behind the standard.' },
@@ -73,7 +74,7 @@
     { group: 'products', title: 'Contract', url: 'https://forgingstack.com/gate/', status: 'built', desc: 'Contract Gate, its own website. Prominent link from mimicplus. Lives at /gate/ today.' },
     { group: 'products', title: 'Avcal-Agent', url: 'https://forgingstack.com/avcal-agent/', status: 'coming_soon', desc: 'Sandboxed hidden-suite verification for agent-written code. Site exists as code in its repo; not yet live on this domain. Coming Soon.' },
     { group: 'products', title: 'harwatch', url: 'https://forgingstack.com/harwatch/', status: 'built', desc: 'Freeze an API, fail when a field is removed. $29 a month. Live in this repo.' },
-    { group: 'products', title: 'EvidenceForge', url: 'https://forgingstack.com/evidenceforge/', status: 'coming_soon', desc: 'EvidenceForge, its own website. Not yet live on this domain. Coming Soon.' },
+    { group: 'products', title: 'EvidenceForge', url: 'https://forgingstack.com/evidenceforge/', status: 'built', desc: 'EvidenceForge, its own website. Auditable, evidence-citing AI agents. Live at /evidenceforge/.' },
     { group: 'products', title: 'Verity', url: 'https://forgingstack.com/verity/', status: 'coming_soon', desc: 'Verity, evidence ledger for agent runs. Site exists in its repo (docs/index.html) and needs work; not yet live on this domain. Coming Soon.' },
     { group: 'products', title: 'Governed Agent Engine', url: 'https://forgingstack.com/governed-agent-engine/', status: 'coming_soon', desc: 'Governed Agent Engine, its own website. Not yet built.' }
   ]
