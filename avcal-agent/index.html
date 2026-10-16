@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avcal-Agent — Hidden-Suite Verification for Agent-Written Code</title>
+<meta name="description" content="Avcal-Agent is a judge and coach for AI agents that write code. Hidden tests the agent never sees, sandboxed verification, redacted feedback, fail closed. Make the pass mean something.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#10151f">
+<meta name="msapplication-TileColor" content="#10151f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Avcal-Agent">
+<meta property="og:site_name" content="ForgingStack">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Avcal-Agent — Hidden-Suite Verification for Agent-Written Code">
+<meta property="og:description" content="A judge and coach for AI agents that write code. Hidden tests, sandboxed verification, redacted feedback, fail closed.">
+<meta property="og:url" content="https://www.forgingstack.com/avcal-agent/">
+<meta property="og:image" content="https://www.forgingstack.com/avcal-agent/icon.svg">
+<meta property="og:image:alt" content="Avcal-Agent mark: a sealed verdict stamp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Avcal-Agent — Hidden-Suite Verification for Agent-Written Code">
+<meta name="twitter:description" content="Hidden tests the agent never sees. Sandboxed verification. Redacted feedback. Fail closed.">
+<!-- FUTURE CANONICAL: https://www.forgingstack.com/avcal-agent/ — path not live yet; canonical added at launch. -->
+<!-- TODO: Google Search Console verification code, then uncomment. -->
+<!-- TODO: Bing verification code, then uncomment. -->
+<!-- TRACKING: none. Classification pending Jonny (tool vs marketing). No GTM/GA4/Clarity until confirmed. -->
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="manifest" href="site.webmanifest">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="map-tether.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Avcal-Agent","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, macOS, Android (Termux)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"softwareVersion":"0.4.0","description":"Hidden-suite verification for agent-written code, plus the loop that drives an agent with it. Sandboxed hidden verification, redacted feedback, fail closed."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Avcal-Agent","url":"https://www.forgingstack.com/avcal-agent/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Avcal-Agent — Hidden-Suite Verification for Agent-Written Code","url":"https://www.forgingstack.com/avcal-agent/","description":"A judge and coach for AI agents that write code. Hidden tests, sandboxed verification, redacted feedback, fail closed."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Built for the Full-Stack Product Architect","description":"Positioning: Avcal-Agent is the truth layer for the Complete Product Builder — the pass must be earned, not asserted."}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="head-row">
+    <a class="brand" href="index.html" aria-label="Avcal-Agent home"><span class="brand-mark" aria-hidden="true">A✓</span> Avcal-Agent</a>
+    <nav aria-label="Primary">
+      <a href="#loop">The Loop</a>
+      <a href="#commands">Commands</a>
+      <a href="#gaming">Why It Cannot Be Gamed</a>
+      <a href="#architect">For Architects</a>
+      <a href="#start">Quick Start</a>
+    </nav>
+    <span data-tether-mount></span>
+  </div>
+</header>
+<main id="main">
+  <section class="hero">
+    <p class="eyebrow">Hidden-suite verification for agent-written code</p>
+    <h1>Make the pass mean something.</h1>
+    <p class="lede">Avcal-Agent is a judge and coach for AI agents that write code. You give it a task. An agent tries to write the code. Avcal takes a snapshot, runs it against hidden tests the agent never sees, in a sandbox, and returns only safe feedback. Then the agent tries again.</p>
+    <p class="lede">It is built for one job: if the signal can be gamed, the pass is worthless. Avcal closes those holes by design, and fails closed whenever anything looks wrong.</p>
+    <div class="hero-facts" aria-label="Key facts">
+      <span><strong>Avcal 0.4.0</strong> version</span>
+      <span><strong>Python 3.9+</strong> required</span>
+      <span><strong>Standard library only</strong> no dependencies</span>
+      <span><strong>Fail closed</strong> on any irregularity</span>
+    </div>
+    <p class="loop-line"><code>spec → agent turn → snapshot → sandboxed hidden verification → redacted feedback → repeat</code></p>
+  </section>
+
+  <section id="loop" class="section">
+    <h2>The loop</h2>
+    <p>Think of it as an exam where the student never sees the answer key, the grader never talks to the student, and the exam changes every time.</p>
+    <ol class="loop-steps">
+      <li><strong>The agent writes code.</strong> It sees the task description and its own previous work, nothing else.</li>
+      <li><strong>The hidden suite is the answer key.</strong> The agent never receives it. It is masked in every sandbox.</li>
+      <li><strong>The verifier is the grader.</strong> Only the verifier judges. It owns all judging, and any protocol irregularity is a <code>WORKER_FAULT</code> and fails closed.</li>
+      <li><strong>Feedback is redacted.</strong> The agent gets hints and failures, never leaked values. Hints are linted for leaked values.</li>
+      <li><strong>Fresh seeds</strong> mean the hidden tests are rebuilt with new random cases on every iteration, so memorizing one seed does not help.</li>
+      <li><strong>Holdout seeds</strong> mean a pass must be confirmed on seeds the agent was never scored on, so overfitting one seed does not count.</li>
+    </ol>
+    <p>Two extra checks keep the claim honest. <strong>Preflight</strong> proves your hidden tests actually discriminate: they must accept the correct reference solution and kill mutants, including a hard-coder that just memorizes the public examples. <strong>Compare</strong> proves the feedback actually helps: it runs the same agent twice on the same seeds and budget, once with verifier feedback and once blind, and only claims a win when the confidence intervals separate.</p>
+  </section>
+
+  <section id="preflight-demo" class="section">
+    <h2>Try the preflight rule</h2>
+    <p>Preflight runs your hidden suite against the reference solution, which must pass, and against mutants, which must fail. Tap each candidate to see its verdict. This is an illustration of the preflight rule from the README — not a live run.</p>
+    <div class="demo-board" role="group" aria-label="Preflight illustration">
+      <button type="button" class="demo-btn" data-demo="reference">Reference solution</button>
+      <button type="button" class="demo-btn" data-demo="hardcoder">Hard-coder mutant</button>
+      <button type="button" class="demo-btn" data-demo="broken">Broken mutant</button>
+    </div>
+    <p class="demo-result" id="demo-result" aria-live="polite">Tap a candidate to see its preflight verdict.</p>
+  </section>
+
+  <section id="commands" class="section">
+    <h2>Six commands</h2>
+    <p>Start with the first three. They are safe, read-only, and teach you the system.</p>
+    <div class="cmd-grid">
+      <article class="cmd-card"><h3>1. <code>backends</code> — what sandbox do I have?</h3><pre><code>python3 -m avcal backends</code></pre><p>Inspects your machine. Reports the selected backend, its grade, and its limits. The grade tells you how strong the isolation is.</p></article>
+      <article class="cmd-card"><h3>2. <code>doctor</code> — is this device ready?</h3><pre><code>python3 -m avcal doctor</code></pre><p>One line per backend, OK or unavailable with a reason, plus limits, plus the strongest available grade. Run it first on any new machine.</p></article>
+      <article class="cmd-card"><h3>3. <code>preflight</code> — do my hidden tests actually work?</h3><pre><code>python3 -m avcal preflight examples/interval_task</code></pre><p>Reference must pass; mutants must fail, including the hard-coder. If preflight fails, do not run the agent loop yet. Fix the suite first.</p></article>
+      <article class="cmd-card"><h3>4. <code>verify</code> — check one workspace, once</h3><pre><code>python3 -m avcal verify examples/interval_task ./my_workspace</code></pre><p>The single-shot judge. Snapshots your workspace, runs it in the sandbox against hidden cases, and reports. No agent loop.</p></article>
+      <article class="cmd-card"><h3>5. <code>run</code> — let the agent try, with feedback</h3><pre><code>python3 -m avcal run examples/interval_task --agent http</code></pre><p>Iteration by iteration. Each attempt: snapshot, hidden verification, redacted feedback. Final verdict only after holdout seeds pass.</p></article>
+      <article class="cmd-card"><h3>6. <code>compare</code> — does feedback actually help?</h3><pre><code>python3 -m avcal compare examples/interval_task --agent http --trials 10</code></pre><p>Two solve rates with Wilson 95% intervals, feedback vs blind. Only claim a win when the intervals separate.</p></article>
+    </div>
+  </section>
+
+  <section id="gaming" class="section">
+    <h2>Why the signal cannot be gamed</h2>
+    <div class="compare-wrap"><table class="compare-table">
+      <thead><tr><th>Attack</th><th>Defence (tested)</th></tr></thead>
+      <tbody>
+        <tr><td>Read the expected answers</td><td>Suite dir is masked in every sandbox; worker never receives expectations</td></tr>
+        <tr><td>Forge a pass</td><td>Verifier owns all judging; any protocol irregularity is a <code>WORKER_FAULT</code> and fails closed</td></tr>
+        <tr><td>Hard-code public examples</td><td>Fresh random hidden cases per iteration seed; preflight mutants include a hard-coder</td></tr>
+        <tr><td>Overfit one seed</td><td>A pass must be confirmed on holdout seeds the agent was never scored on</td></tr>
+        <tr><td>Leak answers through feedback</td><td>Agents only get <code>render(redacted=True)</code>; hints are linted for leaked values</td></tr>
+        <tr><td>Escape / persist</td><td>Namespaces (mount/pid/net/ipc/uts), read-only filesystem, nobody uid, caps dropped, rlimits, tree kill</td></tr>
+        <tr><td>Poison the host via the workspace</td><td>Symlinks/special files rejected; engine metadata is written with <code>O_NOFOLLOW</code></td></tr>
+        <tr><td>Swap the suite mid-run</td><td>Directory digest pinned at load and re-checked before each use</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="example" class="section">
+    <h2>A worked example: the interval task</h2>
+    <p>Task: write a function that finds overlapping intervals. The agent sees the spec and a few public examples. It does not see the hidden suite.</p>
+    <p>Preflight first: reference accepted, all mutants killed, including the hard-coder. That means your hidden tests are strong enough to trust.</p>
+    <p>Then the run. Iteration 1: the agent writes code, snapshot, hidden verification fails on some fresh cases, redacted feedback says which shapes failed, no values leaked. Iteration 2: the agent fixes it, passes the scored seeds. Then holdout: fresh seeds the agent was never scored on. If it passes holdout, the verdict is pass. If not, the verdict is fail — even if it passed the scored seeds.</p>
+  </section>
+
+  <section id="grades" class="section">
+    <h2>Backends and grades</h2>
+    <div class="compare-wrap"><table class="compare-table">
+      <thead><tr><th>Grade</th><th>Backend</th><th>What you get</th></tr></thead>
+      <tbody>
+        <tr><td><code>container</code></td><td>Docker</td><td>Strongest. Real container isolation.</td></tr>
+        <tr><td><code>namespace</code></td><td>Linux namespaces</td><td>Mount, pid, net, ipc, uts, read-only filesystem, nobody uid, caps dropped, rlimits, tree kill.</td></tr>
+        <tr><td><code>fileview</code></td><td>proot</td><td>The hidden suite is masked from the agent's code, plus everything below. Path masking only.</td></tr>
+        <tr><td><code>process</code></td><td>None</td><td>Resource limits, scrubbed env, private temp dir, process-tree kill, hidden suite locked with mode bits.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Avcal never silently downgrades. If you ask for a grade it cannot provide, it refuses. On Termux (Android), namespaces and mounting are unavailable, so the phone uses the weaker backends — and every run prints the backend limits and records them in <code>ledger.jsonl</code>.</p>
+    <h3>Fail closed, with a paper trail</h3>
+    <ul>
+      <li><strong>Snapshot judged, not the live folder.</strong> The workspace is snapshotted before every verification, so the agent cannot change code mid-judgment.</li>
+      <li><strong><code>ledger.jsonl</code></strong> — one JSON line per run, append-only. Backend actually used, limits actually enforced, seeds, verdict. If console output and ledger disagree, trust the ledger, and treat the run as suspect.</li>
+      <li><strong><code>WORKER_FAULT</code></strong> — the run failed closed. Something violated the protocol. Do not retry it as a pass. Investigate, fix the agent or the task, then rerun.</li>
+      <li><strong>Redaction by default.</strong> <code>--unredacted</code> is for you, the human, not for the agent. Never feed unredacted output back to the agent.</li>
+    </ul>
+    <h3>Known limits — stated, not hidden</h3>
+    <ul>
+      <li>No seccomp filter. The Linux grade is NAMESPACE, not a VM. Use <code>--min-grade container</code> with Docker for more.</li>
+      <li><code>DockerBackend</code> and <code>ProotBackend</code> command lines are unit-tested; neither was run live in the build environment. <code>avcal doctor</code> probes them on your device.</li>
+      <li><code>HTTPChatAgent</code> is tested against a local protocol server, not a live model. The <code>compare</code> verdict on a scripted fixture agent proves the plumbing, not model quality.</li>
+      <li>The interval suite does not check that the input list is left unmodified. The worker protocol returns values only.</li>
+    </ul>
+  </section>
+
+  <section id="architect" class="section">
+    <h2>Built for the Full-Stack Product Architect</h2>
+    <p class="architect-note">This section is Jonny's positioning, not a repo feature. Avcal-Agent does not provide the Architect's stack choices — the Architect chooses the stack, Avcal-Agent validates the output.</p>
+    <blockquote class="architect-quote">A Full-Stack Developer can build anything. A Product Engineer knows what to build. The Full-Stack Product Architect knows what to build, builds it right, builds it beautiful, and ships it so users pay for it.</blockquote>
+    <p>The Architect is the Complete Product Builder: build like an engineer, think like a product owner, ship like a founder. Technical obsession becomes Product Insurance — no fragile prototypes, architecture proved, not asserted. Shortcut mindset becomes a Speed-to-Market Weapon — know when to ship fast with hosted backends, and when to write custom code to own the stack. Combined: fast <em>and</em> unbreakable.</p>
+    <div class="compare-wrap"><table class="compare-table">
+      <thead><tr><th>Builder</th><th>Core question</th><th>Strength</th><th>Failure mode</th><th>What Avcal-Agent adds</th></tr></thead>
+      <tbody>
+        <tr><td>Full-Stack Developer</td><td>Can I build it?</td><td>Builds anything, end to end</td><td>Over-engineers; ships code that works once, unproven at scale</td><td>Hidden verification proves the build holds up, not just that it runs</td></tr>
+        <tr><td>Product Engineer</td><td>What should I build?</td><td>Ships what users want, fast</td><td>Shortcuts and unvalidated claims; fragile under scrutiny</td><td>Preflight and holdout prove the claim survives fresh cases</td></tr>
+        <tr><td>Full-Stack Product Architect</td><td>What should exist — and can I prove it?</td><td>Builds right, beautiful, and shippable</td><td>Trust still has to be earned, claim by claim</td><td>The verdict, the ledger, and the fail-closed gate are the proof</td></tr>
+      </tbody>
+    </table></div>
+    <p>Titles have no universal definition. What matters is the evidence behind the claim.</p>
+    <h3>Why products fail without evidence</h3>
+    <ul class="failure-list">
+      <li><strong>Building before validating</strong> — shipping a feature no one asked for, with no evidence anyone needs it.</li>
+      <li><strong>Overbuilding</strong> — gold-plating a product before the core claim is proven.</li>
+      <li><strong>Building in isolation</strong> — listening to what users said, not what they did.</li>
+      <li><strong>Building for scale before proof</strong> — scaling a claim that was never verified.</li>
+      <li><strong>Shipping unprovable output</strong> — an agent's answer with no trail behind it.</li>
+    </ul>
+    <p>The antidote is evidence, not opinions: cheap experiments before expensive builds, assumption testing before building, and a gate that can say no.</p>
+    <h3>How Avcal-Agent fixes it</h3>
+    <ul>
+      <li><strong>Preflight is the gate that can say no.</strong> Your hidden tests must accept the reference and kill the mutants — including the hard-coder — or you do not run the loop at all.</li>
+      <li><strong>Holdout kills overfitting.</strong> A pass must be confirmed on seeds the agent was never scored on.</li>
+      <li><strong>Compare kills noise.</strong> Feedback only claims a win when the confidence intervals separate.</li>
+      <li><strong>The ledger is the audit trail.</strong> Backend actually used, limits actually enforced, seeds, verdict — append-only, one line per run.</li>
+    </ul>
+    <h3>Four phases, four evidence gates</h3>
+    <ol>
+      <li><strong>Discovery:</strong> no requirement without evidence — the spec is what the agent sees, so keep it honest.</li>
+      <li><strong>Frontend:</strong> no UI claim without evidence — every number the interface shows must survive hidden verification.</li>
+      <li><strong>Backend:</strong> no API claim without evidence — every response the system returns is judged against cases the agent never saw.</li>
+      <li><strong>Ship, measure, scale:</strong> every iteration re-proven — fresh seeds, holdout, ledger, again.</li>
+    </ol>
+    <p>Each gate is a positioning inference from the verifier contract, not a new feature.</p>
+    <h3>Why proof is what makes users pay</h3>
+    <p>Customers pay to make pain go away, not for elegance. In regulated work — legal, finance, healthcare, compliance — trust is evidence. A pass that can be gamed is worthless; a pass that survived a masked suite, fresh seeds, holdout, and a fail-closed verifier is a claim a customer can rely on. The final deliverable is a Revenue-Ready Digital Product that proves every claim — and Avcal-Agent is how the proof is earned.</p>
+    <p>Sources and further reading are listed in the technical note.</p>
+  </section>
+
+  <section id="start" class="section">
+    <h2>Quick start</h2>
+    <p>You need Python 3.9 or newer. Avcal uses only the Python standard library. No extra packages to install.</p>
+    <p>On Linux or macOS:</p>
+    <pre><code>export PYTHONPATH=src
+python3 -m avcal backends
+python3 -m avcal preflight examples/interval_task</code></pre>
+    <p>On Termux (Android, F-Droid build):</p>
+    <pre><code>pkg update &amp;&amp; pkg install git
+sh termux/install.sh
+avcal doctor</code></pre>
+    <p><code>avcal doctor</code> probes every backend on <em>this</em> device and lists its limits. Run it first on any new machine. It tells you what you actually have, not what the docs assume.</p>
+    <p>Run the full gate:</p>
+    <pre><code>sh scripts/check.sh</code></pre>
+    <p>Adding a task: create a folder, write <code>task.json</code>, write <code>suite/suite.py</code> with <code>build(seed)</code>, add <code>suite/reference/</code> and <code>suite/mutants/*</code> including a hard-coder, then run preflight. Fix the suite until preflight passes. Only then run the agent loop. Keep the spec honest — if the spec is vague, the agent will fail for the wrong reason.</p>
+  </section>
+</main>
+<footer class="site-foot">
+  <p>Avcal-Agent 0.4.0. Python 3.9+. Standard library only.</p>
+  <p><button type="button" data-open-map>Directory Maps</button> · <a href="/sitemap.xml">Sitemap</a> · <a href="index.html">Home</a></p>
+</footer>
+<script src="map-tether.js" defer></script>
+<script src="demo.js" defer></script>
+</body>
+</html>
