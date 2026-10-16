@@ -12,6 +12,8 @@
 <link rel="icon" href="../mark.png" />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
 <style>
+  .skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
   :root { --bg:#071018; --ink:#f4f1ec; --muted:#a9b8c7; --line:rgba(244,241,236,.14); --teal:#3ecfb2; }
   body { margin: 0; background: var(--bg); color: var(--ink); font-family: Syne, sans-serif; }
   a { color: inherit; }
@@ -62,12 +64,13 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header>
     <a href="https://forgingstack.com/harwatch/">harwatch</a>
     <a class="pay" href="https://buy.stripe.com/4gMbIU3l1byy08H2xYffy02">$29 a month</a>
       <span data-tether-mount></span>
   </header>
-  <main>
+  <main id="main">
     <h1>Freeze the file. <em>Fail when a box is gone.</em></h1>
     <p>You already have a recording of one API. harwatch keeps that recording as the contract. The next recording you are allowed to make is checked against it. If an endpoint or a field is gone, the check exits 1 and names it.</p>
     <p>The free tool is the command. The paid watch is $29 a month for one API: a scheduled check and a notice when a field is removed. Cancel the month and the charge stops.</p>
