@@ -16,6 +16,8 @@
 <link rel="icon" href="../mark.jpg" />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
 <style>
+  .skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
   body { margin: 0; background: #120b07; color: #f6efe6; font-family: Syne, sans-serif; }
   a { color: #ffb067; }
   article { max-width: 720px; padding: 8vh 4vw; }
@@ -51,6 +53,8 @@
 </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <main id="main">
   <article>
     <span data-tether-mount></span>
     <p><a href="https://forgingstack.com/gate/">Contract Gate</a> · <a href="https://forgingstack.com/gate/technical/">For the programmer</a></p>
@@ -61,7 +65,8 @@
     <p>It does not watch the bank by itself. Someone saves the talk and runs the check. The check can run before a programmer ships, so the stop happens first.</p>
     <p>$499 a month. One private folder for that team. Cancel the month and the charge stops.</p>
     <p><a class="pay" href="https://buy.stripe.com/cNi5kw9JpdGG6x5goOffy01">$499 a month</a></p>
-  </article>
+    </article>
+  </main>
   <script defer src="../map-tether.js"></script>
 </body>
 </html>
