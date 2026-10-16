@@ -80,6 +80,6 @@
   </article>
   <footer><span id="views">Views —</span></footer>
   <script>fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-howto").then(r=>r.json()).then(d=>{document.getElementById("views").textContent="Views "+d.value}).catch(()=>{})</script>
-  <script src="../map-tether.js"></script>
+  <script defer src="../map-tether.js"></script>
 </body>
 </html>
