@@ -10,7 +10,7 @@
     { group: 'learn', name: 'Blog', url: 'https://jdkabattles.github.io/algorithmic-gold/blog/', status: 'built', desc: 'Essays behind the standard.' },
     { group: 'learn', name: 'Pattern Atlas', url: 'https://jdkabattles.github.io/algorithmic-gold/patterns/', status: 'built', desc: '49 cited patterns behind the gates.' },
     { group: 'products', name: 'Products', url: 'https://jdkabattles.github.io/algorithmic-gold/products/', status: 'built', desc: 'Live products under the standard.' },
-    { group: 'products', name: 'Avcal-Agent', url: 'https://www.forgingstack.com/avcal-agent/', status: 'coming_soon', desc: 'Sandboxed hidden-suite verification. Site exists as code in its repo; not yet live on this domain. Coming Soon.' },
+    { group: 'products', name: 'Avcal-Agent', url: 'https://www.forgingstack.com/avcal-agent/', status: 'built', desc: 'Sandboxed hidden-suite verification. Live at /avcal-agent/. Fail closed.' },
     { group: 'products', name: 'harwatch', url: 'https://www.forgingstack.com/harwatch/', status: 'built', desc: 'Live at /harwatch/ on this domain (hosted in the Mimicplus site repo).' },
     { group: 'products', name: 'mimicplus', url: 'https://www.forgingstack.com/', status: 'built', desc: 'Live at forgingstack.com (its home). Client-side HAR sanitizer that never uploads data.' },
     { group: 'products', name: 'Contract Gate', url: 'https://www.forgingstack.com/gate/', status: 'built', desc: 'Live at /gate/. Its own website, separate from mimicplus.' },
