@@ -23,11 +23,49 @@
   p { color: var(--muted); line-height: 1.6; font-size: 18px; }
   pre { border: 1px solid var(--line); border-radius: 16px; padding: 16px; overflow: auto; color: #d7e8f0; }
 </style>
+  <!-- Directory Maps + discovery pack (added 2026-10-16). No visible content changed. -->
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#071018" />
+  <meta name="msapplication-TileColor" content="#071018" />
+  <meta name="msapplication-config" content="../browserconfig.xml" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta property="og:site_name" content="ForgingStack" />
+  <meta name="twitter:title" content="harwatch — freeze an API, fail when a field is removed" />
+  <meta name="twitter:description" content="A later recording fails the build when a field is removed. $29 a month." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="apple-touch-icon" href="../mark.png" />
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
+  <!-- TODO: Google Search Console verification — paste the real google-site-verification code, then uncomment. No tracking is added: mimicplus is a tool page, zero tracking, ever. -->
+  <!-- <meta name="google-site-verification" content="TODO_PASTE_REAL_CODE" /> -->
+  <!-- Bing verification already present via BingSiteAuth.xml in this repo. No msvalidate.01 needed unless Bing asks. -->
+  <link rel="stylesheet" href="../map-tether.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "harwatch — freeze an API, fail when a field is removed",
+  "url": "https://forgingstack.com/harwatch/",
+  "description": "harwatch freezes one API from a recording you are allowed to make. A later recording fails the build when a field is removed. $29 a month.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "ForgingStack",
+    "url": "https://forgingstack.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ForgingStack",
+    "url": "https://forgingstack.com/"
+  }
+}
+  </script>
 </head>
 <body>
   <header>
     <a href="https://forgingstack.com/harwatch/">harwatch</a>
     <a class="pay" href="https://buy.stripe.com/4gMbIU3l1byy08H2xYffy02">$29 a month</a>
+      <span data-tether-mount></span>
   </header>
   <main>
     <h1>Freeze the file. <em>Fail when a box is gone.</em></h1>
@@ -41,5 +79,6 @@ harwatch check later.har --contract contract.json</pre>
   </main>
   <footer style="padding:28px 4vw;color:#a9b8c7"><span id="views">Views —</span></footer>
   <script>fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-harwatch").then(r=>r.json()).then(d=>{document.getElementById("views").textContent="Views "+d.value}).catch(()=>{})</script>
+  <script src="../map-tether.js"></script>
 </body>
 </html>

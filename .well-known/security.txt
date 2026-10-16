@@ -1,0 +1,6 @@
+# TODO: verify security@forgingstack.com mailbox exists before relying on this contact.
+Contact: mailto:security@forgingstack.com
+Expires: 2027-05-13T00:00:00.000Z
+Canonical: https://forgingstack.com/.well-known/security.txt
+# Policy line omitted on purpose: https://forgingstack.com/security/policy
+# does not exist yet. Add it only when the policy page is published.

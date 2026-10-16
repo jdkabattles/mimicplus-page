@@ -26,9 +26,45 @@
   p, li { color: var(--muted); line-height: 1.6; font-size: 17px; }
   .pay { display: inline-block; margin-top: 12px; border-radius: 999px; background: var(--violet); color: #fff; text-decoration: none; padding: 11px 16px; letter-spacing: .12em; font-size: 12px; text-transform: uppercase; }
 </style>
+  <!-- Directory Maps + discovery pack (added 2026-10-16). No visible content changed. -->
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#07091a" />
+  <meta name="msapplication-TileColor" content="#07091a" />
+  <meta name="msapplication-config" content="../browserconfig.xml" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta property="og:site_name" content="ForgingStack" />
+  <meta name="twitter:title" content="How to use mimicplus, in plain English" />
+  <meta name="twitter:description" content="Save the talk between your screen and the other computer. Send that file. mimicplus writes the program that calls it again. $199 once." />
+  <link rel="apple-touch-icon" href="../mark.png" />
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
+  <!-- TODO: Google Search Console verification — paste the real google-site-verification code, then uncomment. No tracking is added: mimicplus is a tool page, zero tracking, ever. -->
+  <!-- <meta name="google-site-verification" content="TODO_PASTE_REAL_CODE" /> -->
+  <!-- Bing verification already present via BingSiteAuth.xml in this repo. No msvalidate.01 needed unless Bing asks. -->
+  <link rel="stylesheet" href="../map-tether.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "How to use mimicplus, in plain English",
+  "url": "https://forgingstack.com/how-to/",
+  "description": "Save the talk between your screen and the other computer. Send that file. mimicplus writes the program that calls it again. $199 once.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "ForgingStack",
+    "url": "https://forgingstack.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ForgingStack",
+    "url": "https://forgingstack.com/"
+  }
+}
+  </script>
 </head>
 <body>
   <header><a href="https://forgingstack.com/">mimicplus</a> · <a href="https://forgingstack.com/technical/">For the programmer</a> · <a href="https://forgingstack.com/gate/how-to/">Contract Gate</a></header>
+  <span data-tether-mount></span>
   <article>
     <h1>How to use it.</h1>
     <p>You do not type the file. You do not send a Word document. The screen already talked to the other computer. The browser can save that talk.</p>
@@ -44,5 +80,6 @@
   </article>
   <footer><span id="views">Views —</span></footer>
   <script>fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-howto").then(r=>r.json()).then(d=>{document.getElementById("views").textContent="Views "+d.value}).catch(()=>{})</script>
+  <script src="../map-tether.js"></script>
 </body>
 </html>
