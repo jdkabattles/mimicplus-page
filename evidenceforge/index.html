@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EvidenceForge — Auditable, Evidence-Citing AI Agents</title>
+<meta name="description" content="EvidenceForge is an open-source framework for building auditable, evidence-citing AI agents. Every claim your agent makes is backed by structured evidence. Free core, MIT.">
+<!-- Canonical: FUTURE canonical. This path is not live yet. Do not claim live until forgingstack.com/evidenceforge/ serves this page. -->
+<link rel="canonical" href="https://www.forgingstack.com/evidenceforge/">
+<!-- TODO: paste real Google Search Console verification code, then uncomment. -->
+<!-- <meta name="google-site-verification" content="TODO"> -->
+<!-- TODO: paste real Bing Webmaster verification code, then uncomment. -->
+<!-- <meta name="msvalidate.01" content="TODO"> -->
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7f4ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
+<meta name="msapplication-TileColor" content="#1f5c46">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<!-- Open Graph / Twitter: values from this page's own content. No invented URLs. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EvidenceForge">
+<meta property="og:title" content="EvidenceForge — Auditable, Evidence-Citing AI Agents">
+<meta property="og:description" content="Every claim your agent makes is backed by structured evidence. Validate outputs, generate audit trails, and ship agents that regulated industries can trust. Free core, MIT.">
+<meta property="og:url" content="https://www.forgingstack.com/evidenceforge/">
+<meta property="og:image" content="https://www.forgingstack.com/evidenceforge/icon.svg">
+<meta property="og:image:alt" content="EvidenceForge mark: a ledger stamp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EvidenceForge — Auditable, Evidence-Citing AI Agents">
+<meta name="twitter:description" content="Every claim your agent makes is backed by structured evidence. Free core, MIT.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="manifest" href="site.webmanifest">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<!-- Content Security Policy: restrictive, same-origin. No external resources on this page. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "EvidenceForge",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Python 3.11+",
+  "license": "https://opensource.org/licenses/MIT",
+  "isAccessibleForFree": true,
+  "url": "https://www.forgingstack.com/evidenceforge/",
+  "description": "Open-source framework for building auditable, evidence-citing AI agents. Every claim your agent makes is backed by structured evidence."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EvidenceForge",
+  "url": "https://www.forgingstack.com/evidenceforge/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "EvidenceForge",
+  "url": "https://www.forgingstack.com/evidenceforge/"
+}
+</script>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="map-tether.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="ef-header">
+  <div class="ef-header-inner">
+    <a class="ef-brand" href="index.html" aria-label="EvidenceForge, home">
+      <span class="ef-mark" aria-hidden="true">E</span>
+      <span class="ef-brand-text">EvidenceForge</span>
+    </a>
+    <p class="ef-version" aria-label="Version">v0.1.0 · Python 3.11+ · MIT</p>
+    <span data-tether-mount></span>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Hero: repo's own words. -->
+  <section class="hero">
+    <p class="eyebrow">Open-source framework · Free core · MIT</p>
+    <h1>Every claim your agent makes, backed by <span class="accent">structured evidence.</span></h1>
+    <p class="lede">EvidenceForge is an open-source framework for building auditable, evidence-citing AI agents. Validate outputs, generate audit trails, and ship agents that regulated industries can trust.</p>
+    <p class="hero-note">AI agents hallucinate. In legal, finance, healthcare, compliance, and enterprise settings, that is not acceptable. EvidenceForge is the missing reliability layer between raw LLMs and production agents.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#quickstart">Get started</a>
+      <a class="btn btn-ghost" href="#demo">Try the evidence demo</a>
+    </div>
+    <p class="hero-proof">Free core, MIT. <strong>Cloud is coming</strong> — team stores, dashboards, compliance exports. Not built yet. Marked as coming wherever it appears.</p>
+  </section>
+
+  <!-- How it works: the 4 steps from the README. -->
+  <section aria-labelledby="how-title">
+    <h2 id="how-title">How it works: four steps, enforced</h2>
+    <p class="section-lede">EvidenceForge forces agents to follow a contract. Not a suggestion. A contract the validator checks.</p>
+    <ol class="steps">
+      <li><strong>1 · Evidence Registry</strong> — A structured map of sources, docs, internal data, and tool outputs. Keys in <code>registry.json</code> map to sources: URLs, files, tool results, internal IDs.</li>
+      <li><strong>2 · Strict schema</strong> — Outputs in a strict schema where every claim cites evidence IDs. Each record in <code>outputs.jsonl</code> contains claims plus evidence citations plus self-checks.</li>
+      <li><strong>3 · Automated validation</strong> — The validator fails the build if claims lack support or violate rules. No evidence, no pass. Unknown evidence ID, no pass. Exit code non-zero on failure.</li>
+      <li><strong>4 · Machine-readable audit logs</strong> — Emit audit logs for human review or compliance systems. Every claim, its evidence, and the check result, in structured JSON.</li>
+    </ol>
+  </section>
+
+  <!-- Interactive evidence demo: real example + validator rules from cli.py. -->
+  <section aria-labelledby="demo-title">
+    <h2 id="demo-title">Try it: tap a claim, see its evidence</h2>
+    <p class="section-lede">The first claim below is the real example from the repo (<code>checks/outputs.example.jsonl</code>). The other two are illustrative cases built from the validator rules in <code>evidenceforge/cli.py</code> — they show exactly what fails and why. Nothing here is live-streaming. You drive it.</p>
+    <div class="demo" id="demo">
+      <div class="demo-claims" role="group" aria-label="Claims to inspect">
+        <button type="button" class="demo-claim is-active" data-demo="real" aria-pressed="true">
+          <span class="demo-claim-id">c1 · Real example</span>
+          <span class="demo-claim-text">EvidenceForge requires every claim to cite registry evidence.</span>
+          <span class="stamp stamp-pass">PASS</span>
+        </button>
+        <button type="button" class="demo-claim" data-demo="missing" aria-pressed="false">
+          <span class="demo-claim-id">c2 · Illustrative: missing evidence</span>
+          <span class="demo-claim-text">This claim cites no evidence at all.</span>
+          <span class="stamp stamp-fail">FAIL</span>
+        </button>
+        <button type="button" class="demo-claim" data-demo="unknown" aria-pressed="false">
+          <span class="demo-claim-id">c3 · Illustrative: unknown evidence</span>
+          <span class="demo-claim-text">This claim cites an evidence ID that is not in the registry.</span>
+          <span class="stamp stamp-fail">FAIL</span>
+        </button>
+      </div>
+      <div class="demo-detail" id="demo-detail" role="status">
+        <h3>Claim c1 — PASS</h3>
+        <p><strong>Evidence:</strong> <code>system-prompt:guidelines</code></p>
+        <p><strong>Resolves to:</strong> <a href="https://docs.x.ai/grok/overview">https://docs.x.ai/grok/overview</a> (from the repo registry).</p>
+        <p><strong>Self-check:</strong> all_claims_have_evidence: true · missing_evidence_for: [] · rule_violations: [].</p>
+        <p class="demo-source">Source: <code>checks/outputs.example.jsonl</code> + <code>.evidenceforge/registry.json</code> in the repo.</p>
+      </div>
+      <p class="demo-note">Validator rules, from <code>validate_record</code> in <code>cli.py</code>: a claim with no evidence is listed in <code>missing_evidence_for</code>; an evidence ID not in the registry is a <code>unknown_evidence:&lt;id&gt;</code> violation; a record with no claims is a <code>no_claims</code> violation. Any violation means status <code>fail</code>.</p>
+    </div>
+  </section>
+
+  <!-- Registry excerpt: real keys from the repo. -->
+  <section aria-labelledby="registry-title">
+    <h2 id="registry-title">The registry: real keys from the repo</h2>
+    <p class="section-lede">Seven keys ship in <code>.evidenceforge/registry.json</code>. Every claim on this site cites one of them, or it fails.</p>
+    <ul class="registry-list">
+      <li><code>system-prompt:tools</code> — https://docs.x.ai/developers/tools/overview</li>
+      <li><code>system-prompt:models</code> — https://docs.x.ai/developers/models</li>
+      <li><code>system-prompt:guidelines</code> — https://docs.x.ai/grok/overview</li>
+      <li><code>acceptable-use</code> — https://x.ai/legal/acceptable-use-policy</li>
+      <li><code>model-card:grok-4</code> — https://data.x.ai/2026-04-07-grok-4-20-model-card.pdf</li>
+      <li><code>internal-eval:2026-10</code> — internal-eval:2026-10</li>
+      <li><code>example-domain:legal-contract</code> — domains/legal/contract-rules.json</li>
+    </ul>
+    <p class="registry-note">The registry is the source of truth for what counts as evidence. If an ID is not in the registry, the validator reports it as unknown evidence and the record fails.</p>
+  </section>
+
+  <!-- Quick start: verbatim from README. -->
+  <section id="quickstart" aria-labelledby="quickstart-title">
+    <h2 id="quickstart-title">Quick start</h2>
+    <p class="section-lede">From the README. Three commands, then you write your agent.</p>
+    <pre class="codeblock"><code>pip install evidenceforge
+evidenceforge init
+# edit .evidenceforge/registry.json and write your agent
+evidenceforge validate outputs.jsonl</code></pre>
+    <p>Validation reads <code>outputs.jsonl</code> against <code>.evidenceforge/registry.json</code>, prints a structured JSON summary (<code>status</code>, <code>records_checked</code>, per-record results), and exits non-zero on failure. Missing outputs or registry files fail with <code>outputs_not_found</code> / <code>registry_not_found</code>.</p>
+    <h3>Output schema (from <code>.evidenceforge/instructions.md</code>)</h3>
+    <pre class="codeblock"><code>{
+  "status": "ok" | "fail",
+  "timestamp": "ISO-8601",
+  "claims": [
+    { "id": "claim-1", "text": "The claim text",
+      "evidence": ["registry-key-1", "registry-key-2"] }
+  ],
+  "self_check": {
+    "all_claims_have_evidence": true,
+    "missing_evidence_for": [],
+    "rule_violations": []
+  }
+}</code></pre>
+    <p>Agent instructions ship as <code>.evidenceforge/instructions.md</code> — drop-in contract so Grok, Claude, or any coding agent knows it. Read order: instructions, then registry, then any domain packs in <code>.evidenceforge/domains/</code>.</p>
+  </section>
+
+  <!-- Free core vs cloud vs enterprise: honest, from README. -->
+  <section aria-labelledby="tiers-title">
+    <h2 id="tiers-title">Free core, cloud coming, enterprise path</h2>
+    <p class="section-lede">Honest tiers, from the README. Only the free core exists today. The rest is a path, marked coming, not built.</p>
+    <div class="tier-grid">
+      <article class="tier">
+        <h3>Free &amp; Open Core · MIT <span class="stamp stamp-pass">Built</span></h3>
+        <p>Full framework, CLI, local validation, single-user agents.</p>
+      </article>
+      <article class="tier">
+        <h3>EvidenceForge Cloud <span class="stamp stamp-coming">Coming</span></h3>
+        <p>Team evidence stores and shared registries. Audit dashboards and compliance report exports (SOC 2, EU AI Act, HIPAA-ready). Hosted validation pipelines and CI integrations. Advanced analytics: claim coverage, source freshness, failure trends. SSO, audit logs, SLA.</p>
+        <p><strong>Not built.</strong> Compliance labels above describe the planned Cloud exports, not a certification this project holds today.</p>
+      </article>
+      <article class="tier">
+        <h3>Enterprise <span class="stamp stamp-coming">Path</span></h3>
+        <p>On-prem, custom connectors, dedicated support, white-label. Revenue model: usage-based + seat-based SaaS on top of the open core. Sponsorships and consulting for implementation.</p>
+        <p><strong>Path, not a shipped offer.</strong> Talk to us means: tell us what you need; we will say what exists and what does not.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Roadmap: unchecked boxes, verbatim from README. -->
+  <section aria-labelledby="roadmap-title">
+    <h2 id="roadmap-title">Roadmap: what is not built yet</h2>
+    <p class="section-lede">Every item below is unchecked in the README. Nothing here is claimed as shipped.</p>
+    <ul class="roadmap">
+      <li><input type="checkbox" disabled> Python SDK + CLI</li>
+      <li><input type="checkbox" disabled> TypeScript / Node package</li>
+      <li><input type="checkbox" disabled> MCP server for agent tool use</li>
+      <li><input type="checkbox" disabled> Grok / Claude / Cursor skill packs</li>
+      <li><input type="checkbox" disabled> Cloud dashboard MVP</li>
+      <li><input type="checkbox" disabled> Domain packs (legal, finance, medical, compliance)</li>
+    </ul>
+    <p class="roadmap-note">The repo's examples folder holds one note: domain packs go here — for example, legal contract analysis rules that agents must cite. That is a placeholder for a pack, not a pack. Contributing starts with the validator or a domain example, per the README.</p>
+  </section>
+
+  <!-- Facts: version, deps, license. -->
+  <section aria-labelledby="facts-title">
+    <h2 id="facts-title">Facts, not slogans</h2>
+    <dl class="facts">
+      <div><dt>Version</dt><dd>0.1.0 (from <code>pyproject.toml</code>)</dd></div>
+      <div><dt>Requires</dt><dd>Python 3.11+</dd></div>
+      <div><dt>Dependencies</dt><dd>pydantic ≥ 2.0, rich ≥ 13.0</dd></div>
+      <div><dt>License</dt><dd>MIT</dd></div>
+      <div><dt>Website</dt><dd>evidenceforge.dev — listed as “coming” in the README. Not linked as live.</dd></div>
+      <div><dt>Discord / Sponsor</dt><dd>Listed as “coming” in the README. Not linked as live.</dd></div>
+    </dl>
+  </section>
+
+  <!-- CTA: honest. -->
+  <section class="cta" aria-labelledby="cta-title">
+    <h2 id="cta-title">Make your agent prove its claims.</h2>
+    <p>Install the free core. Put every claim in the registry. Let the validator fail what cannot be backed. That is the whole contract.</p>
+    <div class="cta-actions">
+      <a class="btn btn-primary" href="#quickstart">Start with the free core</a>
+      <button type="button" class="btn btn-ghost" data-open-map>Open Directory Maps</button>
+    </div>
+    <p class="open-loop"><span class="open-loop-dot" aria-hidden="true"></span> 1 open loop: your first validated run has not happened yet.</p>
+  </section>
+</main>
+
+<footer class="ef-footer">
+  <p class="footer-brand">EvidenceForge</p>
+  <p class="footer-tag">Auditable, evidence-citing AI agents. Free core, MIT.</p>
+  <nav class="footer-sitemap" aria-label="Site directory">
+    <section>
+      <h3>EvidenceForge</h3>
+      <ul>
+        <li><a href="index.html">EvidenceForge</a></li>
+      </ul>
+    </section>
+    <section>
+      <h3>Standard</h3>
+      <ul>
+        <li><a href="https://jdkabattles.github.io/algorithmic-gold/">Algorithmic Gold</a></li>
+        <li><a href="https://jdkabattles.github.io/algorithmic-gold/blog/">Blog</a></li>
+        <li><a href="https://jdkabattles.github.io/algorithmic-gold/patterns/">Pattern Atlas</a></li>
+      </ul>
+    </section>
+    <section>
+      <h3>Tools on forgingstack.com</h3>
+      <ul>
+        <li><a href="https://www.forgingstack.com/">mimicplus</a></li>
+        <li><a href="https://www.forgingstack.com/gate/">Contract Gate</a></li>
+        <li><a href="https://www.forgingstack.com/harwatch/">harwatch</a></li>
+        <li><span class="coming-title">Gold Is The Receipt hub</span><span class="coming-soon">Coming Soon</span></li>
+        <li><span class="coming-title">Avcal-Agent</span><span class="coming-soon">Coming Soon</span></li>
+        <li><span class="coming-title">Verity</span><span class="coming-soon">Coming Soon</span></li>
+        <li><span class="coming-title">Governed Agent Engine</span><span class="coming-soon">Coming Soon</span></li>
+      </ul>
+    </section>
+  </nav>
+  <p class="footer-note">Each product is its own website, only tethered by the one domain. EvidenceForge keeps its own look.</p>
+</footer>
+
+<script src="map-tether.js" defer></script>
+<script src="demo.js" defer></script>
+</body>
+</html>
