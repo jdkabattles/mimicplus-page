@@ -42,11 +42,13 @@
     // GitHub Pages. No staged forgingstack.com targets are used for sites
     // that already have a real live URL. Contract lives at /gate/ today
     // (real, in this repo); its planned home is /mimicplus/contract/.
+    // HONESTY RULE (2026-10-16 fix): a 'built' entry must link to a URL that
+    // actually serves that site today. Staged / planned / not-yet-live
+    // targets are 'coming_soon', never 'built' with a dead link.
     // Gold Is The Receipt hub is coming_soon: its page is not yet live as
     // its own page, and its planned URL collides with this site's home.
-    // Avcal-Agent / EvidenceForge / Verity keep the "(Staged target.)"
-    // convention from the Algorithmic Gold tether until their paths
-    // under this domain are connected after approval.
+    // Avcal-Agent / EvidenceForge / Verity are coming_soon: their sites
+    // exist as code / in their repos, but are not yet live on this domain.
     { group: 'hub', title: 'Gold Is The Receipt', url: 'https://forgingstack.com/', status: 'coming_soon', desc: 'The hub. Done is a claim. GOLD is a receipt. Not yet live as its own page — this domain currently serves mimicplus.' },
     { group: 'standard', title: 'Algorithmic Gold', url: 'https://jdkabattles.github.io/algorithmic-gold/', status: 'built', desc: 'The verification standard. Six gates. Real outcomes.', children: [
       { title: 'Blog', url: 'https://jdkabattles.github.io/algorithmic-gold/blog/index.html', status: 'built', desc: 'Essays behind the standard.' },
@@ -69,10 +71,10 @@
       { title: 'For the programmer', url: 'https://forgingstack.com/technical/', status: 'built', desc: 'What the programmer gets.' }
     ] },
     { group: 'products', title: 'Contract', url: 'https://forgingstack.com/gate/', status: 'built', desc: 'Contract Gate, its own website. Prominent link from mimicplus. Lives at /gate/ today.' },
-    { group: 'products', title: 'Avcal-Agent', url: 'https://forgingstack.com/avcal-agent/', status: 'built', desc: 'Sandboxed hidden-suite verification for agent-written code. (Staged target.)' },
+    { group: 'products', title: 'Avcal-Agent', url: 'https://forgingstack.com/avcal-agent/', status: 'coming_soon', desc: 'Sandboxed hidden-suite verification for agent-written code. Site exists as code in its repo; not yet live on this domain. Coming Soon.' },
     { group: 'products', title: 'harwatch', url: 'https://forgingstack.com/harwatch/', status: 'built', desc: 'Freeze an API, fail when a field is removed. $29 a month. Live in this repo.' },
-    { group: 'products', title: 'EvidenceForge', url: 'https://forgingstack.com/evidenceforge/', status: 'built', desc: 'EvidenceForge, its own website. (Staged target.)' },
-    { group: 'products', title: 'Verity', url: 'https://forgingstack.com/verity/', status: 'built', desc: 'Verity, evidence ledger for agent runs. Site exists, needs work. (Staged target.)' },
+    { group: 'products', title: 'EvidenceForge', url: 'https://forgingstack.com/evidenceforge/', status: 'coming_soon', desc: 'EvidenceForge, its own website. Not yet live on this domain. Coming Soon.' },
+    { group: 'products', title: 'Verity', url: 'https://forgingstack.com/verity/', status: 'coming_soon', desc: 'Verity, evidence ledger for agent runs. Site exists in its repo (docs/index.html) and needs work; not yet live on this domain. Coming Soon.' },
     { group: 'products', title: 'Governed Agent Engine', url: 'https://forgingstack.com/governed-agent-engine/', status: 'coming_soon', desc: 'Governed Agent Engine, its own website. Not yet built.' }
   ]
 
