@@ -22,9 +22,37 @@
   p, li { color: #cbb8a4; line-height: 1.6; font-size: 17px; }
   .pay { display: inline-block; background: #ff7a18; color: #1a0d05; text-decoration: none; border-radius: 999px; padding: 11px 16px; letter-spacing: .12em; text-transform: uppercase; font-size: 12px; }
 </style>
+
+<!-- Directory Maps + technical SEO additions (three-additions treatment).
+     Contract Gate is a TOOL page (it gates and handles user data): ZERO
+     tracking, ever. No GTM, no GA4, no Clarity — not even commented-out.
+     TODO: paste the real Google Search Console verification code, then
+     uncomment the google-site-verification line below. Bing verification
+     already exists via BingSiteAuth.xml at the domain root, so no
+     msvalidate.01 meta is added here.
+     TODO: /gate/ pages are not yet in the domain sitemap.xml (Contract-task
+     TODO — the sitemap itself is not edited in this task). The sitemap link
+     below points at the domain sitemap. -->
+<!-- <meta name="google-site-verification" content="TODO_PASTE_REAL_CODE_THEN_UNCOMMENT" /> -->
+<meta name="color-scheme" content="dark light" />
+<meta name="theme-color" content="#120b07" />
+<meta name="msapplication-TileColor" content="#120b07" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta property="og:site_name" content="ForgingStack" />
+<meta property="og:image:alt" content="Contract Gate mark" />
+<meta name="twitter:title" content="How to use Contract Gate, in plain English" />
+<meta name="twitter:description" content="Keep last month's file. Save this month's talk in the browser. Contract Gate stops and names the box that moved. $499 a month." />
+<link rel="apple-touch-icon" href="../mark.jpg" />
+<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+<link rel="stylesheet" href="../map-tether.css" />
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://forgingstack.com/gate/how-to/", "url": "https://forgingstack.com/gate/how-to/", "name": "How to use Contract Gate, in plain English", "description": "Keep last month's file. Save this month's talk in the browser. Contract Gate stops and names the box that moved. $499 a month.", "isPartOf": {"@type": "WebSite", "name": "ForgingStack", "url": "https://forgingstack.com/"}}
+</script>
 </head>
 <body>
   <article>
+    <span data-tether-mount></span>
     <p><a href="https://forgingstack.com/gate/">Contract Gate</a> · <a href="https://forgingstack.com/gate/technical/">For the programmer</a></p>
     <h1>How to use Contract Gate.</h1>
     <p>It is not a Word file. The browser writes the file. You save the talk between your screen and the other computer, the same way as mimicplus. Chrome, F12, Network, right-click, save as HAR. Take the passwords out.</p>
@@ -34,5 +62,6 @@
     <p>$499 a month. One private folder for that team. Cancel the month and the charge stops.</p>
     <p><a class="pay" href="https://buy.stripe.com/cNi5kw9JpdGG6x5goOffy01">$499 a month</a></p>
   </article>
+  <script src="../map-tether.js"></script>
 </body>
 </html>

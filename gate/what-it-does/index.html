@@ -36,12 +36,40 @@
   p { color: var(--muted); line-height: 1.6; font-size: 17px; }
   footer { padding: 28px 4vw 48px; border-top: 1px solid var(--line); color: var(--muted); }
 </style>
+
+<!-- Directory Maps + technical SEO additions (three-additions treatment).
+     Contract Gate is a TOOL page (it gates and handles user data): ZERO
+     tracking, ever. No GTM, no GA4, no Clarity — not even commented-out.
+     TODO: paste the real Google Search Console verification code, then
+     uncomment the google-site-verification line below. Bing verification
+     already exists via BingSiteAuth.xml at the domain root, so no
+     msvalidate.01 meta is added here.
+     TODO: /gate/ pages are not yet in the domain sitemap.xml (Contract-task
+     TODO — the sitemap itself is not edited in this task). The sitemap link
+     below points at the domain sitemap. -->
+<!-- <meta name="google-site-verification" content="TODO_PASTE_REAL_CODE_THEN_UNCOMMENT" /> -->
+<meta name="color-scheme" content="dark light" />
+<meta name="theme-color" content="#120b07" />
+<meta name="msapplication-TileColor" content="#120b07" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta property="og:site_name" content="ForgingStack" />
+<meta property="og:image:alt" content="Contract Gate mark" />
+<meta name="twitter:title" content="What Contract Gate takes, and what it returns" />
+<meta name="twitter:description" content="Contract Gate takes the last approved spec and a later recording. It returns a failing check and an audit row. $499 a month. One private repo." />
+<link rel="apple-touch-icon" href="../mark.jpg" />
+<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+<link rel="stylesheet" href="../map-tether.css" />
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://forgingstack.com/gate/what-it-does/", "url": "https://forgingstack.com/gate/what-it-does/", "name": "What Contract Gate takes, and what it returns", "description": "Contract Gate takes the last approved spec and a later recording. It returns a failing check and an audit row. $499 a month. One private repo.", "isPartOf": {"@type": "WebSite", "name": "ForgingStack", "url": "https://forgingstack.com/"}}
+</script>
 </head>
 <body>
   <header class="bar">
     <div class="row">
       <a class="brand" href="https://forgingstack.com/gate/"><img src="../mark.jpg" alt="Contract Gate logo" /> Contract Gate</a>
       <a class="pay" href="https://buy.stripe.com/cNi5kw9JpdGG6x5goOffy01">$499 a month</a>
+      <span data-tether-mount></span>
     </div>
     <details class="menu">
       <summary>Pages</summary>
@@ -73,5 +101,6 @@
       document.getElementById("views").textContent = "Views " + d.value;
     }).catch(() => {});
   </script>
+  <script src="../map-tether.js"></script>
 </body>
 </html>
