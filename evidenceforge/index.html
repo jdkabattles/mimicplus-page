@@ -63,6 +63,20 @@
   "url": "https://www.forgingstack.com/evidenceforge/"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Built for the Full-Stack Product Architect",
+  "description": "EvidenceForge is built for the Full-Stack Product Architect: what each builder does, where each fails, and how evidence gates per phase turn shipped claims into provable claims.",
+  "url": "https://www.forgingstack.com/evidenceforge/#architect-title",
+  "about": "EvidenceForge validates that every claim a product makes cites structured evidence, across product discovery, frontend, backend, and ship-measure-scale iterations.",
+  "author": {
+    "@type": "Organization",
+    "name": "EvidenceForge"
+  }
+}
+</script>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="map-tether.css">
 </head>
@@ -104,6 +118,107 @@
       <li><strong>3 · Automated validation</strong> — The validator fails the build if claims lack support or violate rules. No evidence, no pass. Unknown evidence ID, no pass. Exit code non-zero on failure.</li>
       <li><strong>4 · Machine-readable audit logs</strong> — Emit audit logs for human review or compliance systems. Every claim, its evidence, and the check result, in structured JSON.</li>
     </ol>
+  </section>
+
+  <!-- Built for the Full-Stack Product Architect: Jonny's positioning, NOT a repo feature.
+       EvidenceForge is built FOR this builder. It does not provide the builder's stack.
+       Researched rebuild (2026-10-16): sources listed in the section and in TECHNICAL_NOTE.md. -->
+  <section aria-labelledby="architect-title">
+    <h2 id="architect-title">Built for the Full-Stack Product Architect</h2>
+    <p class="eyebrow">The Complete Product Builder</p>
+    <blockquote class="architect-quote">
+      <p>A Full-Stack Developer can build anything. A Product Engineer knows what to build. The Full-Stack Product Architect knows what to build, builds it right, builds it beautiful, and ships it so users pay for it.</p>
+    </blockquote>
+    <p class="section-lede">That sentence is the anchor. This section earns it: what each builder actually does, where each one fails, and what the hybrid fixes — then what EvidenceForge adds, which is proof.</p>
+    <p>Build like an engineer, think like a product owner, ship like a founder. EvidenceForge is built for the builder who does all three — and it supplies the one thing neither builder gets for free: proof that every claim the product makes is backed by evidence.</p>
+
+    <h3>The three builders, compared — honestly</h3>
+    <p>Job titles have no universal definition; the same role can be labelled differently by company, size, and culture. What follows is a working comparison, not a strawman. Each builder is real, each has a failure mode, and the hybrid exists to keep the strengths and kill the failure modes.</p>
+    <div class="compare-wrap">
+    <table class="compare-table">
+      <caption>Three builders: what each answers, what each is strong at, where each fails, and what EvidenceForge adds.</caption>
+      <thead>
+        <tr><th scope="col">Builder</th><th scope="col">Core question</th><th scope="col">Strength</th><th scope="col">Failure mode</th><th scope="col">What EvidenceForge adds</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Full-Stack Developer</th>
+          <td>Can I build it, end to end?</td>
+          <td>Builds anything across frontend, backend, APIs, and database. Ships features end to end.</td>
+          <td>Breadth without depth does not scale. Drifts into over-engineering and technical purity — building for scale before proof, which slows the product down and makes it harder to change.</td>
+          <td>Proof of the build. The architecture is not asserted; every design claim cites its evidence, and validation fails the build when a claim has no support.</td>
+        </tr>
+        <tr>
+          <th scope="row">Product Engineer</th>
+          <td>Why build this, and for whom?</td>
+          <td>Knows what to build. Engages with the why, studies how people use the product, joins product decisions, and aims at outcomes rather than implementations. Reduces waste by cutting features nobody needs.</td>
+          <td>Bad ones cut too many corners. Shortcut fragility: a fast build that cannot be defended, because the depth was skipped. Minimum lovable needs the right depth.</td>
+          <td>Proof of the product. Speed stays, hand-waving goes. Whether the stack is hosted or custom, the shipped output is still checked: every claim must cite evidence, or the build fails.</td>
+        </tr>
+        <tr>
+          <th scope="row">Full-Stack Product Architect</th>
+          <td>What to build, built right, beautiful, and shippable so users pay?</td>
+          <td>Both. Technical depth and product judgment in one builder. Chooses the stack for the product, not for fashion. Balances speed with reliability and makes the now-versus-scale trade-off explicitly.</td>
+          <td>Still human. Even the right product, built right, can ship unproven claims — hallucinated requirements, unvalidated features, and outputs no one can audit.</td>
+          <td>The proof layer. EvidenceForge is the gate that turns “we built it right” into “here is the evidence, claim by claim.” Fast <em>and</em> unbreakable, because every claim must prove itself.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="architect-note">On titles: a full-stack developer builds across the stack and ships features; a full-stack engineer carries added responsibility for how the product holds up as it scales — one asks “does this work?”, the other asks “does this work, and will it keep working?” Product-minded engineers want to understand why decisions are made and how people use the product. The hybrid in this section combines all three questions.</p>
+
+    <h3>Why products fail without evidence</h3>
+    <p>The common thread in product failure is not bad engineering. It is a disconnect between what founders build and what customers will pay for — and that disconnect is measured in conversations and evidence that never happened.</p>
+    <ul class="failure-list">
+      <li><strong>Building before validating.</strong> Products built on assumptions, not validation. Teams fall in love with an idea and sprint to build before confirming anyone has the problem. Validation is not optional.</li>
+      <li><strong>Overbuilding instead of solving.</strong> Launching with dozens of features and complicated dashboards instead of solving one problem really well. More features means more confusion and more delay — and no one knows if anyone needs them.</li>
+      <li><strong>Building in isolation.</strong> No feedback loop. Teams guess instead of learning. They listen to what users <em>said</em> — “would you pay for this?” — instead of what users <em>did</em>. Hypothetical answers are hypothetical.</li>
+      <li><strong>Building for scale before proof.</strong> Clean architecture for a million users, launched to a handful who barely engage. Over-engineered early products are harder to change, harder to pivot, and create attachment to decisions that need to be killed.</li>
+      <li><strong>Shipping unprovable AI output.</strong> A confidently wrong answer in finance, healthcare, legal, or compliance costs trust, deals, and sometimes penalties. “The AI suggested it” is not an answer when a regulator, auditor, or customer asks how a decision was made.</li>
+    </ul>
+    <p>Discovery research gives the antidote a name: <strong>evidence, not opinions</strong>. Validate an insight against more than one kind of evidence — what people <em>do</em> (behaviour), what people <em>say</em> (attitude), and the <em>context</em> around them — before committing to a build. Run cheap experiments before expensive builds. Treat a discovery stage that never produces a kill decision as a formality, not a gate. A single data point from an actual transaction is worth more than a dozen enthusiastic nods in a stakeholder meeting.</p>
+
+    <h3>How EvidenceForge fixes the failure mode</h3>
+    <p>EvidenceForge does not replace discovery, design, or engineering judgment. It makes each of them checkable. The validator contract is the mechanism: every claim cites evidence, or the build fails.</p>
+    <ol class="steps">
+      <li><strong>Evidence Registry — kills hallucinated requirements.</strong> A structured map of sources, docs, internal data, and tool outputs. A requirement, a design decision, or an output claim that cites nothing in the registry is not a decision — it is a guess, and the validator treats it as one.</li>
+      <li><strong>Strict schema — kills unvalidated features.</strong> Outputs in a strict schema where every claim cites evidence IDs. A feature, a number, or a status in the product cannot ship on vibes. If the claim is in the output, its evidence is in the record.</li>
+      <li><strong>Validation fails the build — the gate that can say no.</strong> No evidence, no pass. Unknown evidence ID, no pass. No claims at all, no pass. The build fails with a structured result, so the failure is visible, fixable, and fast — not discovered by a customer after launch.</li>
+      <li><strong>Machine-readable audit logs — the trail that earns trust.</strong> Every claim, its evidence, and the check result, in structured JSON. When a regulator, auditor, or enterprise buyer asks how a decision was made, the answer is a reconstructable trail: prompt, sources, checks, approver, and version — not a summary from memory.</li>
+    </ol>
+
+    <h3>The four phases, with an evidence gate at the end of each</h3>
+    <p>Each phase below ends in a gate. The gate is the same every time: no claim moves forward without evidence.</p>
+    <ol class="steps">
+      <li><strong>Phase 1 · Product Discovery &amp; Architecture — Gate: no requirement without evidence.</strong> The Architect translates an idea into user flows and information architecture, defines the product data model — the core entities and their relationships — and chooses the right stack for the product, not just what is trendy. <strong>EvidenceForge gate:</strong> the data model and every requirement are evidence-backed. Every entity, every claim, every flow cites its source. A requirement with no evidence does not enter the build.</li>
+      <li><strong>Phase 2 · Frontend, Product-Grade UI — Gate: no UI claim without evidence.</strong> Pixel-perfect, state-aware UI that handles the edge cases other builders ignore: loading skeletons, optimistic updates, empty states, error boundaries, undo actions, keyboard shortcuts. <strong>EvidenceForge gate:</strong> EvidenceForge validates the claims the UI shows. Every number, every status, every result in the UI must cite evidence — or the build fails. Optimistic UI still shows a state, but the state it shows is a checked claim, not an invented one.</li>
+      <li><strong>Phase 3 · Backend, Engineer-Grade — Gate: no API claim without evidence.</strong> A typed, self-documenting API. Full auth from day one. The hard stuff: subscriptions and webhooks, roles and permissions, file processing, email queues, real-time. A database designed for growth: proper indexing, migrations, soft deletes, audit logs. <strong>EvidenceForge gate:</strong> EvidenceForge validates API outputs. Every claim the API returns cites evidence. Audit logs are machine-readable, and subscriptions, roles, and file processing are all auditable — the same trail an auditor will ask for later.</li>
+      <li><strong>Phase 4 · Ship, Measure, and Scale — Gate: every iteration re-proven.</strong> One-command deploy with CI/CD, preview deployments, monitoring. Ship an MVP fast, measure where users drop off, re-engineer the weak point with scalable code, repeat. <strong>EvidenceForge gate:</strong> EvidenceForge is the Iteration Engine's truth layer. Ship the MVP fast, measure drop-off, re-engineer the weak point — and EvidenceForge proves each iteration is still backed by evidence. Speed does not erode proof; each iteration re-passes the same gate.</li>
+    </ol>
+
+    <h3>Why proof is what makes users pay</h3>
+    <p>Customers do not pay for elegance. They pay to make pain go away — lost money, wasted hours, compliance exposure, operational chaos, missed revenue. Those are urgent problems, and urgency is what makes someone pull out a card. But urgency alone does not close an enterprise deal, and it does not survive an audit.</p>
+    <p>What closes the deal is trust, and trust in regulated work is not a feeling — it is evidence. High-risk AI systems are expected to generate logs that let a reviewer trace what happened: the period of use, the sources checked, the input that led to a given output, and who verified the result. Compliance work is largely an evidence-collection exercise: logs, records, and proof that controls operated. A vendor survey of enterprises running AI agents in production reported that most could not fully audit how those systems operated — a gap that becomes compliance debt, security exposure, and lost deals. EvidenceForge is built to close exactly that gap at the claim level, before it becomes an audit failure.</p>
+    <p>The final deliverable, then, is not just a website. Not just a pretty app. A Revenue-Ready Digital Product — a complete SaaS, marketplace, or platform that looks designed with care, works reliably, and scales — <em>and</em> proves every claim with evidence, so the buyer, the auditor, and the regulator can all check it.</p>
+    <p><strong>The Architect knows what to build, builds it right, builds it beautiful, and ships it so users pay for it. EvidenceForge proves it, claim by claim, with evidence.</strong></p>
+
+    <h3>Sources &amp; further reading</h3>
+    <p class="architect-note">Paraphrased, not quoted at length. Each source below supports a claim in this section. Full citations in TECHNICAL_NOTE.md.</p>
+    <ul class="sources-list">
+      <li><a href="https://blog.pragmaticengineer.com/the-product-minded-engineer/">The Product-Minded Software Engineer — The Pragmatic Engineer</a> — product-minded engineers, the “why”, and why great ones know minimum lovable products need the right depth.</li>
+      <li><a href="https://veritahr.com/full-stack-developer-vs-full-stack-engineer-hiring-guide-for-poland-2026/">Full Stack Developer vs Full Stack Engineer — Verita HR</a> — developer vs engineer, “does this work?” vs “does this work, and will it keep working?”, and no universal title definition.</li>
+      <li><a href="https://medium.com/@pratikchaudhariworks/the-death-of-the-full-stack-developer-or-its-evolution-5cc6a7621ff4">The Death of the “Full-Stack Developer” (Or Its Evolution) — Medium</a> — breadth without depth does not scale; value shifts from writing code to deciding what code should exist.</li>
+      <li><a href="https://medium.com/@cyfgpmqv/why-full-stack-is-becoming-a-meaningless-title-3c83f932d270">Why “Full-Stack” Is Becoming a Meaningless Title — Medium</a> — the real divide becoming technical thinking vs commercial thinking.</li>
+      <li><a href="https://productmanagementresources.com/discovery-triangulation-check-product-management/">The Discovery Triangulation Check — Product Management Resources</a> — validating an insight against behavioural, attitudinal, and contextual evidence before committing to build.</li>
+      <li><a href="https://github.com/adamgold/product-management-ai-agents/blob/HEAD/frameworks/README.md">Product Management Frameworks — Continuous Discovery &amp; Evidence-Guided</a> — assumption testing before building; decisions based on evidence rather than opinions; cheap experiments before expensive builds.</li>
+      <li><a href="https://medium.com/@triconinfotech/digital-product-discovery-how-enterprises-validate-what-to-build-before-they-build-it-e89ad8a83b6a">Digital Product Discovery — Medium</a> — discovery stages that must produce go / iterate / kill decisions; methods that generate evidence, not opinions.</li>
+      <li><a href="https://techstartups.com/2026/07/11/why-building-a-saas-is-the-worst-startup-idea-for-most-first-time-founders/">Why Building a SaaS Is the Worst Startup Idea for Most First-Time Founders — TechStartups</a> — poor product-market fit as the leading failure cause; the disconnect between what founders build and what customers will pay for.</li>
+      <li><a href="https://medium.com/@olivia_medison/how-governed-ai-prevents-hallucinations-in-regulated-workflows-d4c3924bad59">How Governed AI Prevents Hallucinations in Regulated Workflows — Medium</a> — audit trails that log the full chain and stay reconstructable; “the AI suggested it” is not an answer.</li>
+      <li><a href="https://www.businesswire.com/news/home/20260514715268/en/TrueFoundry-Survey-Finds-Most-Enterprises-Cannot-Audit-Their-AI-Systems-as-Agent-Adoption-Surges">TrueFoundry Survey: Most Enterprises Cannot Audit Their AI Systems — Business Wire</a> — vendor survey reporting most enterprises running AI agents in production cannot fully audit them.</li>
+      <li><a href="https://letsbuildsolutions.com/blog/devops/eu-ai-act-compliance-for-engineering-teams-risk-classification-technical-documentation-and-building-audit-ready-ai-systems/">EU AI Act Compliance for Engineering Teams — Let's Build Solutions</a> — high-risk systems must automatically generate logs enabling traceability.</li>
+      <li><a href="https://rends.ai/blog/building-audit-ready-ai-agents-implementing-compliance-logging-for-eu-ai-act-and-nist-rmf-standards">Building Audit-Ready AI Agents — Rends</a> — EU AI Act and NIST RMF logging and audit-trail expectations.</li>
+    </ul>
+    <p class="architect-note">Positioning note: this section is Jonny's positioning for who EvidenceForge is built for. It is not a repo feature. EvidenceForge does not provide the Architect's stack choices — hosted backends, frameworks, payment providers, or design tools. The Architect chooses the stack. EvidenceForge validates the output. The “EvidenceForge gate” lines are positioning inferences from the validator contract (claims cite evidence or the build fails), not new features.</p>
   </section>
 
   <!-- Interactive evidence demo: real example + validator rules from cli.py. -->
