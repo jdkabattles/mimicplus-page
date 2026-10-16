@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page not found (404) | ForgingStack</title>
+<meta name="description" content="There is no page at this address on ForgingStack. Go home, browse the hub, or open Directory Maps." />
+<meta name="robots" content="noindex, follow" />
+<link rel="icon" href="/mark.png" />
+<link rel="stylesheet" href="/map-tether.css" />
+<style>
+  :root { --bg: #07091a; --ink: #f4f1ec; --muted: #a9b0c7; --line: rgba(244,241,236,.14); --violet: #8b7cff; --violet-2: #c9c2ff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Syne, system-ui, sans-serif; }
+  a { color: inherit; }
+  .skip-link { position: absolute; left: 16px; top: -100px; background: #fff; color: #111; padding: 10px 14px; border-radius: 999px; z-index: 100; }
+  .skip-link:focus { top: 12px; }
+  header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 4vw; border-bottom: 1px solid var(--line); }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; }
+  .brand img { width: 36px; height: 36px; border-radius: 8px; }
+  main { padding: 14vh 4vw 10vh; max-width: 44rem; }
+  .kicker { letter-spacing: .26em; text-transform: uppercase; color: var(--violet-2); font-size: 11px; }
+  h1 { font-size: clamp(44px, 6vw, 84px); line-height: .95; letter-spacing: -.04em; margin: 16px 0; }
+  p { color: var(--muted); font-size: 18px; line-height: 1.55; }
+  nav ul { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 12px; }
+  nav a { display: block; border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; text-decoration: none; }
+  nav a strong { display: block; color: var(--ink); font-size: 18px; }
+  nav a span { color: var(--muted); font-size: 14px; }
+  footer { padding: 28px 4vw 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header>
+<a class="brand" href="https://forgingstack.com/"><img src="/mark.png" alt="" /> ForgingStack</a>
+<span data-tether-mount></span>
+</header>
+<main id="main">
+<p class="kicker">404</p>
+<h1>Page not found</h1>
+<p>There is no page at this address. The link may be mistyped, or the page may have moved.</p>
+<nav aria-label="Where to go next">
+<ul>
+<li><a href="https://forgingstack.com/"><strong>Go home</strong><span>mimicplus on ForgingStack</span></a></li>
+<li><a href="https://forgingstack.com/hub/"><strong>Browse the hub</strong><span>Every site on this domain</span></a></li>
+</ul>
+</nav>
+<p>Or use the Directory Maps tab above to find any page on this domain.</p>
+</main>
+<footer>
+<p>ForgingStack</p>
+</footer>
+<script defer src="/map-tether.js"></script>
+</body>
+</html>
