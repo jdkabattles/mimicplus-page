@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# hidden ops surface — not for crawlers
+Disallow: /algorithmic-gold/ops/
+
+Sitemap: https://forgingstack.com/algorithmic-gold/sitemap.xml

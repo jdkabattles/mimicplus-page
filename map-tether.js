@@ -51,15 +51,15 @@
     // /evidenceforge/ since 2026-10-16. Avcal-Agent is built: live at
     // /avcal-agent/ since 2026-10-16.
     { group: 'hub', title: 'Gold Is The Receipt', url: 'https://forgingstack.com/hub/', status: 'built', desc: 'The hub. Done is a claim. GOLD is a receipt. Live at /hub/.' },
-    { group: 'standard', title: 'Algorithmic Gold', url: 'https://jdkabattles.github.io/algorithmic-gold/', status: 'built', desc: 'The verification standard. Six gates. Real outcomes.', children: [
-      { title: 'Blog', url: 'https://jdkabattles.github.io/algorithmic-gold/blog/index.html', status: 'built', desc: 'Essays behind the standard.' },
-      { title: 'Why Single Runs Lie', url: 'https://jdkabattles.github.io/algorithmic-gold/blog/why-single-run-lies.html', status: 'built', desc: 'One run is not a result.' },
-      { title: 'The Goodhart Gate', url: 'https://jdkabattles.github.io/algorithmic-gold/blog/goodhart-gate.html', status: 'built', desc: 'When the scoreboard gets gamed.' },
-      { title: 'Specification Gaming Catalog', url: 'https://jdkabattles.github.io/algorithmic-gold/blog/specification-gaming-catalog.html', status: 'built', desc: 'Ways a spec can be gamed.' },
-      { title: 'Contamination and Holdout', url: 'https://jdkabattles.github.io/algorithmic-gold/blog/contamination-holdout.html', status: 'built', desc: 'Why the holdout stays frozen.' },
-      { title: 'Receipt, Not Claim', url: 'https://jdkabattles.github.io/algorithmic-gold/blog/receipt-not-claim.html', status: 'built', desc: 'A claim without a receipt is not done.' },
-      { title: 'Pattern Atlas', url: 'https://jdkabattles.github.io/algorithmic-gold/patterns/index.html', status: 'built', desc: '49 cited patterns behind the gates.' },
-      { title: 'Products', url: 'https://jdkabattles.github.io/algorithmic-gold/products/index.html', status: 'built', desc: 'Products under the standard.' }
+    { group: 'standard', title: 'Algorithmic Gold', url: 'https://forgingstack.com/algorithmic-gold/', status: 'built', desc: 'The verification standard. Six gates. Real outcomes.', children: [
+      { title: 'Blog', url: 'https://forgingstack.com/algorithmic-gold/blog/index.html', status: 'built', desc: 'Essays behind the standard.' },
+      { title: 'Why Single Runs Lie', url: 'https://forgingstack.com/algorithmic-gold/blog/why-single-run-lies.html', status: 'built', desc: 'One run is not a result.' },
+      { title: 'The Goodhart Gate', url: 'https://forgingstack.com/algorithmic-gold/blog/goodhart-gate.html', status: 'built', desc: 'When the scoreboard gets gamed.' },
+      { title: 'Specification Gaming Catalog', url: 'https://forgingstack.com/algorithmic-gold/blog/specification-gaming-catalog.html', status: 'built', desc: 'Ways a spec can be gamed.' },
+      { title: 'Contamination and Holdout', url: 'https://forgingstack.com/algorithmic-gold/blog/contamination-holdout.html', status: 'built', desc: 'Why the holdout stays frozen.' },
+      { title: 'Receipt, Not Claim', url: 'https://forgingstack.com/algorithmic-gold/blog/receipt-not-claim.html', status: 'built', desc: 'A claim without a receipt is not done.' },
+      { title: 'Pattern Atlas', url: 'https://forgingstack.com/algorithmic-gold/patterns/index.html', status: 'built', desc: '49 cited patterns behind the gates.' },
+      { title: 'Products', url: 'https://forgingstack.com/algorithmic-gold/products/index.html', status: 'built', desc: 'Products under the standard.' }
     ] },
     { group: 'products', title: 'mimicplus', url: 'https://forgingstack.com/', status: 'built', desc: 'HAR to OpenAPI, typed Python client, and breaking-change check. $199 once. This site.', children: [
       { title: 'What goes in', url: 'https://forgingstack.com/what-it-does/', status: 'built', desc: 'What you feed mimicplus, and what comes out.' },
