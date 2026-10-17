@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Content-Security-Policy: same base policy as EvidenceForge / Hub / Governed Agent Engine / Avcal-Agent, plus style-src fonts.googleapis.com + font-src fonts.gstatic.com (Google Fonts stylesheet + woff2; woff2 self-hosting needs a binary-safe push, not used here), plus form-action mailto: (the buyer form submits via mailto:). The third-party view-count beacon is removed, so no connect-src entry for it exists. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:" />
 <title>mimicplus technical page: HAR to OpenAPI, client, and breaking check</title>
 <meta property="og:title" content="mimicplus technical page: HAR to OpenAPI, client, and breaking check" />
 <meta property="og:description" content="mimicplus reads one allowed HAR, writes a versioned spec, a typed Python client, OpenAPI, and tests, and fails if a later HAR drops a field. $199 once." />
@@ -15,15 +17,7 @@
 <link rel="canonical" href="https://forgingstack.com/technical/" />
 <link rel="icon" href="../mark.png" />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
-<style>
-  .skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
-  .skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
-  body { margin: 0; background: #07091a; color: #f4f1ec; font-family: Syne, sans-serif; }
-  a { color: #c9c2ff; }
-  article { max-width: 760px; padding: 8vh 4vw; }
-  p, li { color: #a9b0c7; line-height: 1.6; }
-  pre { border: 1px solid rgba(244,241,236,.14); border-radius: 16px; padding: 16px; overflow: auto; color: #d7def8; }
-</style>
+<link rel="stylesheet" href="styles.css" />
   <!-- Directory Maps + discovery pack (added 2026-10-16). No visible content changed. -->
   <meta name="color-scheme" content="dark light" />
   <meta name="theme-color" content="#07091a" />
