@@ -1,0 +1,17 @@
+/* Page styles for harwatch/index.html, extracted verbatim from the inline <style> block (CSP Option A). No rules changed except the appended class(es) moved from inline style="" attributes. */
+  .skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
+  :root { --bg:#071018; --ink:#f4f1ec; --muted:#a9b8c7; --line:rgba(244,241,236,.14); --teal:#3ecfb2; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Syne, sans-serif; }
+  a { color: inherit; }
+  header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 14px 4vw; border-bottom: 1px solid var(--line); }
+  .pay { border-radius: 999px; background: var(--teal); color: #04110e; text-decoration: none; padding: 0 16px; letter-spacing: .12em; font-size: 12px; text-transform: uppercase; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; box-sizing: border-box; }
+  header > a:not(.pay) { display: inline-flex; align-items: center; min-height: 44px; }
+  main { padding: 10vh 4vw; max-width: 760px; }
+  h1 { font-size: clamp(42px, 6vw, 72px); line-height: .92; letter-spacing: -.04em; }
+  h1 em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; color: var(--teal); }
+  p { color: var(--muted); line-height: 1.6; font-size: 18px; }
+  pre { border: 1px solid var(--line); border-radius: 16px; padding: 16px; overflow: auto; color: #d7e8f0; }
+
+/* Moved from inline style="" attribute (CSP Option A). */
+.page-footer { padding: 28px 4vw; color: #a9b8c7; }

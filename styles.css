@@ -1,0 +1,136 @@
+/* Page styles for index.html, extracted verbatim from the inline <style> block (CSP Option A). No rules changed except the appended class(es) moved from inline style="" attributes. */
+  .skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
+  :root {
+    --bg: #07091a;
+    --ink: #f4f1ec;
+    --muted: #a9b0c7;
+    --line: rgba(244,241,236,.14);
+    --violet: #8b7cff;
+    --violet-2: #c9c2ff;
+    --ease: cubic-bezier(.22,1,.36,1);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Syne, sans-serif; overflow-x: hidden; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  ::selection { background: var(--violet); color: #fff; }
+  .grain {
+    pointer-events: none; position: fixed; inset: 0; z-index: 40; opacity: .16; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.55'/></svg>");
+  }
+  .progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; z-index: 50; background: linear-gradient(90deg, var(--violet), #fff); }
+  nav {
+    position: sticky; top: 0; z-index: 30;
+    background: rgba(7,9,26,.94); border-bottom: 1px solid var(--line);
+  }
+  .nav-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 4vw 8px; }
+  .menu { border-top: 1px solid var(--line); }
+  .menu summary { padding: 12px 4vw; display: block; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 750; letter-spacing: -.03em; }
+  .brand img { width: 42px; height: 42px; border-radius: 10px; }
+  .menu { position: static; }
+  .menu summary { list-style: none; cursor: pointer; letter-spacing: .16em; text-transform: uppercase; font-size: 12px; color: var(--muted); padding: 0 4vw 12px; }
+  .menu summary::-webkit-details-marker { display: none; }
+  .menu .list { position: static; display: grid; background: transparent; border: 0; padding: 8px 0 0; }
+  .menu a { display: block; text-decoration: none; color: var(--ink); padding: 10px 0; border-top: 1px solid var(--line); letter-spacing: 0; text-transform: none; font-size: 14px; }
+  .nav-links a { text-decoration: none; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  .pay {
+    border: 0; border-radius: 999px; background: var(--violet); color: #fff; text-decoration: none;
+    padding: 11px 16px; letter-spacing: .14em; font-size: 11px; text-transform: uppercase; font-weight: 700;
+  }
+  .hero { min-height: 100vh; padding: 18vh 4vw 8vh; display: grid; grid-template-columns: 1.15fr .85fr; gap: 6vw; align-items: end; position: relative; }
+  .kicker { letter-spacing: .26em; text-transform: uppercase; color: var(--violet-2); font-size: 11px; }
+  h1 { font-size: clamp(46px, 6.4vw, 92px); line-height: .9; letter-spacing: -.045em; margin: 16px 0; font-weight: 750; }
+  h1 em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; color: var(--violet-2); }
+  .lede { color: var(--muted); font-size: 18px; line-height: 1.55; max-width: 40rem; }
+  .hero-actions { display: flex; gap: 14px; align-items: center; margin-top: 28px; }
+  .ghost { color: var(--ink); text-decoration: none; letter-spacing: .14em; text-transform: uppercase; font-size: 12px; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+  .mark-stage {
+    justify-self: end; width: min(42vw, 460px); aspect-ratio: 1; border-radius: 32px; overflow: hidden;
+    border: 1px solid var(--line); background: #0b1020; box-shadow: 0 40px 120px rgba(139,124,255,.18);
+  }
+  .mark-stage video, .mark-stage img { width: 100%; height: 100%; object-fit: cover; }
+  .marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; white-space: nowrap; padding: 14px 0; }
+  .marquee span { display: inline-block; animation: slide 28s linear infinite; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); padding-right: 40px; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+  section { position: relative; z-index: 2; padding: 12vh 4vw; }
+  .index { color: var(--violet); letter-spacing: .24em; text-transform: uppercase; font-size: 12px; margin-bottom: 14px; }
+  h2 { font-size: clamp(36px, 5vw, 72px); line-height: .92; letter-spacing: -.04em; margin: 0 0 16px; }
+  h2 em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; color: var(--violet-2); }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: end; }
+  .cards, .buy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+  .card { border: 1px solid var(--line); border-radius: 22px; padding: 26px; min-height: 220px; background: linear-gradient(180deg, rgba(255,255,255,.03), transparent); }
+  .card b { display: block; color: var(--violet-2); letter-spacing: .16em; text-transform: uppercase; font-size: 12px; margin-bottom: 14px; }
+  .card p, .why li { color: var(--muted); line-height: 1.55; }
+  .why { margin: 0; padding: 0; list-style: none; }
+  .why li { padding: 16px 0; border-top: 1px solid var(--line); }
+  .buy {
+    margin: 0 4vw 10vh; border-radius: 32px; border: 1px solid var(--line); padding: 48px 40px;
+    background: radial-gradient(ellipse at 10% 0%, rgba(139,124,255,.22), transparent 46%), #0c1022;
+  }
+  .price { font-size: clamp(56px, 8vw, 104px); letter-spacing: -.06em; margin: 0; line-height: .85; }
+  .price small { font-size: .28em; letter-spacing: .12em; color: var(--muted); }
+  .field { margin-top: 18px; display: flex; gap: 10px; background: rgba(7,9,26,.7); border: 1px solid var(--line); border-radius: 999px; padding: 8px 8px 8px 18px; }
+  .field input, .note {
+    width: 100%; background: transparent; border: 0; outline: none; color: var(--ink); font-family: inherit; font-size: 15px;
+  }
+  .field input::placeholder, .note::placeholder { color: #7d86a3; }
+  .field input:focus-visible, .note:focus-visible { outline: 2px solid #c9c2ff; outline-offset: 2px; }
+  .note { display: block; margin-top: 12px; border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; min-height: 96px; resize: vertical; background: rgba(7,9,26,.45); }
+  .field button, .send {
+    border: 0; border-radius: 999px; background: #fff; color: #111; font-family: inherit; letter-spacing: .12em;
+    text-transform: uppercase; font-size: 12px; font-weight: 700; padding: 0 18px;
+  }
+  .send { margin-top: 14px; padding: 14px 18px; cursor: pointer; }
+  .fine { color: var(--muted); font-size: 13px; line-height: 1.5; }
+  .run { font: 14px/1.7 ui-monospace, monospace; color: var(--muted); }
+  .run i { color: var(--violet-2); font-style: normal; }
+  .buyer {
+    margin-top: 28px; border: 1px solid var(--line); border-radius: 28px; padding: 28px;
+    background: rgba(7,9,26,.55);
+  }
+  .buyer h3 { margin: 8px 0 6px; font-size: clamp(28px, 3vw, 40px); letter-spacing: -.03em; }
+  .steps { display: grid; grid-template-columns: 180px 1fr; gap: 28px; align-items: start; }
+  .step-no { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--violet-2); }
+  .sample { margin-top: 28px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
+  .pane { border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #07091a; }
+  .pane header { display: flex; justify-content: space-between; padding: 12px 14px; border-bottom: 1px solid var(--line); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .pane pre { margin: 0; padding: 16px; overflow: auto; font: 12.5px/1.55 ui-monospace, monospace; color: #d7def8; }
+  .ok { color: #9be7c4; } .bad { color: #ff8aae; } .dim { color: #7d86a3; }
+  @media (max-width: 860px) { .steps, .sample { grid-template-columns: 1fr; } }
+  footer {
+    position: relative; z-index: 3; clear: both;
+    margin-top: 8vh; padding: 28px 4vw 48px;
+    display: grid; grid-template-columns: auto 1fr; gap: 18px 28px; align-items: center;
+    color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+    border-top: 1px solid var(--line);
+  }
+  footer .brandline { display: flex; align-items: center; gap: 12px; color: var(--ink); letter-spacing: 0; text-transform: none; font-size: 16px; font-weight: 700; }
+  footer img { width: 36px; height: 36px; border-radius: 8px; flex: none; }
+  footer p { margin: 0; line-height: 1.6; }
+  .live { padding-top: 4vh; }
+  .term {
+    margin-top: 28px; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: #07091a;
+    min-height: 420px;
+  }
+  .term header { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+  .term pre { margin: 0; padding: 18px 16px 28px; min-height: 360px; font: 13px/1.6 ui-monospace, monospace; color: #d7def8; white-space: pre-wrap; }
+  .caret { display: inline-block; width: 8px; height: 1em; background: var(--violet-2); transform: translateY(2px); animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (max-width: 860px) {
+    footer { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 860px) {
+    .hero, .split, .cards, .buy-grid { grid-template-columns: 1fr; }
+    .mark-stage { width: 100%; justify-self: start; }
+    .nav-links a:not(.pay) { display: none; }
+    .nav-links { margin-left: auto; }
+    .pay { position: static; }
+    .buy { padding: 28px 18px; }
+  }
+
+/* Moved from inline style="" attributes (CSP Option A). */
+.pane-full { grid-column: 1 / -1; }
+.vip-status { padding: 0 4vw 8px; }
