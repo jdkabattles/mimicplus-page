@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Content-Security-Policy: same base policy as EvidenceForge / Hub / Governed Agent Engine / Avcal-Agent, plus style-src fonts.googleapis.com + font-src fonts.gstatic.com (Google Fonts stylesheet + woff2; woff2 self-hosting needs a binary-safe push, not used here), plus form-action mailto: (the buyer form submits via mailto:). The third-party view-count beacon is removed, so no connect-src entry for it exists. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:" />
 <title>mimicplus: HAR to OpenAPI, typed Python client, and breaking-change check | ForgingStack</title>
 <meta property="og:title" content="mimicplus: HAR to OpenAPI, typed Python client, and breaking-change check | ForgingStack" />
 <meta property="og:description" content="mimicplus turns a HAR you may record into a versioned spec, a typed Python client, OpenAPI, tests, and a breaking-change check. $199 once." />
@@ -22,139 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<style>
-  .skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
-  .skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
-  :root {
-    --bg: #07091a;
-    --ink: #f4f1ec;
-    --muted: #a9b0c7;
-    --line: rgba(244,241,236,.14);
-    --violet: #8b7cff;
-    --violet-2: #c9c2ff;
-    --ease: cubic-bezier(.22,1,.36,1);
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Syne, sans-serif; overflow-x: hidden; }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  ::selection { background: var(--violet); color: #fff; }
-  .grain {
-    pointer-events: none; position: fixed; inset: 0; z-index: 40; opacity: .16; mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.55'/></svg>");
-  }
-  .progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; z-index: 50; background: linear-gradient(90deg, var(--violet), #fff); }
-  nav {
-    position: sticky; top: 0; z-index: 30;
-    background: rgba(7,9,26,.94); border-bottom: 1px solid var(--line);
-  }
-  .nav-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 4vw 8px; }
-  .menu { border-top: 1px solid var(--line); }
-  .menu summary { padding: 12px 4vw; display: block; }
-  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 750; letter-spacing: -.03em; }
-  .brand img { width: 42px; height: 42px; border-radius: 10px; }
-  .menu { position: static; }
-  .menu summary { list-style: none; cursor: pointer; letter-spacing: .16em; text-transform: uppercase; font-size: 12px; color: var(--muted); padding: 0 4vw 12px; }
-  .menu summary::-webkit-details-marker { display: none; }
-  .menu .list { position: static; display: grid; background: transparent; border: 0; padding: 8px 0 0; }
-  .menu a { display: block; text-decoration: none; color: var(--ink); padding: 10px 0; border-top: 1px solid var(--line); letter-spacing: 0; text-transform: none; font-size: 14px; }
-  .nav-links a { text-decoration: none; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
-  .pay {
-    border: 0; border-radius: 999px; background: var(--violet); color: #fff; text-decoration: none;
-    padding: 11px 16px; letter-spacing: .14em; font-size: 11px; text-transform: uppercase; font-weight: 700;
-  }
-  .hero { min-height: 100vh; padding: 18vh 4vw 8vh; display: grid; grid-template-columns: 1.15fr .85fr; gap: 6vw; align-items: end; position: relative; }
-  .kicker { letter-spacing: .26em; text-transform: uppercase; color: var(--violet-2); font-size: 11px; }
-  h1 { font-size: clamp(46px, 6.4vw, 92px); line-height: .9; letter-spacing: -.045em; margin: 16px 0; font-weight: 750; }
-  h1 em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; color: var(--violet-2); }
-  .lede { color: var(--muted); font-size: 18px; line-height: 1.55; max-width: 40rem; }
-  .hero-actions { display: flex; gap: 14px; align-items: center; margin-top: 28px; }
-  .ghost { color: var(--ink); text-decoration: none; letter-spacing: .14em; text-transform: uppercase; font-size: 12px; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
-  .mark-stage {
-    justify-self: end; width: min(42vw, 460px); aspect-ratio: 1; border-radius: 32px; overflow: hidden;
-    border: 1px solid var(--line); background: #0b1020; box-shadow: 0 40px 120px rgba(139,124,255,.18);
-  }
-  .mark-stage video, .mark-stage img { width: 100%; height: 100%; object-fit: cover; }
-  .marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; white-space: nowrap; padding: 14px 0; }
-  .marquee span { display: inline-block; animation: slide 28s linear infinite; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); padding-right: 40px; }
-  @keyframes slide { to { transform: translateX(-50%); } }
-  section { position: relative; z-index: 2; padding: 12vh 4vw; }
-  .index { color: var(--violet); letter-spacing: .24em; text-transform: uppercase; font-size: 12px; margin-bottom: 14px; }
-  h2 { font-size: clamp(36px, 5vw, 72px); line-height: .92; letter-spacing: -.04em; margin: 0 0 16px; }
-  h2 em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; color: var(--violet-2); }
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: end; }
-  .cards, .buy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
-  .card { border: 1px solid var(--line); border-radius: 22px; padding: 26px; min-height: 220px; background: linear-gradient(180deg, rgba(255,255,255,.03), transparent); }
-  .card b { display: block; color: var(--violet-2); letter-spacing: .16em; text-transform: uppercase; font-size: 12px; margin-bottom: 14px; }
-  .card p, .why li { color: var(--muted); line-height: 1.55; }
-  .why { margin: 0; padding: 0; list-style: none; }
-  .why li { padding: 16px 0; border-top: 1px solid var(--line); }
-  .buy {
-    margin: 0 4vw 10vh; border-radius: 32px; border: 1px solid var(--line); padding: 48px 40px;
-    background: radial-gradient(ellipse at 10% 0%, rgba(139,124,255,.22), transparent 46%), #0c1022;
-  }
-  .price { font-size: clamp(56px, 8vw, 104px); letter-spacing: -.06em; margin: 0; line-height: .85; }
-  .price small { font-size: .28em; letter-spacing: .12em; color: var(--muted); }
-  .field { margin-top: 18px; display: flex; gap: 10px; background: rgba(7,9,26,.7); border: 1px solid var(--line); border-radius: 999px; padding: 8px 8px 8px 18px; }
-  .field input, .note {
-    width: 100%; background: transparent; border: 0; outline: none; color: var(--ink); font-family: inherit; font-size: 15px;
-  }
-  .field input::placeholder, .note::placeholder { color: #7d86a3; }
-  .field input:focus-visible, .note:focus-visible { outline: 2px solid #c9c2ff; outline-offset: 2px; }
-  .note { display: block; margin-top: 12px; border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; min-height: 96px; resize: vertical; background: rgba(7,9,26,.45); }
-  .field button, .send {
-    border: 0; border-radius: 999px; background: #fff; color: #111; font-family: inherit; letter-spacing: .12em;
-    text-transform: uppercase; font-size: 12px; font-weight: 700; padding: 0 18px;
-  }
-  .send { margin-top: 14px; padding: 14px 18px; cursor: pointer; }
-  .fine { color: var(--muted); font-size: 13px; line-height: 1.5; }
-  .run { font: 14px/1.7 ui-monospace, monospace; color: var(--muted); }
-  .run i { color: var(--violet-2); font-style: normal; }
-  .buyer {
-    margin-top: 28px; border: 1px solid var(--line); border-radius: 28px; padding: 28px;
-    background: rgba(7,9,26,.55);
-  }
-  .buyer h3 { margin: 8px 0 6px; font-size: clamp(28px, 3vw, 40px); letter-spacing: -.03em; }
-  .steps { display: grid; grid-template-columns: 180px 1fr; gap: 28px; align-items: start; }
-  .step-no { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--violet-2); }
-  .sample { margin-top: 28px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
-  .pane { border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #07091a; }
-  .pane header { display: flex; justify-content: space-between; padding: 12px 14px; border-bottom: 1px solid var(--line); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-  .pane pre { margin: 0; padding: 16px; overflow: auto; font: 12.5px/1.55 ui-monospace, monospace; color: #d7def8; }
-  .ok { color: #9be7c4; } .bad { color: #ff8aae; } .dim { color: #7d86a3; }
-  @media (max-width: 860px) { .steps, .sample { grid-template-columns: 1fr; } }
-  footer {
-    position: relative; z-index: 3; clear: both;
-    margin-top: 8vh; padding: 28px 4vw 48px;
-    display: grid; grid-template-columns: auto 1fr; gap: 18px 28px; align-items: center;
-    color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
-    border-top: 1px solid var(--line);
-  }
-  footer .brandline { display: flex; align-items: center; gap: 12px; color: var(--ink); letter-spacing: 0; text-transform: none; font-size: 16px; font-weight: 700; }
-  footer img { width: 36px; height: 36px; border-radius: 8px; flex: none; }
-  footer p { margin: 0; line-height: 1.6; }
-  .live { padding-top: 4vh; }
-  .term {
-    margin-top: 28px; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: #07091a;
-    min-height: 420px;
-  }
-  .term header { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
-  .term pre { margin: 0; padding: 18px 16px 28px; min-height: 360px; font: 13px/1.6 ui-monospace, monospace; color: #d7def8; white-space: pre-wrap; }
-  .caret { display: inline-block; width: 8px; height: 1em; background: var(--violet-2); transform: translateY(2px); animation: blink 1s steps(1) infinite; }
-  @keyframes blink { 50% { opacity: 0; } }
-  @media (max-width: 860px) {
-    footer { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 860px) {
-    .hero, .split, .cards, .buy-grid { grid-template-columns: 1fr; }
-    .mark-stage { width: 100%; justify-self: start; }
-    .nav-links a:not(.pay) { display: none; }
-    .nav-links { margin-left: auto; }
-    .pay { position: static; }
-    .buy { padding: 28px 18px; }
-  }
-</style>
+<link rel="stylesheet" href="styles.css" />
   <!-- Directory Maps + discovery pack (added 2026-10-16). No visible content changed. -->
   <meta name="color-scheme" content="dark light" />
   <meta name="theme-color" content="#07091a" />
@@ -219,6 +89,7 @@
         <a href="https://forgingstack.com/api-diff/">Breaking-change check</a>
         <a href="https://forgingstack.com/how-to/">How to use it</a>
         <a href="https://forgingstack.com/technical/">For the programmer</a>
+        <a href="https://forgingstack.com/gate/what-it-does/">Contract Gate, what it does</a>
         <a href="https://forgingstack.com/gate/how-to/">Contract Gate, plain</a>
         <a href="https://forgingstack.com/gate/technical/">Contract Gate, technical</a>
       </div>
@@ -290,7 +161,7 @@
         <p class="lede">Stripe takes the payment. The one-time key is issued from the private repo and sent to the receipt email. This page does not hold it.</p>
         <p><a class="pay" href="https://buy.stripe.com/cNieV69Jp1XY4oXegGffy00">Pay $199</a></p>
       </div>
-      <form class="buyer" action="mailto:jdkabattles@users.noreply.github.com" method="post" enctype="text/plain">
+      <form class="buyer" action="mailto:jdkabattles@gmail.com" method="post" enctype="text/plain">
         <div class="step-no">Step 02 — Key</div>
         <h3>Key from the receipt</h3>
         <p class="fine">Paste the key from the receipt email. Do not put a raw API token in this field, and do not paste the key in a public issue.</p>
@@ -331,7 +202,7 @@
 <span class="ok">ADD</span>   order.grandTotal
 <span class="dim">the gate stops the build before the old client ships</span></pre>
       </div>
-      <div class="pane" style="grid-column:1 / -1">
+      <div class="pane pane-full">
         <header><span>finished product</span><span>this run</span></header>
         <pre><a href="delivery/spec.json">spec.json</a>   <a href="delivery/acme_client.py">acme_client.py</a>   <a href="delivery/openapi.json">openapi.json</a>   <a href="delivery/test_acme_client.py">test_acme_client.py</a>   <a href="delivery/acme_client_mcp.py">acme_client_mcp.py</a>   <a href="delivery/client.ts">client.ts</a>   <a href="delivery/client.go">client.go</a>   <a href="delivery/diff.txt">diff.txt</a></pre>
       </div>
@@ -341,7 +212,7 @@
   <section class="live" id="live">
     <div class="index">04 — Live run</div>
     <h2>Key in. <em>mimicplus</em> runs.</h2>
-    <p class="lede">A customer pastes the key from the receipt. The same field accepts a master key. This is the execution from the delivery run, played back as it happened.</p>
+    <p class="lede">A customer pastes the key from the receipt. Key verification is server-side and pending backend; this page does not unlock delivery links. This is the execution from the delivery run, played back as it happened.</p>
     <div class="term" aria-live="polite">
       <header><span>mimicplus</span><button class="pay" id="replay" type="button">Replay</button></header>
       <pre id="screen"><span class="caret"></span></pre>
@@ -359,107 +230,10 @@
     </main>
   <footer>
     <div class="brandline"><img src="mark.png" alt="mimicplus logo" /> mimicplus</div>
-    <p>Pay once. The key arrives by email. Only an API you are allowed to call. <span id="views">Views —</span></p>
+    <p>Pay once. The key arrives by email. Only an API you are allowed to call. <span>View counting paused pending same-domain server</span></p>
   </footer>
-<p class="fine" id="vipStatus" role="status" style="padding:0 4vw 8px"></p>
-<script>
-const MASTER_HASHES = ["dc045355bb97b5f0975aebd30e7d4bcff06a7702524d432722a33d60df1bd6aa", "86e87b52e7f5dfda4e6951ff8415b3fb226212332c09f68665c118f50d20a786", "263ab24273be8b66aae8a78802953f63d529bb9248f0cbd5d84585d1fcdb1603", "ca6cbbe4d59561e8ced1833b0956aa043c23d3d94b865d659d02b4d94c7e835b", "51f27f10a30a115338bcdfaa87005a1b178a6510e8a6c86d9751d0fb085f0e67", "8b6312ba86f9c102c2cc0bf142e8f5523fb403b9975cb0cb412828399933970f", "b3762d0b8a403b29ec5da285e18a18f667852a6c677078f13c48e707e9ecdcf2"];
-const SCREEN = document.getElementById("screen");
-const LINES = [
-  ["$", " paste key"],
-  ["vip", " mp1.paid-••••••••.••••••••••••••••••••••••"],
-  ["", " VIP recognized. Paid key accepted."],
-  ["$", " mimicplus learn session.har -o spec.json"],
-  ["", " 127.0.0.1  mode=auth  base=http://127.0.0.1:8765"],
-  ["", " 17 flows -> 15 API calls (2 noise: html-document=1, static=1)"],
-  ["", " auth headers (names only, values never stored): authorization"],
-  ["", " POST   /api/auth/login            -> login(username, password)"],
-  ["", " GET    /api/me                    -> get_me()"],
-  ["", " GET    /api/products              -> list_products(page, per_page)"],
-  ["", " GET    /api/products/{product_id} -> get_product(product_id)"],
-  ["", " POST   /api/cart/items            -> create_item(product_id, qty)"],
-  ["", " POST   /graphql                   -> search_products(q, first)"],
-  ["", " POST   /graphql                   -> get_order(id)"],
-  ["", " POST   /graphql                   -> add_review(productId, rating, text)"],
-  ["", " POST   /api/auth/refresh          -> refresh(refresh_token)"],
-  ["", " wrote spec.json"],
-  ["$", " mimicplus gen spec.json -o acme_client.py --flavor both --tests --mcp --openapi openapi.json"],
-  ["", " wrote acme_client.py"],
-  ["", " wrote acme_client_async.py"],
-  ["", " wrote openapi.json"],
-  ["", " wrote test_acme_client.py"],
-  ["", " wrote acme_client_mcp.py"],
-  ["$", " mimicplus diff acme_v1.har acme_v2.har --fail-on-breaking"],
-  ["bad", " 4 breaking, 3 non-breaking (9 -> 8 endpoints)"],
-  ["bad", " endpoint-removed  GET /api/me"],
-  ["bad", " response-removed  items[].price"],
-  ["bad", " response-removed  product.price"],
-  ["bad", " response-removed  order.total"],
-  ["ok", " response-added    items[].price_cents"],
-  ["ok", " response-added    order.grandTotal"],
-  ["", " exit 1 — the gate stops the build"]
-];
-let timer;
-function play() {
-  clearInterval(timer);
-  SCREEN.textContent = "";
-  let i = 0;
-  timer = setInterval(() => {
-    if (i >= LINES.length) {
-      clearInterval(timer);
-      SCREEN.insertAdjacentHTML("beforeend", '<span class="caret"></span>');
-      return;
-    }
-    const [kind, text] = LINES[i++];
-    const row = document.createElement("div");
-    if (kind === "$") row.innerHTML = '<span class="dim">$</span>' + text;
-    else if (kind === "vip") row.innerHTML = '<span class="dim">vip</span>' + text;
-    else if (kind === "bad") row.innerHTML = '<span class="bad">' + text + "</span>";
-    else if (kind === "ok") row.innerHTML = '<span class="ok">' + text + "</span>";
-    else row.textContent = text;
-    SCREEN.appendChild(row);
-    SCREEN.parentElement.scrollTop = SCREEN.parentElement.scrollHeight;
-  }, 280);
-}
-play();
-document.getElementById("replay").addEventListener("click", play);
-async function sha256(value) {
-  const bytes = new TextEncoder().encode(value.trim());
-  const digest = await crypto.subtle.digest("SHA-256", bytes);
-  return [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, "0")).join("");
-}
-
-document.querySelectorAll('a[href*="buy.stripe.com"]').forEach((link) => {
-  link.addEventListener("click", () => fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-pay-click").catch(() => {}));
-});
-fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-home").then((r) => r.json()).then((d) => {
-  const node = document.getElementById("views");
-  if (node) node.textContent = "Views " + d.value;
-}).catch(() => {});
-addEventListener("scroll", () => {
-  const h = document.documentElement.scrollHeight - innerHeight;
-  document.getElementById("progress").style.width = (h ? scrollY / h * 100 : 0) + "%";
-});
-const form = document.querySelector(".buyer");
-const status = document.getElementById("vipStatus");
-form.addEventListener("submit", async (event) => {
-  const key = document.getElementById("vip").value.trim();
-  const digest = await sha256(key);
-  if (MASTER_HASHES.includes(digest)) {
-    event.preventDefault();
-    status.textContent = "VIP recognized. Master key accepted. Finished delivery is open.";
-    document.getElementById("finished").hidden = false;
-    return;
-  }
-  if (!/^mp1\.[A-Za-z0-9_-]+\.[a-f0-9]{24}$/.test(key)) {
-    event.preventDefault();
-    status.textContent = "That VIP key is not a paid key or a master key.";
-    return;
-  }
-  status.textContent = "VIP recognized. Paid key accepted. Finished delivery is open, and the request is sending.";
-  document.getElementById("finished").hidden = false;
-});
-</script>
+<p class="fine vip-status" id="vipStatus" role="status"></p>
+<script defer src="page.js"></script>
   <script defer src="map-tether.js"></script>
 </body>
 </html>
