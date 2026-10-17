@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Content-Security-Policy: same base policy as EvidenceForge / Hub / Governed Agent Engine / Avcal-Agent, plus style-src fonts.googleapis.com + font-src fonts.gstatic.com (Google Fonts stylesheet + woff2; woff2 self-hosting needs a binary-safe push, not used here), plus form-action mailto: (the buyer form submits via mailto:). The third-party view-count beacon is removed, so no connect-src entry for it exists. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:" />
 <title>harwatch — freeze an API, fail when a field is removed</title>
 <meta name="description" content="harwatch freezes one API from a recording you are allowed to make. A later recording fails the build when a field is removed. $29 a month." />
 <meta property="og:title" content="harwatch — freeze an API, fail when a field is removed" />
@@ -11,21 +13,7 @@
 <link rel="canonical" href="https://forgingstack.com/harwatch/" />
 <link rel="icon" href="../mark.png" />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
-<style>
-  .skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
-  .skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
-  :root { --bg:#071018; --ink:#f4f1ec; --muted:#a9b8c7; --line:rgba(244,241,236,.14); --teal:#3ecfb2; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Syne, sans-serif; }
-  a { color: inherit; }
-  header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 14px 4vw; border-bottom: 1px solid var(--line); }
-  .pay { border-radius: 999px; background: var(--teal); color: #04110e; text-decoration: none; padding: 0 16px; letter-spacing: .12em; font-size: 12px; text-transform: uppercase; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; box-sizing: border-box; }
-  header > a:not(.pay) { display: inline-flex; align-items: center; min-height: 44px; }
-  main { padding: 10vh 4vw; max-width: 760px; }
-  h1 { font-size: clamp(42px, 6vw, 72px); line-height: .92; letter-spacing: -.04em; }
-  h1 em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; color: var(--teal); }
-  p { color: var(--muted); line-height: 1.6; font-size: 18px; }
-  pre { border: 1px solid var(--line); border-radius: 16px; padding: 16px; overflow: auto; color: #d7e8f0; }
-</style>
+<link rel="stylesheet" href="styles.css" />
   <!-- Directory Maps + discovery pack (added 2026-10-16). No visible content changed. -->
   <meta name="color-scheme" content="dark light" />
   <meta name="theme-color" content="#071018" />
@@ -81,8 +69,7 @@ harwatch check later.har --contract contract.json</pre>
     <p>Not a Word file. The browser writes the HAR. Passwords stay out. No customer recording is stored in the public repo.</p>
     <p><a href="https://forgingstack.com/">mimicplus</a> · <a href="https://github.com/jdkabattles/harwatch">the free CLI</a></p>
   </main>
-  <footer style="padding:28px 4vw;color:#a9b8c7"><span id="views">Views —</span></footer>
-  <script>fetch("https://countapi.mileshilliard.com/api/v1/hit/forgingstack-harwatch").then(r=>r.json()).then(d=>{document.getElementById("views").textContent="Views "+d.value}).catch(()=>{})</script>
+  <footer class="page-footer"><span>View counting paused pending same-domain server</span></footer>
   <script defer src="../map-tether.js"></script>
 </body>
 </html>
