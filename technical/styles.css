@@ -1,0 +1,8 @@
+/* Page styles for technical/index.html, extracted verbatim from the inline <style> block (CSP Option A). No rules changed. */
+  .skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
+  body { margin: 0; background: #07091a; color: #f4f1ec; font-family: Syne, sans-serif; }
+  a { color: #c9c2ff; }
+  article { max-width: 760px; padding: 8vh 4vw; }
+  p, li { color: #a9b0c7; line-height: 1.6; }
+  pre { border: 1px solid rgba(244,241,236,.14); border-radius: 16px; padding: 16px; overflow: auto; color: #d7def8; }
