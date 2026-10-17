@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Content-Security-Policy: same base policy as EvidenceForge / Hub / Governed Agent Engine / Avcal-Agent, plus style-src fonts.googleapis.com + font-src fonts.gstatic.com (Google Fonts stylesheet + woff2; woff2 self-hosting needs a binary-safe push, not used here), plus form-action mailto: (the buyer form submits via mailto:). The third-party view-count beacon is removed, so no connect-src entry for it exists. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:" />
 <title>Contract Gate technical page: approved spec, later HAR, one waiver</title>
 <meta property="og:title" content="Contract Gate technical page: approved spec, later HAR, one waiver" />
 <meta property="og:description" content="Contract Gate stores the last approved spec and fails when a later HAR removes or renames a field. One approval does not hide the others. $499 a month." />
@@ -15,15 +17,7 @@
 <link rel="canonical" href="https://forgingstack.com/gate/technical/" />
 <link rel="icon" href="../mark.jpg" />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
-<style>
-  .skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
-  .skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
-  body { margin: 0; background: #120b07; color: #f6efe6; font-family: Syne, sans-serif; }
-  a { color: #ffb067; }
-  article { max-width: 760px; padding: 8vh 4vw; }
-  p { color: #cbb8a4; line-height: 1.6; }
-  pre { border: 1px solid rgba(255,160,70,.2); border-radius: 16px; padding: 16px; overflow: auto; }
-</style>
+<link rel="stylesheet" href="styles.css" />
 
 <!-- Directory Maps + technical SEO additions (three-additions treatment).
      Contract Gate is a TOOL page (it gates and handles user data): ZERO
