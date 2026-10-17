@@ -18,7 +18,8 @@
   body { margin: 0; background: var(--bg); color: var(--ink); font-family: Syne, sans-serif; }
   a { color: inherit; }
   header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 14px 4vw; border-bottom: 1px solid var(--line); }
-  .pay { border-radius: 999px; background: var(--teal); color: #04110e; text-decoration: none; padding: 11px 16px; letter-spacing: .12em; font-size: 12px; text-transform: uppercase; font-weight: 700; }
+  .pay { border-radius: 999px; background: var(--teal); color: #04110e; text-decoration: none; padding: 0 16px; letter-spacing: .12em; font-size: 12px; text-transform: uppercase; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; box-sizing: border-box; }
+  header > a:not(.pay) { display: inline-flex; align-items: center; min-height: 44px; }
   main { padding: 10vh 4vw; max-width: 760px; }
   h1 { font-size: clamp(42px, 6vw, 72px); line-height: .92; letter-spacing: -.04em; }
   h1 em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; color: var(--teal); }
