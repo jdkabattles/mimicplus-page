@@ -71,7 +71,11 @@
       { title: 'How to use it', url: 'https://forgingstack.com/how-to/', status: 'built', desc: 'How to use mimicplus, in plain English.' },
       { title: 'For the programmer', url: 'https://forgingstack.com/technical/', status: 'built', desc: 'What the programmer gets.' }
     ] },
-    { group: 'products', title: 'Contract', url: 'https://forgingstack.com/gate/', status: 'built', desc: 'Contract Gate, its own website. Prominent link from mimicplus. Lives at /gate/ today.' },
+    { group: 'products', title: 'Contract', url: 'https://forgingstack.com/gate/', status: 'built', desc: 'Contract Gate, its own website. Prominent link from mimicplus. Lives at /gate/ today.', children: [
+      { title: 'What goes in', url: 'https://forgingstack.com/gate/what-it-does/', status: 'built', desc: 'What Contract Gate takes, and what it returns.' },
+      { title: 'How to use it', url: 'https://forgingstack.com/gate/how-to/', status: 'built', desc: 'How to use Contract Gate, in plain English.' },
+      { title: 'For the programmer', url: 'https://forgingstack.com/gate/technical/', status: 'built', desc: 'Approved spec, later HAR, one waiver.' }
+    ] },
     { group: 'products', title: 'Avcal-Agent', url: 'https://forgingstack.com/avcal-agent/', status: 'built', desc: 'Sandboxed hidden-suite verification for agent-written code. Live at /avcal-agent/.' },
     { group: 'products', title: 'harwatch', url: 'https://forgingstack.com/harwatch/', status: 'built', desc: 'Freeze an API, fail when a field is removed. $29 a month. Live in this repo.' },
     { group: 'products', title: 'EvidenceForge', url: 'https://forgingstack.com/evidenceforge/', status: 'built', desc: 'EvidenceForge, its own website. Auditable, evidence-citing AI agents. Live at /evidenceforge/.' },
