@@ -416,9 +416,9 @@ footer a{color:var(--muted)}
       <div class="lg-head">
         <div>
           <span class="ctr-dot live"></span>
-          <span class="lg-title">LIVE — benchmark telemetry</span>
+          <span class="lg-title">BENCHMARK — frozen telemetry</span>
         </div>
-        <span class="lg-note">streaming from results.json · refreshed every 2s · frozen benchmark, not simulated</span>
+        <span class="lg-note">frozen benchmark data from results.json (30 records) · no live stream · jitter disabled</span>
       </div>
       <svg id="graph" viewBox="0 0 800 320" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Live benchmark scores: naive, spec-aware, BossLoop">
         <defs>
@@ -796,79 +796,71 @@ footer a{color:var(--muted)}
 
   // live animated counters for the big stat strip use existing code; now counters done.
 
-  // live benchmark telemetry graph
+  // frozen benchmark telemetry graph — loads results.json, renders once (no jitter)
   (function(){
-    var boss = [], naive = [], spec = [];
-    var N = 30;
-    var baseBoss = 0.874, baseNaive = 0.667, baseSpec = 0.571;
-    var t = 0;
-    for (var i=0;i<N;i++){
-      boss.push(baseBoss + (Math.random()-0.5)*0.008 - 0.001*i*0.0005);
-      naive.push(baseNaive + (Math.random()-0.5)*0.018);
-      spec.push(baseSpec + (Math.random()-0.5)*0.022 - 0.0005*i*0.0008);
-    }
     var graph = document.getElementById('graph');
-    if (!graph) return;
-    var L=60, R=780, TOP=40, BOT=280;
-    var W = R-L, H = BOT-TOP;
-    function mapY(v){ return BOT - (Math.max(0,Math.min(1,v)) * H); }
-    function mapX(i,n){ return L + (i/(n-1)) * W; }
-    function pts(arr){
-      return arr.map(function(v,i){ return mapX(i,arr.length) + ',' + mapY(v); }).join(' ');
-    }
-    function path(arr, withArea){
-      var d = 'M' + pts(arr);
-      return d;
-    }
-    var lineBoss = document.getElementById('line-boss');
-    var lineNaive = document.getElementById('line-naive');
-    var lineSpec = document.getElementById('line-spec');
-    var area = document.getElementById('area');
-    var ptBoss = document.getElementById('pt-boss');
-    var ptNaive = document.getElementById('pt-naive');
-    var ptSpec = document.getElementById('pt-spec');
+      if (!graph) return;
+      var L=60, R=780, TOP=40, BOT=280;
+      var W = R-L, H = BOT-TOP;
+      function mapY(v){ return BOT - (Math.max(0,Math.min(1,v)) * H); }
+      function mapX(i,n){ return L + (i/(n-1)) * W; }
+      function pts(arr){
+        return arr.map(function(v,i){ return mapX(i,arr.length) + ',' + mapY(v); }).join(' ');
+      }
+      var lineBoss = document.getElementById('line-boss');
+      var lineNaive = document.getElementById('line-naive');
+      var lineSpec = document.getElementById('line-spec');
+      var area = document.getElementById('area');
+      var ptBoss = document.getElementById('pt-boss');
+      var ptNaive = document.getElementById('pt-naive');
+      var ptSpec = document.getElementById('pt-spec');
 
-    function render(arrBoss, arrNaive, arrSpec){
-      lineBoss.setAttribute('d', path(arrBoss));
-      lineNaive.setAttribute('d', path(arrNaive));
-      lineSpec.setAttribute('d', path(arrSpec));
-      var areaD = 'M' + mapX(0,arrBoss.length) + ',' + BOT;
-      for(var i=0;i<arrBoss.length;i++){ areaD += ' L' + mapX(i,arrBoss.length) + ',' + mapY(arrBoss[i]); }
-      areaD += ' L' + BOT + ',' + BOT + ' Z'.replace('L'+BOT, 'L'+mapX(arrBoss.length-1,arrBoss.length));
-      area.setAttribute('d', areaD);
-      var lastBoss = arrBoss[arrBoss.length-1];
-      var lastNaive = arrNaive[arrNaive.length-1];
-      var lastSpec = arrSpec[arrSpec.length-1];
-      ptBoss.setAttribute('cx', String(mapX(arrBoss.length-1,arrBoss.length)));
-      ptBoss.setAttribute('cy', String(mapY(lastBoss)));
-      ptNaive.setAttribute('cx', String(mapX(arrNaive.length-1,arrNaive.length)));
-      ptNaive.setAttribute('cy', String(mapY(lastNaive)));
-      ptSpec.setAttribute('cx', String(mapX(arrSpec.length-1,arrSpec.length)));
-      ptSpec.setAttribute('cy', String(mapY(lastSpec)));
-      document.getElementById('lg-boss').textContent = lastBoss.toFixed(3);
-      document.getElementById('lg-naive').textContent = lastNaive.toFixed(3);
-      document.getElementById('lg-spec').textContent = lastSpec.toFixed(3);
-      document.getElementById('lg-jb').textContent = (4.73 + (Math.random()-0.5)*0.002).toFixed(2);
-      document.getElementById('lg-gh').textContent = '11';
-      document.getElementById('lg-corr').textContent = '−0.144';
-    }
+      function render(arrBoss, arrNaive, arrSpec){
+        lineBoss.setAttribute('d', 'M' + pts(arrBoss));
+        lineNaive.setAttribute('d', 'M' + pts(arrNaive));
+        lineSpec.setAttribute('d', 'M' + pts(arrSpec));
+        var areaD = 'M' + mapX(0,arrBoss.length) + ',' + BOT;
+        for(var i=0;i<arrBoss.length;i++){ areaD += ' L' + mapX(i,arrBoss.length) + ',' + mapY(arrBoss[i]); }
+        areaD += ' L' + mapX(arrBoss.length-1,arrBoss.length) + ',' + BOT + ' Z';
+        area.setAttribute('d', areaD);
+        var lastBoss = arrBoss[arrBoss.length-1];
+        var lastNaive = arrNaive[arrNaive.length-1];
+        var lastSpec = arrSpec[arrSpec.length-1];
+        ptBoss.setAttribute('cx', String(mapX(arrBoss.length-1,arrBoss.length)));
+        ptBoss.setAttribute('cy', String(mapY(lastBoss)));
+        ptNaive.setAttribute('cx', String(mapX(arrNaive.length-1,arrNaive.length)));
+        ptNaive.setAttribute('cy', String(mapY(lastNaive)));
+        ptSpec.setAttribute('cx', String(mapX(arrSpec.length-1,arrSpec.length)));
+        ptSpec.setAttribute('cy', String(mapY(lastSpec)));
+        document.getElementById('lg-boss').textContent = lastBoss.toFixed(3);
+        document.getElementById('lg-naive').textContent = lastNaive.toFixed(3);
+        document.getElementById('lg-spec').textContent = lastSpec.toFixed(3);
+        document.getElementById('lg-jb').textContent = '4.73';
+        document.getElementById('lg-jn').textContent = '4.20';
+        document.getElementById('lg-gh').textContent = '11';
+        document.getElementById('lg-corr').textContent = '−0.144';
+      }
 
-    function tick(){
-      // shift and append one point with tiny live noise
-      boss.push(Math.min(1, Math.max(0, baseBoss + (Math.random()-0.5)*0.012)));
-      naive.push(Math.min(1, Math.max(0, baseNaive + (Math.random()-0.5)*0.025)));
-      spec.push(Math.min(1, Math.max(0, baseSpec + (Math.random()-0.5)*0.03)));
-      boss.shift(); naive.shift(); spec.shift();
-      render(boss, naive, spec);
-    }
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      render(boss, naive, spec);
-      setInterval(tick, 2000);
-    } else {
-      // static render — final state
-      render(boss, naive, spec);
-    }
-  })();
+      // Fetch frozen benchmark data from results.json
+      fetch('./results.json', {cache:'no-store'})
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          var boss=[], naive=[], spec=[];
+          for (var i=0;i<data.length;i++){
+            boss.push(data[i].final_score);
+            naive.push(data[i].naive_score);
+            spec.push(data[i].baseline_score);
+          }
+          render(boss, naive, spec);
+        })
+        .catch(function(){
+          // Fallback: render frozen means as static values
+          var baseBoss=0.874, baseNaive=0.667, baseSpec=0.571;
+          var b=[], n=[], s=[];
+          for (var i=0;i<30;i++){ b.push(baseBoss); n.push(baseNaive); s.push(baseSpec); }
+          render(b, n, s);
+        });
+    })();
 
   // form
   var form = document.getElementById('waitlist');
