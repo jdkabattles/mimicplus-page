@@ -35,6 +35,7 @@
   // A coming_soon entry keeps its planned `url` in the data so flipping
   // it to built is a one-field change — the renderer never turns it
   // into an <a> while status is 'coming_soon'.
+  // Status: 'removed' = listed with the page name + "Removed" underneath, NO live link, not clickable.
   var DIRECTORY = [
     // NOTE — mimicplus adaptation.
     // All URLs are absolute https://forgingstack.com/ (apex, matching this
@@ -45,22 +46,13 @@
     // HONESTY RULE (2026-10-16 fix): a 'built' entry must link to a URL that
     // actually serves that site today. Staged / planned / not-yet-live
     // targets are 'coming_soon', never 'built' with a dead link.
-    // Gold Is The Receipt hub is built: live at /hub/ since 2026-10-16.
+    // Gold Is The Receipt hub was live at /hub/; removed 2026-10-18.
     // Verity is coming_soon: its site exists as code in its repo, but is
     // not yet live on this domain. EvidenceForge is built: live at
     // /evidenceforge/ since 2026-10-16. Avcal-Agent is built: live at
     // /avcal-agent/ since 2026-10-16.
-    { group: 'hub', title: 'Gold Is The Receipt', url: 'https://forgingstack.com/hub/', status: 'built', desc: 'The hub. Done is a claim. GOLD is a receipt. Live at /hub/.' },
-    { group: 'standard', title: 'Algorithmic Gold', url: 'https://forgingstack.com/algorithmic-gold/', status: 'built', desc: 'The verification standard. Six gates. Real outcomes.', children: [
-      { title: 'Blog', url: 'https://forgingstack.com/algorithmic-gold/blog/index.html', status: 'built', desc: 'Essays behind the standard.' },
-      { title: 'Why Single Runs Lie', url: 'https://forgingstack.com/algorithmic-gold/blog/why-single-run-lies.html', status: 'built', desc: 'One run is not a result.' },
-      { title: 'The Goodhart Gate', url: 'https://forgingstack.com/algorithmic-gold/blog/goodhart-gate.html', status: 'built', desc: 'When the scoreboard gets gamed.' },
-      { title: 'Specification Gaming Catalog', url: 'https://forgingstack.com/algorithmic-gold/blog/specification-gaming-catalog.html', status: 'built', desc: 'Ways a spec can be gamed.' },
-      { title: 'Contamination and Holdout', url: 'https://forgingstack.com/algorithmic-gold/blog/contamination-holdout.html', status: 'built', desc: 'Why the holdout stays frozen.' },
-      { title: 'Receipt, Not Claim', url: 'https://forgingstack.com/algorithmic-gold/blog/receipt-not-claim.html', status: 'built', desc: 'A claim without a receipt is not done.' },
-      { title: 'Pattern Atlas', url: 'https://forgingstack.com/algorithmic-gold/patterns/index.html', status: 'built', desc: '49 cited patterns behind the gates.' },
-      { title: 'Products', url: 'https://forgingstack.com/algorithmic-gold/products/index.html', status: 'built', desc: 'Products under the standard.' }
-    ] },
+    { group: 'hub', title: 'Gold Is The Receipt', url: null, status: 'removed', desc: 'Removed.' },
+    { group: 'standard', title: 'Algorithmic Gold', url: null, status: 'removed', desc: 'Removed — claims unverified.' },
     { group: 'products', title: 'mimicplus', url: 'https://forgingstack.com/', status: 'built', desc: 'HAR to OpenAPI, typed Python client, and breaking-change check. $199 once. This site.', children: [
       { title: 'What goes in', url: 'https://forgingstack.com/what-it-does/', status: 'built', desc: 'What you feed mimicplus, and what comes out.' },
       { title: 'The missing spec', url: 'https://forgingstack.com/blog/', status: 'built', desc: 'A partner screen can change overnight.' },
@@ -79,6 +71,7 @@
     { group: 'products', title: 'Avcal-Agent', url: 'https://forgingstack.com/avcal-agent/', status: 'built', desc: 'Sandboxed hidden-suite verification for agent-written code. Live at /avcal-agent/.' },
     { group: 'products', title: 'harwatch', url: 'https://forgingstack.com/harwatch/', status: 'built', desc: 'Freeze an API, fail when a field is removed. $29 a month. Live in this repo.' },
     { group: 'products', title: 'EvidenceForge', url: 'https://forgingstack.com/evidenceforge/', status: 'built', desc: 'EvidenceForge, its own website. Auditable, evidence-citing AI agents. Live at /evidenceforge/.' },
+    { group: 'products', title: 'Products', url: 'https://forgingstack.com/products/', status: 'built', desc: 'Actual products only. Overture $29, Jobs $19, SEC $49. CSV plus delivery receipt.' },
     { group: 'products', title: 'Verity', url: 'https://forgingstack.com/verity/', status: 'coming_soon', desc: 'Verity, evidence ledger for agent runs. Site exists in its repo (docs/index.html) and needs work; not yet live on this domain. Coming Soon.' },
     { group: 'products', title: 'Governed Agent Engine', url: 'https://forgingstack.com/governed-agent-engine/', status: 'built', desc: 'Governed Agent Engine, its own website. Live at /governed-agent-engine/.' }
   ]
@@ -182,6 +175,25 @@
         var li = document.createElement('li');
         // Coming Soon: plain text + "Coming Soon" underneath. NO <a>,
         // not clickable, aria-disabled so assistive tech says it is not a link.
+        // Removed: plain text + "Removed" underneath. NO <a>,
+        // not clickable, aria-disabled so assistive tech says it is not a link.
+        if (s.status === 'removed') {
+          li.className = 'gt-tether-coming';
+          var title = document.createElement('strong');
+          title.className = 'gt-tether-coming-title';
+          title.textContent = s.title;
+          var removed = document.createElement('span');
+          removed.className = 'gt-tether-coming-soon';
+          removed.textContent = 'Removed';
+          var rdesc = document.createElement('span');
+          rdesc.textContent = s.desc;
+          li.setAttribute('aria-disabled', 'true');
+          li.appendChild(title);
+          li.appendChild(removed);
+          li.appendChild(rdesc);
+          ul.appendChild(li);
+          return;
+        }
         if (s.status === 'coming_soon') {
           li.className = 'gt-tether-coming';
           var title = document.createElement('strong');
@@ -211,6 +223,24 @@
           sub.className = 'gt-tether-subpages';
           s.children.forEach(function (c) {
             var cli = document.createElement('li');
+            // Removed: plain text + "Removed" underneath. NO <a>.
+            if (c.status === 'removed') {
+              cli.className = 'gt-tether-subpage gt-tether-coming';
+              var rtitle = document.createElement('strong');
+              rtitle.className = 'gt-tether-coming-title';
+              rtitle.textContent = c.title;
+              var rmark = document.createElement('span');
+              rmark.className = 'gt-tether-coming-soon';
+              rmark.textContent = 'Removed';
+              var rrdesc = document.createElement('span');
+              rrdesc.textContent = c.desc;
+              cli.setAttribute('aria-disabled', 'true');
+              cli.appendChild(rtitle);
+              cli.appendChild(rmark);
+              cli.appendChild(rrdesc);
+              sub.appendChild(cli);
+              return;
+            }
             if (c.status === 'coming_soon') {
               cli.className = 'gt-tether-subpage gt-tether-coming';
               var ctitle = document.createElement('strong');
