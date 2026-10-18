@@ -1,0 +1,11 @@
+/* ForgingStack — static site styles. No external resources. No tracking. */
+body { font-family: system-ui, sans-serif; line-height: 1.6; max-width: 72ch; margin: 0 auto; padding: 1rem; color: #1a1a1a; background: #ffffff; }
+header { border-bottom: 2px solid #1a1a1a; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+.wordmark { font-weight: 800; letter-spacing: 0.1em; margin: 0; }
+nav a { margin-right: 1rem; }
+a { color: #0b4ea2; }
+a:visited { color: #5b2a86; }
+h1, h2, h3 { line-height: 1.2; }
+table { border-collapse: collapse; }
+th, td { border: 1px solid #1a1a1a; padding: 0.5rem 1rem; text-align: left; }
+footer { border-top: 2px solid #1a1a1a; margin-top: 2rem; padding-top: 0.5rem; }
