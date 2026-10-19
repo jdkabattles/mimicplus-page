@@ -4,17 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
-<title>Static Product Page Kit: a no-build GitHub Pages sales page template ($19) | Forge Lab</title>
-<meta name="description" content="A plain HTML and CSS template for selling one digital product from a free GitHub Pages site. No build step, no JavaScript, strict CSP, SEO tags and policy page stubs. $19 on Gumroad.">
+<title>Static Product Page Kit for GitHub Pages ($19) | Forge Lab</title>
+<meta name="description" content="A plain HTML and CSS template for selling one digital product from a free GitHub Pages site. No build step, no JavaScript, strict CSP and SEO tags. $19.">
 <link rel="canonical" href="https://forgingstack.com/labs/static-product-page-kit.html">
-<meta property="og:title" content="Static Product Page Kit: a no-build GitHub Pages sales page template ($19) | Forge Lab">
-<meta property="og:description" content="A plain HTML and CSS template for selling one digital product from a free GitHub Pages site. No build step, no JavaScript, strict CSP, SEO tags and policy page stubs. $19 on Gumroad.">
+<meta property="og:title" content="Static Product Page Kit for GitHub Pages ($19) | Forge Lab">
+<meta property="og:description" content="A plain HTML and CSS template for selling one digital product from a free GitHub Pages site. No build step, no JavaScript, strict CSP and SEO tags. $19.">
 <meta property="og:url" content="https://forgingstack.com/labs/static-product-page-kit.html">
 <meta property="og:type" content="product">
 <meta property="og:site_name" content="ForgingStack">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Static Product Page Kit: a no-build GitHub Pages sales page template ($19) | Forge Lab">
-<meta name="twitter:description" content="A plain HTML and CSS template for selling one digital product from a free GitHub Pages site. No build step, no JavaScript, strict CSP, SEO tags and policy page stubs. $19 on Gumroad.">
+<meta name="twitter:title" content="Static Product Page Kit for GitHub Pages ($19) | Forge Lab">
+<meta name="twitter:description" content="A plain HTML and CSS template for selling one digital product from a free GitHub Pages site. No build step, no JavaScript, strict CSP and SEO tags. $19.">
 <meta name="theme-color" content="#07091a">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
@@ -37,8 +37,8 @@
     "availability": "https://schema.org/InStock",
     "seller": {
       "@type": "Organization",
-      "name": "ForgingStack",
-      "url": "https://forgingstack.com/"
+      "name": "Forge Lab",
+      "url": "https://forgingstack.com/labs/"
     }
   },
   "isPartOf": {
@@ -46,6 +46,102 @@
     "name": "ForgingStack",
     "url": "https://forgingstack.com/"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ForgingStack",
+      "item": "https://forgingstack.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Forge Lab",
+      "item": "https://forgingstack.com/labs/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Products",
+      "item": "https://forgingstack.com/labs/products.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Static Product Page Kit",
+      "item": "https://forgingstack.com/labs/static-product-page-kit.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is it delivered?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As an instant download through Gumroad. After you pay, Gumroad gives you a link to download the zip (about 30 KB)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about refunds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All sales are final once the digital file has been delivered. If you experience a technical problem that prevents you from downloading or opening the file, email jdkabattles@gmail.com within 7 days of purchase and we will either fix the delivery or issue a refund. No refunds for change of mind, duplicate purchase, or after the file has been successfully downloaded. The same policy is shown on the Gumroad product page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it need JavaScript or a build step?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It's plain HTML and one CSS file. The only script tag is the JSON-LD data block, which is data, not code that runs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use it for client work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can build sites with it for clients as long as you deliver the finished site, not the kit itself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Stripe instead of Gumroad on my own page?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The buy buttons take any checkout URL, including a Stripe Payment Link or a Gumroad product URL."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the page on this site built with the kit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This page uses the Forge Lab stylesheet. The kit has its own simpler layout and stylesheet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who do I contact with a question?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Email jdkabattles@gmail.com."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -135,7 +231,7 @@
         <li><strong>Turn on GitHub Pages:</strong> Settings &gt; Pages &gt; Deploy from a branch &gt; <code>main</code>, <code>/ (root)</code>. Classic branch deploys on public repositories don't use paid Actions minutes.</li>
         <li><strong>Optional:</strong> point a custom domain at it and tick <strong>Enforce HTTPS</strong>.</li>
       </ol>
-      <p class="note">The guide <a href="guides.html#github-pages">on this site</a> covers the same GitHub Pages steps. One limit to know: GitHub Pages can't set response headers, and a CSP meta tag can't set <code>frame-ancestors</code>, so clickjacking protection isn't available on plain GitHub Pages.</p>
+      <p class="note">The <a href="guides.html#github-pages">GitHub Pages guide</a> on this site covers the same steps. One limit to know: GitHub Pages can't set response headers, and a CSP meta tag can't set <code>frame-ancestors</code>, so clickjacking protection isn't available on plain GitHub Pages.</p>
     </section>
 
     <section id="faq">
