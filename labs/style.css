@@ -76,3 +76,9 @@ pre code { color: inherit; font-size: inherit; }
   .cards { grid-template-columns: 1fr; }
   .hero { padding-top: 8vh; }
 }
+
+/* Static Product Page Kit landing page (body.kit-page only) */
+.kit-page .fine { font-size: 13px; margin-top: 14px; }
+.kit-page .price { font-size: 40px; font-weight: 750; color: var(--ink); margin: 8px 0 16px; } .kit-page .price span { font-size: 14px; font-weight: 400; color: var(--muted); }
+.kit-page .steps li { margin: 8px 0; }
+@media (prefers-color-scheme: light) { body.kit-page { --bg: #f7f6f2; --panel: #ecebe6; --ink: #14162b; --muted: #4a4f66; --line: rgba(20,22,43,.14); --violet: #5b4bdb; --violet-2: #4535c4; } body.kit-page .site-nav { background: rgba(247,246,242,.94); } body.kit-page a:hover { color: #14162b; } body.kit-page .btn:hover { color: #fff; } }
