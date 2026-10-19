@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GOLD Receipt — Check a Receipt</title>
+<meta name="description" content="Check a GOLD Verification Run receipt. Upload the receipt file, see VALID or INVALID, and read what it proves in plain words.">
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.6;color:#1a1a1a}
+h1{font-size:1.7rem}h2{margin-top:2rem}
+.verdict{font-size:1.4rem;font-weight:700;padding:16px;border-radius:8px;margin:16px 0}
+.valid{background:#d9f2dd}.invalid{background:#f8d7da}.partial{background:#fff3cd}.idle{background:#eee}
+table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:left}
+label{display:block;margin:12px 0 4px;font-weight:600}
+input,button{font-size:1rem}button{padding:8px 16px;margin-top:12px;cursor:pointer}
+pre{white-space:pre-wrap;background:#f5f5f5;padding:12px;border-radius:8px;overflow-wrap:anywhere}
+.note{border-left:4px solid #888;padding-left:12px;color:#333}
+</style>
+</head>
+<body>
+<h1>GOLD Receipt — Check a Receipt</h1>
+<p>This page checks a GOLD Verification Run receipt. Nothing you upload or paste leaves your browser. The check key is used only on this page to recompute the signature, and is never sent anywhere.</p>
+
+<h2>What this receipt proves, in plain words</h2>
+<p><strong>It proves:</strong> what check ran, on what inputs, and when; what each of the six gates observed, pass or fail; and that this record has not been changed since it was signed.</p>
+<p><strong>It does NOT prove:</strong> that a product is good, safe, or worth buying. It is <strong>not</strong> a pass certificate. It is <strong>not</strong> a promise of future results. It is <strong>not</strong> investment advice. It is <strong>not</strong> a recommendation. It is only a record of one run.</p>
+
+<h2>Words we use</h2>
+<p>Hash = fingerprint. A hash is a fingerprint of a file or record. If the file changes, the fingerprint changes.</p>
+<p>Signature = seal. The signature is a seal that only the key holder could make. It shows the receipt has not changed since it was sealed.</p>
+<p>Merkle anchor = one fingerprint covering a day's receipts. We combine the day's receipt fingerprints into one fingerprint. If any receipt changes, the day's fingerprint changes.</p>
+
+<h2>Step 1 — Load the receipt file</h2>
+<label for="receiptFile">Receipt JSON file</label>
+<input type="file" id="receiptFile" accept=".json,application/json">
+<p>Or paste the receipt JSON here:</p>
+<label for="receiptText">Receipt JSON text</label>
+<textarea id="receiptText" rows="8" cols="70" placeholder="Paste receipt JSON here"></textarea>
+
+<h2>Step 2 — Paste the check key (optional, needed for signature check)</h2>
+<p class="note">Without the key, the page checks the hash chain and gate results, but the signature stays unchecked and the verdict will be PARTIALLY VERIFIED, never VALID.</p>
+<label for="keyInput">Check key</label>
+<input type="password" id="keyInput" autocomplete="off" size="50">
+
+<h2>Step 3 — Anchor (optional)</h2>
+<label for="anchorText">Anchor JSON text (from anchor.json)</label>
+<textarea id="anchorText" rows="4" cols="70" placeholder="Paste anchor JSON here, or leave empty"></textarea>
+
+<button type="button" id="checkBtn">Check receipt</button>
+
+<div id="verdict" class="verdict idle" role="status">Not checked yet.</div>
+<h2>Checks</h2>
+<ul id="checks"><li>Press Check receipt.</li></ul>
+<h2>Gates</h2>
+<table id="gates"><tr><th>Gate</th><th>Result</th><th>What was observed</th></tr></table>
+<h2>Plain-language summary</h2>
+<p id="plain">Not checked yet.</p>
+
+<script>
+async function sha256Hex(text){
+  const data = new TextEncoder().encode(text);
+  const buf = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,"0");}).join("");
+}
+function canonical(value){
+  if(value === null || typeof value !== "object"){ return JSON.stringify(value); }
+  if(Array.isArray(value)){ return "[" + value.map(canonical).join(",") + "]"; }
+  const keys = Object.keys(value).sort();
+  return "{" + keys.map(function(k){ return JSON.stringify(k) + ":" + canonical(value[k]); }).join(",") + "}";
+}
+async function hmacHex(key, message){
+  const keyData = new TextEncoder().encode(key);
+  const cryptoKey = await crypto.subtle.importKey("raw", keyData, {name:"HMAC", hash:"SHA-256"}, false, ["sign"]);
+  const sig = await crypto.subtle.sign("HMAC", cryptoKey, new TextEncoder().encode(message));
+  return Array.from(new Uint8Array(sig)).map(function(b){return b.toString(16).padStart(2,"0");}).join("");
+}
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+document.getElementById("checkBtn").addEventListener("click", async function(){
+  const verdictEl = document.getElementById("verdict");
+  const checksEl = document.getElementById("checks");
+  const gatesEl = document.getElementById("gates");
+  const plainEl = document.getElementById("plain");
+  let text = document.getElementById("receiptText").value.trim();
+  const fileInput = document.getElementById("receiptFile");
+  if(!text && fileInput.files.length > 0){ text = await fileInput.files[0].text(); }
+  if(!text){ verdictEl.className = "verdict invalid"; verdictEl.textContent = "INVALID — no receipt supplied."; return; }
+  let receipt;
+  try{ receipt = JSON.parse(text); }catch(e){ verdictEl.className = "verdict invalid"; verdictEl.textContent = "INVALID — receipt is not valid JSON."; return; }
+  const checks = [];
+  let failed = false;
+  const expected = ["Commit","Parity","Placebo","Paired win","Goodhart","Cost"];
+  let ok = true;
+  for(const f of ["receipt_version","run_id","timestamp_utc","gates","overall","plain_language","provenance","hash_chain","signature"]){
+    if(!(f in receipt)){ ok = false; }
+  }
+  if(!ok){ checks.push("Structure: FAIL — a required field is missing."); failed = true; }
+  else if(!Array.isArray(receipt.gates) || receipt.gates.length !== 6){ checks.push("Structure: FAIL — gates must be 6 rows."); failed = true; }
+  else if(JSON.stringify(receipt.gates.map(function(g){return g.name;}).sort()) !== JSON.stringify(expected.slice().sort())){ checks.push("Structure: FAIL — gate names do not match the six expected gates."); failed = true; }
+  else { checks.push("Structure: PASS — all required fields present, 6 gate rows well-formed."); }
+  if(!failed){
+    const allPass = receipt.gates.every(function(g){ return g.status === "PASS"; });
+    if((receipt.overall === "PASS") !== allPass){ checks.push("Overall: FAIL — overall does not match gate rows."); failed = true; }
+    else { checks.push("Overall: PASS — overall " + esc(receipt.overall) + " matches gate rows."); }
+  }
+  let chainHash = "";
+  if(!failed){
+    const body = {};
+    for(const k of Object.keys(receipt)){ if(k !== "hash_chain" && k !== "signature"){ body[k] = receipt[k]; } }
+    const contentHash = await sha256Hex(canonical(body));
+    if(contentHash !== receipt.hash_chain.content_hash){ checks.push("Hash chain: FAIL — content hash mismatch (receipt changed after signing)."); failed = true; }
+    else {
+      chainHash = await sha256Hex(String(receipt.hash_chain.previous_hash) + contentHash);
+      if(chainHash !== receipt.hash_chain.chain_hash){ checks.push("Hash chain: FAIL — chain hash mismatch (receipt changed after signing)."); failed = true; }
+      else { checks.push("Hash chain: PASS — content hash and chain hash recompute correctly."); }
+    }
+  }
+  let sigChecked = false;
+  const key = document.getElementById("keyInput").value;
+  if(!failed && key){
+    const sig = await hmacHex(key, chainHash);
+    if(sig !== receipt.signature.value){ checks.push("Signature: FAIL — signature mismatch (receipt changed or wrong check key)."); failed = true; }
+    else { checks.push("Signature: PASS — signature matches chain hash."); sigChecked = true; }
+  } else if(!failed && !key){
+    checks.push("Signature: NOT CHECKED — no check key supplied.");
+  }
+  const anchorText = document.getElementById("anchorText").value.trim();
+  if(!failed && anchorText){
+    try{
+      const anchor = JSON.parse(anchorText);
+      const leaf = await sha256Hex(chainHash);
+      if(!(anchor.leaf_hashes || []).includes(leaf)){ checks.push("Merkle anchor: FAIL — receipt leaf not in anchor leaf list."); failed = true; }
+      else {
+        let level = anchor.leaf_hashes.map(function(h){ return h; });
+        let bytes = level.map(function(h){ const a=[]; for(let i=0;i<h.length;i+=2){ a.push(parseInt(h.slice(i,i+2),16)); } return new Uint8Array(a); });
+        while(bytes.length > 1){
+          const nxt = [];
+          for(let i=0;i<bytes.length;i+=2){
+            const left = bytes[i]; const right = (i+1 < bytes.length) ? bytes[i+1] : bytes[i];
+            const joined = new Uint8Array(left.length + right.length); joined.set(left,0); joined.set(right,left.length);
+            const digest = await crypto.subtle.digest("SHA-256", joined);
+            nxt.push(new Uint8Array(digest));
+          }
+          bytes = nxt;
+        }
+        const root = Array.from(bytes[0]).map(function(b){return b.toString(16).padStart(2,"0");}).join("");
+        if(root !== anchor.merkle_root){ checks.push("Merkle anchor: FAIL — anchor root does not recompute."); failed = true; }
+        else { checks.push("Merkle anchor: PASS — leaf in anchor, root recomputes."); }
+      }
+    }catch(e){ checks.push("Merkle anchor: FAIL — anchor text is not valid JSON."); failed = true; }
+  }
+  checksEl.innerHTML = checks.map(function(c){ return "<li>" + esc(c) + "</li>"; }).join("");
+  let rows = "<tr><th>Gate</th><th>Result</th><th>What was observed</th></tr>";
+  if(Array.isArray(receipt.gates)){ for(const g of receipt.gates){ rows += "<tr><td>" + esc(g.name || "") + "</td><td>" + esc(g.status || "") + "</td><td>" + esc(g.observed || "") + "</td></tr>"; } }
+  gatesEl.innerHTML = rows;
+  if(receipt.plain_language){
+    plainEl.textContent = (receipt.plain_language.what_it_proves || "") + " " + (receipt.plain_language.what_it_does_not_prove || "");
+  }
+  if(failed){ verdictEl.className = "verdict invalid"; verdictEl.textContent = "INVALID — at least one check failed. Do not trust this receipt as written."; }
+  else if(!sigChecked){ verdictEl.className = "verdict partial"; verdictEl.textContent = "PARTIALLY VERIFIED — hash chain and gates check out, but the signature was not checked (no key)."; }
+  else { verdictEl.className = "verdict valid"; verdictEl.textContent = "VALID — every check passed, including the signature."; }
+});
+</script>
+</body>
+</html>
