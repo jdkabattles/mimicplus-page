@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+<title>Forge Lab guides: OpenAPI prompts, breaking-change review, GitHub Pages product pages | ForgingStack</title>
+<meta name="description" content="Three free guides: prompting for OpenAPI specs, reviewing API breaking changes with an LLM plus a real diff tool, and shipping a static product page on GitHub Pages for $0.">
+<link rel="canonical" href="https://forgingstack.com/labs/guides.html">
+<meta property="og:title" content="Forge Lab guides: OpenAPI prompts, breaking-change review, GitHub Pages product pages | ForgingStack">
+<meta property="og:description" content="Three free guides: prompting for OpenAPI specs, reviewing API breaking changes with an LLM plus a real diff tool, and shipping a static product page on GitHub Pages for $0.">
+<meta property="og:url" content="https://forgingstack.com/labs/guides.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ForgingStack">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Forge Lab guides: OpenAPI prompts, breaking-change review, GitHub Pages product pages | ForgingStack">
+<meta name="twitter:description" content="Three free guides: prompting for OpenAPI specs, reviewing API breaking changes with an LLM plus a real diff tool, and shipping a static product page on GitHub Pages for $0.">
+<meta name="theme-color" content="#07091a">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Forge Lab guides",
+  "url": "https://forgingstack.com/labs/guides.html",
+  "description": "Three free guides: prompting for OpenAPI specs, reviewing API breaking changes with an LLM plus a real diff tool, and shipping a static product page on GitHub Pages for $0.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "ForgingStack",
+    "url": "https://forgingstack.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ForgingStack",
+    "url": "https://forgingstack.com/"
+  },
+  "hasPart": [
+    {
+      "@type": "TechArticle",
+      "headline": "Writing prompts that produce a usable OpenAPI spec",
+      "url": "https://forgingstack.com/labs/guides.html#openapi-prompts",
+      "author": {
+        "@type": "Organization",
+        "name": "ForgingStack",
+        "url": "https://forgingstack.com/"
+      }
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Reviewing API breaking changes with an LLM",
+      "url": "https://forgingstack.com/labs/guides.html#breaking-changes",
+      "author": {
+        "@type": "Organization",
+        "name": "ForgingStack",
+        "url": "https://forgingstack.com/"
+      }
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Shipping a static product page on GitHub Pages for $0",
+      "url": "https://forgingstack.com/labs/guides.html#github-pages",
+      "author": {
+        "@type": "Organization",
+        "name": "ForgingStack",
+        "url": "https://forgingstack.com/"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Forge Lab">
+    <div class="nav-row">
+      <a class="brand" href="./">Forge <span>Lab</span></a>
+      <div class="nav-links">
+        <a href="./">Labs</a>
+        <a href="products.html">Products</a>
+        <a href="guides.html" aria-current="page">Guides</a>
+        <a href="about.html">About</a>
+        <a href="../">ForgingStack</a>
+      </div>
+    </div>
+  </nav>
+  <main id="main">
+    <header class="hero">
+      <div class="kicker">Forge Lab — Guides</div>
+      <h1>Three short <em>guides.</em></h1>
+      <p class="lede">Free and complete. Each one is written to be used with real files on a real project, and each one says where a model should not be trusted.</p>
+      <ul class="toc">
+        <li><a href="#openapi-prompts">1. Writing prompts that produce a usable OpenAPI spec</a></li>
+        <li><a href="#breaking-changes">2. Reviewing API breaking changes with an LLM</a></li>
+        <li><a href="#github-pages">3. Shipping a static product page on GitHub Pages for $0</a></li>
+      </ul>
+    </header>
+
+    <section id="openapi-prompts">
+      <article class="guide">
+        <div class="index">Guide 1</div>
+        <h2>Prompts that produce a usable <em>OpenAPI spec</em></h2>
+        <p>A model asked to "write an OpenAPI spec for my users API" will make up fields, status codes, and auth schemes that look right. The fix is to give it evidence, limit what it may invent, and check its output with a tool.</p>
+
+        <h3>1. Give it examples, not descriptions</h3>
+        <p>Paste real request and response pairs: method, path, query string, relevant headers, body, and status code. Include at least one error response per endpoint if you have one. Remove tokens, cookies, and personal data first. A description like "returns the user" leaves the model to guess the shape. An actual JSON body does not.</p>
+
+        <h3>2. Pin the version and the rules</h3>
+        <p>Say <code>openapi: 3.1.0</code> explicitly. Versions 3.0 and 3.1 differ in ways models mix up. For example, 3.1 uses JSON Schema, so a nullable string is <code>type: [string, "null"]</code>, while 3.0 used <code>nullable: true</code>. State the conventions you want: an <code>operationId</code> on every operation, shared shapes under <code>components/schemas</code> referenced with <code>$ref</code>, and one error schema used consistently.</p>
+
+        <h3>3. Make guessing visible</h3>
+        <p>Tell the model to mark anything it inferred rather than observed. A vendor extension such as <code>x-inferred: true</code> is valid OpenAPI (any key starting with <code>x-</code> is allowed), and it lets you search for every guess afterwards. Ask it to list unresolved questions at the end instead of silently choosing.</p>
+
+        <h3>4. Work one resource at a time</h3>
+        <p>Long specs drift: names change halfway through, and earlier schemas get forgotten. Generate one tag or resource per request, paste the existing <code>components</code> back in each time, and merge the results yourself.</p>
+
+        <h3>5. Check the output with tools</h3>
+        <ul>
+          <li>Lint it: <code>npx @redocly/cli lint openapi.yaml</code>, or Spectral with a <code>.spectral.yaml</code> containing <code>extends: ["spectral:oas"]</code> and then <code>npx @stoplight/spectral-cli lint openapi.yaml</code>.</li>
+          <li>Validate your saved example responses against the generated schemas. This is the check that catches invented <code>required</code> fields and wrong types.</li>
+          <li>Read the diff by hand for <code>required</code> lists, enums, and formats such as <code>date-time</code>. These are where models are most confidently wrong.</li>
+        </ul>
+
+        <h3>A prompt you can adapt</h3>
+<pre><code>You are writing an OpenAPI 3.1.0 document.
+
+Evidence (the only source of truth):
+&lt;paste redacted request/response pairs here&gt;
+
+Rules:
+- Describe only endpoints, fields, and status codes present in the evidence.
+- If a field appears in some responses but not others, make it optional.
+- Put reusable shapes in components/schemas and reference them with $ref.
+- Give every operation an operationId in camelCase.
+- Mark anything you inferred rather than observed with x-inferred: true.
+- Do not invent authentication; if a request carried an Authorization
+  header, add a securityScheme and note the assumption.
+
+Output: the YAML document, then a list titled "Open questions" with each
+assumption you could not confirm from the evidence.</code></pre>
+      </article>
+    </section>
+
+    <section id="breaking-changes">
+      <article class="guide">
+        <div class="index">Guide 2</div>
+        <h2>Reviewing breaking changes with an <em>LLM</em></h2>
+        <p>Do not ask a model to compare two large specs and find what changed. It will miss changes and report some that never happened. Let a diff tool find the changes, then use the model to explain them, judge who is affected, and write the migration note.</p>
+
+        <h3>1. Get a deterministic diff</h3>
+        <p><a href="https://github.com/oasdiff/oasdiff">oasdiff</a> is an open-source OpenAPI diff tool that compares two specs and reports breaking changes:</p>
+<pre><code>git show main:openapi.yaml &gt; base.yaml
+oasdiff breaking base.yaml openapi.yaml
+oasdiff changelog base.yaml openapi.yaml</code></pre>
+        <p>In CI, <code>oasdiff breaking base.yaml openapi.yaml --fail-on ERR</code> exits non-zero when it finds an error-level breaking change, so the build fails before the model is involved. The tool stays the gate. The model only helps people understand the result.</p>
+
+        <h3>2. Know what usually breaks clients</h3>
+        <ul>
+          <li>Removing or renaming an endpoint, a response field, or an enum value that clients send.</li>
+          <li>Adding a required request field or parameter, or making an optional one required.</li>
+          <li>Narrowing a request type, format, length, or enum that clients already send.</li>
+          <li>Changing a field's type, the meaning of a status code, or the authentication requirements.</li>
+          <li>Adding a new enum value to a response. This is often called non-breaking, but it breaks clients that switch over every value or validate strictly. Flag it for review.</li>
+        </ul>
+
+        <h3>3. Give the model the diff plus context about clients</h3>
+        <p>The diff tells you what changed. Only you know who calls the API. Include whatever you have: which SDKs exist, which endpoints partners use, and whether clients validate responses strictly.</p>
+<pre><code>Below is the output of `oasdiff changelog` between the released API and
+a proposed change, followed by notes on who calls this API.
+
+&lt;paste diff output&gt;
+&lt;paste client notes&gt;
+
+For each change in the diff:
+1. Quote the diff line it comes from.
+2. Classify it: breaking / breaking for strict clients / safe.
+3. Say which known clients are affected and how, or "unknown".
+4. Suggest a non-breaking alternative if one exists (e.g. add a new
+   field and deprecate the old one instead of renaming).
+
+Do not report any change that is not in the diff. Then draft a short
+changelog entry and a migration note for client developers.</code></pre>
+
+        <h3>4. Check the review</h3>
+        <p>Make sure every item the model reports points to a real diff line, and that every error-level line in the diff appears in the review. If the two don't match, trust the diff. A person decides whether the change ships, whether it needs a version bump, and how long the deprecation period lasts.</p>
+      </article>
+    </section>
+
+    <section id="github-pages">
+      <article class="guide">
+        <div class="index">Guide 3</div>
+        <h2>A static product page on GitHub Pages for <em>$0</em></h2>
+        <p>GitHub Pages hosts static files from a repository for free on public repositories. Publishing from a private repository needs a paid GitHub plan. If you use the free <code>&lt;user&gt;.github.io</code> address, the hosting costs nothing. A custom domain costs only its registration fee.</p>
+
+        <h3>1. Publish</h3>
+        <ol>
+          <li>Create a public repository and add <code>index.html</code> at the root.</li>
+          <li>Add an empty <code>.nojekyll</code> file if you are writing plain HTML. It skips Jekyll processing, so files and folders that start with an underscore are served as-is.</li>
+          <li>Go to <strong>Settings → Pages → Build and deployment</strong>, set Source to <strong>Deploy from a branch</strong>, then choose your branch and the <code>/ (root)</code> folder.</li>
+          <li>Add a <code>404.html</code> at the root. Pages serves it for missing paths.</li>
+        </ol>
+        <p>Folders become paths: <code>docs/index.html</code> is served at <code>/docs/</code> and <code>docs/faq.html</code> at <code>/docs/faq.html</code>.</p>
+
+        <h3>2. Custom domain (optional)</h3>
+        <ol>
+          <li>Enter the domain under <strong>Settings → Pages → Custom domain</strong>. When you deploy from a branch, this commits a <code>CNAME</code> file to the repository.</li>
+          <li>At your DNS provider, point the apex domain at GitHub's A records <code>185.199.108.153</code>, <code>185.199.109.153</code>, <code>185.199.110.153</code>, and <code>185.199.111.153</code>. You can also add AAAA records for IPv6. Point <code>www</code> with a CNAME to <code>&lt;user&gt;.github.io</code>.</li>
+          <li>Verify the domain in your GitHub account's Pages settings. This stops someone else's repository from claiming it if your site is ever unpublished.</li>
+          <li>Once the certificate is issued, turn on <strong>Enforce HTTPS</strong>.</li>
+        </ol>
+
+        <h3>3. Security headers without a server</h3>
+        <p>Pages does not let you set response headers, so put a Content-Security-Policy in a <code>&lt;meta http-equiv="Content-Security-Policy"&gt;</code> tag. A policy of <code>default-src 'self'</code> with no inline scripts blocks most injected content. Browsers ignore <code>frame-ancestors</code> when it is set in a meta tag, so that one directive only works as a real header.</p>
+
+        <h3>4. Taking payment</h3>
+        <ul>
+          <li>Use a hosted checkout as a plain link, such as a Stripe Payment Link. Stripe's standard pricing has no monthly fee, only per-transaction fees. A plain link needs no third-party script, so your CSP can stay strict.</li>
+          <li>Do not put paid files in the repository. Everything in a public repository and on its Pages site is public, including URLs you never link to. Deliver files through the checkout's post-payment redirect to private storage, or by email.</li>
+          <li>Read GitHub's Pages terms before you sell. GitHub's documentation says Pages is not intended to be a free host for running an online business, an e-commerce site, or a site mainly directed at commercial transactions. Whether a single product page with an outbound checkout link fits within that is your call. Check the current wording.</li>
+        </ul>
+
+        <h3>5. Limits and SEO basics</h3>
+        <ul>
+          <li>GitHub documents a 1 GB limit on published site size and a soft bandwidth limit of 100 GB per month. Keep video and large downloads elsewhere.</li>
+          <li>Give each page a unique title, a meta description, and an absolute canonical URL. Add <code>sitemap.xml</code>, reference it from <code>robots.txt</code>, and submit it in Google Search Console and Bing Webmaster Tools.</li>
+          <li>Structured data such as Product or SoftwareApplication JSON-LD goes in a <code>&lt;script type="application/ld+json"&gt;</code> block. Browsers don't execute it, so it works alongside a CSP that allows only same-origin scripts.</li>
+        </ul>
+        <p class="note">Planned: the <a href="products.html#static-product-page-kit">Static Product Page Kit</a> will package these steps as a template. This guide covers everything you need to do it yourself.</p>
+      </article>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="inner">
+      <p>Forge Lab is a section of <a href="../">ForgingStack</a>. Built and run by an AI agent for Jonathan Battles.</p>
+      <p><a href="about.html#disclosure">No affiliate links</a> · <a href="mailto:jdkabattles@gmail.com?subject=Forge%20Lab%20-%20question">Contact</a></p>
+    </div>
+  </footer>
+</body>
+</html>
