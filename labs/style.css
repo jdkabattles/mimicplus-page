@@ -1,0 +1,78 @@
+/* Forge Lab (/labs/) styles. Self-contained: no external fonts or assets.
+   Palette mirrors the main ForgingStack site (styles.css :root). Fonts fall back to
+   system faces; Syne / Instrument Serif are used only if installed locally. */
+:root {
+  --bg: #07091a;
+  --panel: #0c1022;
+  --ink: #f4f1ec;
+  --muted: #a9b0c7;
+  --line: rgba(244,241,236,.14);
+  --violet: #8b7cff;
+  --violet-2: #c9c2ff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: Syne, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.55; }
+a { color: var(--violet-2); }
+a:hover { color: #fff; }
+::selection { background: var(--violet); color: #fff; }
+.skip-link { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.skip-link:focus { position: absolute; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: #fff; color: #000; padding: 12px 16px; font-weight: 700; z-index: 100; }
+a:focus-visible { outline: 2px solid var(--violet-2); outline-offset: 2px; }
+
+/* Nav */
+.site-nav { position: sticky; top: 0; z-index: 30; background: rgba(7,9,26,.94); border-bottom: 1px solid var(--line); }
+.nav-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 4vw; max-width: 1200px; margin: 0 auto; }
+.brand { text-decoration: none; color: var(--ink); font-weight: 750; letter-spacing: -.03em; font-size: 18px; }
+.brand span { color: var(--violet-2); }
+.nav-links { display: flex; flex-wrap: wrap; gap: 18px; }
+.nav-links a { text-decoration: none; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--ink); }
+
+/* Layout */
+main { max-width: 1200px; margin: 0 auto; padding: 0 4vw; }
+.hero { padding: 12vh 0 6vh; }
+section { padding: 6vh 0; border-top: 1px solid var(--line); }
+.kicker, .index { letter-spacing: .24em; text-transform: uppercase; color: var(--violet-2); font-size: 11px; margin-bottom: 14px; }
+.index { color: var(--violet); }
+h1 { font-size: clamp(40px, 6vw, 84px); line-height: .95; letter-spacing: -.045em; margin: 12px 0 20px; font-weight: 750; }
+h2 { font-size: clamp(28px, 3.6vw, 48px); line-height: 1; letter-spacing: -.035em; margin: 0 0 16px; }
+h3 { font-size: 20px; letter-spacing: -.01em; margin: 28px 0 10px; }
+h1 em, h2 em { font-family: "Instrument Serif", Georgia, "Times New Roman", serif; font-style: italic; font-weight: 400; color: var(--violet-2); }
+p, li { color: var(--muted); }
+.lede { font-size: 18px; max-width: 44rem; }
+strong { color: var(--ink); }
+
+/* Cards */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+.card { border: 1px solid var(--line); border-radius: 22px; padding: 26px; background: linear-gradient(180deg, rgba(255,255,255,.03), transparent); display: flex; flex-direction: column; }
+.card h3 { margin-top: 0; color: var(--ink); }
+.card .actions { margin-top: auto; padding-top: 16px; }
+.badge { display: inline-block; align-self: flex-start; border: 1px solid var(--violet); color: var(--violet-2); border-radius: 999px; padding: 4px 10px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px; }
+
+/* Buttons (plain links only) */
+.btn { display: inline-block; border-radius: 999px; background: var(--violet); color: #fff; text-decoration: none; padding: 11px 16px; letter-spacing: .14em; font-size: 11px; text-transform: uppercase; font-weight: 700; }
+.btn:hover { background: var(--violet-2); color: #111; }
+.ghost { color: var(--ink); text-decoration: none; letter-spacing: .14em; text-transform: uppercase; font-size: 12px; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 24px; }
+
+/* Guides */
+.toc { list-style: none; padding: 0; margin: 0; }
+.toc li { padding: 10px 0; border-top: 1px solid var(--line); }
+article.guide { max-width: 50rem; }
+article.guide ol, article.guide ul { padding-left: 1.3em; }
+article.guide li { margin: 6px 0; }
+pre { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; overflow-x: auto; font: 13px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink); white-space: pre-wrap; }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .92em; color: var(--violet-2); }
+pre code { color: inherit; font-size: inherit; }
+.note { border-left: 3px solid var(--violet); padding: 4px 0 4px 16px; margin: 20px 0; }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--line); margin-top: 6vh; }
+.site-footer .inner { max-width: 1200px; margin: 0 auto; padding: 28px 4vw; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--muted); }
+.site-footer p { margin: 0; }
+
+@media (max-width: 860px) {
+  .cards { grid-template-columns: 1fr; }
+  .hero { padding-top: 8vh; }
+}
