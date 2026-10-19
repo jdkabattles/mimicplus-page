@@ -167,7 +167,8 @@
         <div class="field">
           <input id="vip" name="vip" type="text" autocomplete="off" placeholder="Paste the key from the receipt email" required aria-label="VIP key from the receipt email" />
         </div>
-        <textarea class="note" name="note" rows="4" placeholder="Name the API you are allowed to call. Attach the HAR separately, secrets already removed."></textarea>
+        <label for="note" class="fine">API you are allowed to call</label>
+        <textarea id="note" class="note" name="note" rows="4" placeholder="Name the API you are allowed to call. Attach the HAR separately, secrets already removed."></textarea>
         <button class="send" type="submit">Send the key with the delivery request</button>
         <p class="fine">This page does not store the key.</p>
       </form>
