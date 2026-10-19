@@ -4,17 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
-<title>Forge Lab guides: OpenAPI prompts, breaking-change review, GitHub Pages product pages | ForgingStack</title>
-<meta name="description" content="Three free guides: prompting for OpenAPI specs, reviewing API breaking changes with an LLM plus a real diff tool, and shipping a static product page on GitHub Pages for $0.">
+<title>OpenAPI, API Diff and GitHub Pages Guides | Forge Lab</title>
+<meta name="description" content="Three free guides: prompting for OpenAPI specs, reviewing API breaking changes with an LLM and oasdiff, and shipping a product page on GitHub Pages for $0.">
 <link rel="canonical" href="https://forgingstack.com/labs/guides.html">
-<meta property="og:title" content="Forge Lab guides: OpenAPI prompts, breaking-change review, GitHub Pages product pages | ForgingStack">
-<meta property="og:description" content="Three free guides: prompting for OpenAPI specs, reviewing API breaking changes with an LLM plus a real diff tool, and shipping a static product page on GitHub Pages for $0.">
+<meta property="og:title" content="OpenAPI, API Diff and GitHub Pages Guides | Forge Lab">
+<meta property="og:description" content="Three free guides: prompting for OpenAPI specs, reviewing API breaking changes with an LLM and oasdiff, and shipping a product page on GitHub Pages for $0.">
 <meta property="og:url" content="https://forgingstack.com/labs/guides.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ForgingStack">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Forge Lab guides: OpenAPI prompts, breaking-change review, GitHub Pages product pages | ForgingStack">
-<meta name="twitter:description" content="Three free guides: prompting for OpenAPI specs, reviewing API breaking changes with an LLM plus a real diff tool, and shipping a static product page on GitHub Pages for $0.">
+<meta name="twitter:title" content="OpenAPI, API Diff and GitHub Pages Guides | Forge Lab">
+<meta name="twitter:description" content="Three free guides: prompting for OpenAPI specs, reviewing API breaking changes with an LLM and oasdiff, and shipping a product page on GitHub Pages for $0.">
 <meta name="theme-color" content="#07091a">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
@@ -23,7 +23,7 @@
   "@type": "CollectionPage",
   "name": "Forge Lab guides",
   "url": "https://forgingstack.com/labs/guides.html",
-  "description": "Three free guides: prompting for OpenAPI specs, reviewing API breaking changes with an LLM plus a real diff tool, and shipping a static product page on GitHub Pages for $0.",
+  "description": "Three free guides: prompting for OpenAPI specs, reviewing API breaking changes with an LLM and oasdiff, and shipping a product page on GitHub Pages for $0.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "ForgingStack",
@@ -64,6 +64,32 @@
         "name": "ForgingStack",
         "url": "https://forgingstack.com/"
       }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ForgingStack",
+      "item": "https://forgingstack.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Forge Lab",
+      "item": "https://forgingstack.com/labs/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Guides",
+      "item": "https://forgingstack.com/labs/guides.html"
     }
   ]
 }
@@ -224,7 +250,7 @@ changelog entry and a migration note for client developers.</code></pre>
           <li>Give each page a unique title, a meta description, and an absolute canonical URL. Add <code>sitemap.xml</code>, reference it from <code>robots.txt</code>, and submit it in Google Search Console and Bing Webmaster Tools.</li>
           <li>Structured data such as Product or SoftwareApplication JSON-LD goes in a <code>&lt;script type="application/ld+json"&gt;</code> block. Browsers don't execute it, so it works alongside a CSP that allows only same-origin scripts.</li>
         </ul>
-        <p class="note">Planned: the <a href="products.html#static-product-page-kit">Static Product Page Kit</a> will package these steps as a template. This guide covers everything you need to do it yourself.</p>
+        <p class="note">The <a href="static-product-page-kit.html">Static Product Page Kit</a> ($19) packages these steps as a template. This guide covers everything you need to do it yourself.</p>
       </article>
     </section>
   </main>
