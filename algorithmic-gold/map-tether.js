@@ -8,14 +8,14 @@
   var DIRECTORY = [
     { group: 'standard', name: 'Algorithmic Gold', url: null, status: 'removed', desc: 'Removed — claims unverified.' },
     { group: 'hub', name: 'Gold Is The Receipt hub', url: null, status: 'removed', desc: 'Removed.' },
-    { group: 'products', name: 'Products', url: 'https://www.forgingstack.com/products/', status: 'built', desc: 'Actual products only. Overture $29, Jobs $19, SEC $49. CSV plus delivery receipt.' },
-    { group: 'products', name: 'mimicplus', url: 'https://www.forgingstack.com/', status: 'built', desc: 'Live at forgingstack.com (its home). Client-side HAR sanitizer that never uploads data.' },
-    { group: 'products', name: 'Contract Gate', url: 'https://www.forgingstack.com/gate/', status: 'built', desc: 'Live at /gate/. Its own website, separate from mimicplus.' },
-    { group: 'products', name: 'Avcal-Agent', url: 'https://www.forgingstack.com/avcal-agent/', status: 'built', desc: 'Sandboxed hidden-suite verification. Fail closed. Make the pass mean something.' },
-    { group: 'products', name: 'harwatch', url: 'https://www.forgingstack.com/harwatch/', status: 'built', desc: 'harwatch, its own website under the domain.' },
-    { group: 'products', name: 'Governed Agent Engine', url: 'https://www.forgingstack.com/governed-agent-engine/', status: 'built', desc: 'Live at /governed-agent-engine/.' },
-    { group: 'products', name: 'EvidenceForge', url: 'https://www.forgingstack.com/evidenceforge/', status: 'built', desc: 'Auditable, evidence-citing AI agents. Free core, MIT.' },
-    { group: 'products', name: 'Verity', url: 'https://www.forgingstack.com/verity/', status: 'coming_soon', desc: 'Site exists in its repo (docs/index.html) and needs work; not yet live on this domain. Coming Soon.' },
+    { group: 'products', name: 'Products', url: 'https://forgingstack.com/products/', status: 'built', desc: 'Actual products only. Overture $29, Jobs $19, SEC $49. CSV plus delivery receipt.' },
+    { group: 'products', name: 'mimicplus', url: 'https://forgingstack.com/', status: 'built', desc: 'Live at forgingstack.com (its home). Client-side HAR sanitizer that never uploads data.' },
+    { group: 'products', name: 'Contract Gate', url: 'https://forgingstack.com/gate/', status: 'built', desc: 'Live at /gate/. Its own website, separate from mimicplus.' },
+    { group: 'products', name: 'Avcal-Agent', url: 'https://forgingstack.com/avcal-agent/', status: 'built', desc: 'Sandboxed hidden-suite verification. Fail closed. Make the pass mean something.' },
+    { group: 'products', name: 'harwatch', url: 'https://forgingstack.com/harwatch/', status: 'built', desc: 'harwatch, its own website under the domain.' },
+    { group: 'products', name: 'Governed Agent Engine', url: 'https://forgingstack.com/governed-agent-engine/', status: 'built', desc: 'Live at /governed-agent-engine/.' },
+    { group: 'products', name: 'EvidenceForge', url: 'https://forgingstack.com/evidenceforge/', status: 'built', desc: 'Auditable, evidence-citing AI agents. Free core, MIT.' },
+    { group: 'products', name: 'Verity', url: 'https://forgingstack.com/verity/', status: 'coming_soon', desc: 'Site exists in its repo (docs/index.html) and needs work; not yet live on this domain. Coming Soon.' },
   ];
   var GROUPS = [
     { key: 'hub', label: 'Hub' },
@@ -160,7 +160,8 @@
       tab.type = 'button';
       tab.className = 'gt-tether-tab';
       tab.setAttribute('data-open-map', '');
-      tab.textContent = 'Directory Maps';
+      tab.setAttribute('aria-label', 'Open Directory Maps');
+      tab.textContent = 'Open Directory Maps';
       tab.addEventListener('click', open);
       mount.replaceWith(tab);
     });
