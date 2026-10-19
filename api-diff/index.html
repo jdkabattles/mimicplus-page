@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<!-- Content-Security-Policy: same base policy as EvidenceForge / Hub / Governed Agent Engine / Avcal-Agent, plus style-src fonts.googleapis.com + font-src fonts.gstatic.com (Google Fonts stylesheet + woff2; woff2 self-hosting needs a binary-safe push, not used here), plus form-action mailto: (the buyer form submits via mailto:). The third-party view-count beacon is removed, so no connect-src entry for it exists. -->
+<!-- Content-Security-Policy: same base policy as EvidenceForge / Hub / Governed Agent Engine / Avcal-Agent, plus style-src fonts.googleapis.com + font-src fonts.gstatic.com (Google Fonts stylesheet + woff2; woff2 self-hosting needs a binary-safe push, not used here), plus form-action mailto:. The third-party view-count beacon is removed, so no connect-src entry for it exists. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:" />
 <title>API breaking-change check from a HAR | mimicplus</title>
 <meta property="og:title" content="API breaking-change check from a HAR | mimicplus" />
@@ -30,8 +30,6 @@
   <meta name="twitter:description" content="mimicplus compares two HAR recordings and fails when a field is removed or renamed. The sample names four breaks. $199 once. Jonathan Battles." />
   <link rel="apple-touch-icon" href="../mark.png" />
   <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
-  <!-- TODO: Google Search Console verification — paste the real google-site-verification code, then uncomment. No tracking is added: mimicplus is a tool page, zero tracking, ever. -->
-  <!-- <meta name="google-site-verification" content="TODO_PASTE_REAL_CODE" /> -->
   <!-- Bing verification already present via BingSiteAuth.xml in this repo. No msvalidate.01 needed unless Bing asks. -->
   <link rel="stylesheet" href="../map-tether.css" />
   <script type="application/ld+json">
