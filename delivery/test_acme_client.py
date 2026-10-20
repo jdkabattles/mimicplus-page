@@ -391,7 +391,22 @@ def test_ssrf_guard_blocks_cloud_metadata(api: Any) -> None:
         api.request("GET", "http://169.254.169.254/latest/meta-data/")
 
 
-def test_auth_never_sent_to_foreign_hosts(api: Any) -> None:
+def test_auth_never_sent_to_foreign_hosts(api: Any, monkeypatch: Any) -> None:
+    # Deterministic DNS: stub resolution so the foreign host always resolves
+    # to a public address. Real resolvers are environment-dependent (some
+    # return reserved addresses for example.org, and the SSRF guard correctly
+    # blocks those before the transport runs). This test is about auth
+    # headers, not DNS; the guard itself is exercised for real against the
+    # stubbed public answer, and test_ssrf_guard_blocks_cloud_metadata
+    # covers the blocking path. Only example.org is stubbed.
+    real_getaddrinfo = client_mod._socket.getaddrinfo
+
+    def _public_getaddrinfo(host: Any, *args: Any, **kwargs: Any) -> Any:
+        if host == "example.org":
+            return [(client_mod._socket.AF_INET, client_mod._socket.SOCK_STREAM, 6, "", ("93.184.216.34", 443))]
+        return real_getaddrinfo(host, *args, **kwargs)
+
+    monkeypatch.setattr(client_mod._socket, "getaddrinfo", _public_getaddrinfo)
     api.auth["authorization"] = "Bearer test-token-not-real"
     try:
         api.request("GET", "https://example.org/x")
