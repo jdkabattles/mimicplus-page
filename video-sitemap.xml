@@ -17,7 +17,7 @@
       <video:title>mimicplus mark</video:title>
       <video:description>A waveform becoming a document. mimicplus turns a browser recording you are allowed to save into a client.</video:description>
       <video:content_loc>https://forgingstack.com/media/mimicplus.mp4</video:content_loc>
-      <video:publication_date>2026-10-09</video:publication_date>
+      <video:publication_date>2026-10-09T00:00:00Z</video:publication_date>
     </video:video>
   </url>
   <url>
@@ -27,7 +27,7 @@
       <video:title>Contract Gate mark</video:title>
       <video:description>Last month's file against this month's file. A missing box stops the check.</video:description>
       <video:content_loc>https://forgingstack.com/media/gate.mp4</video:content_loc>
-      <video:publication_date>2026-10-09</video:publication_date>
+      <video:publication_date>2026-10-09T00:00:00Z</video:publication_date>
     </video:video>
   </url>
 </urlset>
