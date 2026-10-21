@@ -47,12 +47,21 @@
     // actually serves that site today. Staged / planned / not-yet-live
     // targets are 'coming_soon', never 'built' with a dead link.
     // Gold Is The Receipt hub was live at /hub/; removed 2026-10-18.
+    // The hub entry and the removed Algorithmic Gold entry were deleted
+    // from this data 2026-10-21 (Batch 12): a directory lists what
+    // exists. Gold Is The Receipt itself is 'coming_soon' at /gold/:
+    // its verify page (/gold/verify/) is live and the Verification Run
+    // sells on /products/, but no /gold/ home page serves yet, so the
+    // entry carries no link until it does.
+    // FRESHNESS RULE: any product launch, removal, price, or status
+    // change updates this data in the same gate that makes the change.
     // Verity is coming_soon: its site exists as code in its repo, but is
     // not yet live on this domain. EvidenceForge is built: live at
     // /evidenceforge/ since 2026-10-16. Avcal-Agent is built: live at
     // /avcal-agent/ since 2026-10-16.
-    { group: 'hub', title: 'Gold Is The Receipt', url: null, status: 'removed', desc: 'Removed.' },
-    { group: 'standard', title: 'Algorithmic Gold', url: null, status: 'removed', desc: 'Removed — claims unverified.' },
+    { group: 'standard', title: 'Gold Is The Receipt', url: 'https://forgingstack.com/gold/', status: 'coming_soon', desc: 'The trust standard. GOLD Verification Run ($49 once) sells on the Products page; receipt verification is live at /gold/verify/. This home page is not yet live on the domain. Coming Soon.', children: [
+      { title: 'Verify a receipt', url: 'https://forgingstack.com/gold/verify/', status: 'built', desc: 'Check a GOLD receipt against its gates.' }
+    ] },
     { group: 'products', title: 'mimicplus', url: 'https://forgingstack.com/', status: 'built', desc: 'HAR to OpenAPI, typed Python client, and breaking-change check. $199 once. This site.', children: [
       { title: 'What goes in', url: 'https://forgingstack.com/what-it-does/', status: 'built', desc: 'What you feed mimicplus, and what comes out.' },
       { title: 'The missing spec', url: 'https://forgingstack.com/blog/', status: 'built', desc: 'A partner screen can change overnight.' },
@@ -69,15 +78,14 @@
       { title: 'For the programmer', url: 'https://forgingstack.com/gate/technical/', status: 'built', desc: 'Approved spec, later HAR, one waiver.' }
     ] },
     { group: 'products', title: 'Avcal-Agent', url: 'https://forgingstack.com/avcal-agent/', status: 'built', desc: 'Sandboxed hidden-suite verification for agent-written code. Live at /avcal-agent/.' },
-    { group: 'products', title: 'harwatch', url: 'https://forgingstack.com/harwatch/', status: 'built', desc: 'Freeze an API, fail when a field is removed. $29 a month. Live in this repo.' },
+    { group: 'products', title: 'harwatch', url: 'https://forgingstack.com/harwatch/', status: 'built', desc: 'Freeze an API, fail when a field is removed. Hosted watch planned at $29 a month — waitlist only today. Live at /harwatch/.' },
     { group: 'products', title: 'EvidenceForge', url: 'https://forgingstack.com/evidenceforge/', status: 'built', desc: 'EvidenceForge, its own website. Auditable, evidence-citing AI agents. Live at /evidenceforge/.' },
-    { group: 'products', title: 'Products', url: 'https://forgingstack.com/products/', status: 'built', desc: 'Actual products only. Overture $29, Jobs $19, SEC $49. CSV plus delivery receipt.' },
+    { group: 'products', title: 'Products', url: 'https://forgingstack.com/products/', status: 'built', desc: 'Actual products only. Overture $29, Jobs $19, SEC $49, GOLD Verification Run $49, ForgePack Pro $49.' },
     { group: 'products', title: 'Verity', url: 'https://forgingstack.com/verity/', status: 'coming_soon', desc: 'Verity, evidence ledger for agent runs. Site exists in its repo (docs/index.html) and needs work; not yet live on this domain. Coming Soon.' },
     { group: 'products', title: 'Governed Agent Engine', url: 'https://forgingstack.com/governed-agent-engine/', status: 'built', desc: 'Governed Agent Engine, its own website. Live at /governed-agent-engine/.' }
   ]
 
   var GROUPS = [
-    { id: 'hub', label: 'Hub' },
     { id: 'standard', label: 'Standard' },
     { id: 'learn', label: 'Learn' },
     { id: 'products', label: 'Products' }
