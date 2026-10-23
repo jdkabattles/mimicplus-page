@@ -2,23 +2,63 @@
    HONESTY RULE: a 'built' entry must link to a URL that actually serves that site today.
    Staged / planned / not-yet-live targets are 'coming_soon', never 'built' with a dead link.
    Products is this page, live at /products/.
-   Each product is its own website, only tethered by the one domain. */
+   Each product is its own website, only tethered by the one domain.    FRESHNESS RULE: any product launch, removal, price, or status change updates
+   this data in the same gate that makes the change.
+   Directory data synced to the canonical root directory 2026-10-21 (Batch 43):
+   hub + removed entries deleted (a directory lists what exists); Gold Is The
+   Receipt is coming_soon at /gold/ with its live verify child.
+*/
 (function () {
   'use strict';
   var DIRECTORY = [
-    { group: 'products', name: 'Products', url: 'https://www.forgingstack.com/products/', status: 'built', desc: 'This page. Actual products only. Overture $29, Jobs $19, SEC $49. CSV plus delivery receipt.' },
-    { group: 'standard', name: 'Algorithmic Gold', url: null, status: 'removed', desc: 'Removed — claims unverified.' },
-    { group: 'hub', name: 'Gold Is The Receipt hub', url: null, status: 'removed', desc: 'Removed.' },
-    { group: 'products', name: 'mimicplus', url: 'https://www.forgingstack.com/', status: 'built', desc: 'Live at forgingstack.com (its home). Client-side HAR sanitizer that never uploads data.' },
-    { group: 'products', name: 'Contract Gate', url: 'https://www.forgingstack.com/gate/', status: 'built', desc: 'Live at /gate/. Its own website, separate from mimicplus.' },
-    { group: 'products', name: 'Avcal-Agent', url: 'https://www.forgingstack.com/avcal-agent/', status: 'built', desc: 'Sandboxed hidden-suite verification. Fail closed. Make the pass mean something.' },
-    { group: 'products', name: 'harwatch', url: 'https://www.forgingstack.com/harwatch/', status: 'built', desc: 'harwatch, its own website under the domain.' },
-    { group: 'products', name: 'Governed Agent Engine', url: 'https://www.forgingstack.com/governed-agent-engine/', status: 'built', desc: 'Live at /governed-agent-engine/.' },
-    { group: 'products', name: 'EvidenceForge', url: 'https://www.forgingstack.com/evidenceforge/', status: 'built', desc: 'Auditable, evidence-citing AI agents. Free core, MIT.' },
-    { group: 'products', name: 'Verity', url: 'https://www.forgingstack.com/verity/', status: 'coming_soon', desc: 'Site exists in its repo (docs/index.html) and needs work; not yet live on this domain. Coming Soon.' },
+    // NOTE — mimicplus adaptation.
+    // All URLs are absolute https://forgingstack.com/ (apex, matching this
+    // site's existing links) or the real live Algorithmic Gold URL on
+    // GitHub Pages. No staged forgingstack.com targets are used for sites
+    // that already have a real live URL. Contract lives at /gate/ today
+    // (real, in this repo); its planned home is /mimicplus/contract/.
+    // HONESTY RULE (2026-10-16 fix): a 'built' entry must link to a URL that
+    // actually serves that site today. Staged / planned / not-yet-live
+    // targets are 'coming_soon', never 'built' with a dead link.
+    // Gold Is The Receipt hub was live at /hub/; removed 2026-10-18.
+    // The hub entry and the removed Algorithmic Gold entry were deleted
+    // from this data 2026-10-21 (Batch 12): a directory lists what
+    // exists. Gold Is The Receipt itself is 'coming_soon' at /gold/:
+    // its verify page (/gold/verify/) is live and the Verification Run
+    // sells on /products/, but no /gold/ home page serves yet, so the
+    // entry carries no link until it does.
+    // FRESHNESS RULE: any product launch, removal, price, or status
+    // change updates this data in the same gate that makes the change.
+    // Verity is coming_soon: its site exists as code in its repo, but is
+    // not yet live on this domain. EvidenceForge is built: live at
+    // /evidenceforge/ since 2026-10-16. Avcal-Agent is built: live at
+    // /avcal-agent/ since 2026-10-16.
+    { group: 'standard', name: 'Gold Is The Receipt', url: 'https://forgingstack.com/gold/', status: 'coming_soon', desc: 'The trust standard. GOLD Verification Run ($49 once) sells on the Products page; receipt verification is live at /gold/verify/. This home page is not yet live on the domain. Coming Soon.', children: [
+      { name: 'Verify a receipt', url: 'https://forgingstack.com/gold/verify/', status: 'built', desc: 'Check a GOLD receipt against its gates.' }
+    ] },
+    { group: 'products', name: 'mimicplus', url: 'https://forgingstack.com/', status: 'built', desc: 'HAR to OpenAPI, typed Python client, and breaking-change check. $199 once. This site.', children: [
+      { name: 'What goes in', url: 'https://forgingstack.com/what-it-does/', status: 'built', desc: 'What you feed mimicplus, and what comes out.' },
+      { name: 'The missing spec', url: 'https://forgingstack.com/blog/', status: 'built', desc: 'A partner screen can change overnight.' },
+      { name: 'About', url: 'https://forgingstack.com/about/', status: 'built', desc: 'About mimicplus, the HAR to OpenAPI client.' },
+      { name: 'Contact', url: 'https://forgingstack.com/contact/', status: 'built', desc: 'Contact mimicplus about a delivery.' },
+      { name: 'HAR to OpenAPI', url: 'https://forgingstack.com/har-to-openapi/', status: 'built', desc: 'Convert a HAR to OpenAPI.' },
+      { name: 'Breaking-change check', url: 'https://forgingstack.com/api-diff/', status: 'built', desc: 'API breaking-change check from a HAR.' },
+      { name: 'How to use it', url: 'https://forgingstack.com/how-to/', status: 'built', desc: 'How to use mimicplus, in plain English.' },
+      { name: 'For the programmer', url: 'https://forgingstack.com/technical/', status: 'built', desc: 'What the programmer gets.' }
+    ] },
+    { group: 'products', name: 'Contract', url: 'https://forgingstack.com/gate/', status: 'built', desc: 'Contract Gate, its own website. Prominent link from mimicplus. Lives at /gate/ today.', children: [
+      { name: 'What goes in', url: 'https://forgingstack.com/gate/what-it-does/', status: 'built', desc: 'What Contract Gate takes, and what it returns.' },
+      { name: 'How to use it', url: 'https://forgingstack.com/gate/how-to/', status: 'built', desc: 'How to use Contract Gate, in plain English.' },
+      { name: 'For the programmer', url: 'https://forgingstack.com/gate/technical/', status: 'built', desc: 'Approved spec, later HAR, one waiver.' }
+    ] },
+    { group: 'products', name: 'Avcal-Agent', url: 'https://forgingstack.com/avcal-agent/', status: 'built', desc: 'Sandboxed hidden-suite verification for agent-written code. Live at /avcal-agent/.' },
+    { group: 'products', name: 'harwatch', url: 'https://forgingstack.com/harwatch/', status: 'built', desc: 'Freeze an API, fail when a field is removed. Hosted watch planned at $29 a month — waitlist only today. Live at /harwatch/.' },
+    { group: 'products', name: 'EvidenceForge', url: 'https://forgingstack.com/evidenceforge/', status: 'built', desc: 'EvidenceForge, its own website. Auditable, evidence-citing AI agents. Live at /evidenceforge/.' },
+    { group: 'products', name: 'Products', url: 'https://forgingstack.com/products/', status: 'built', desc: 'Actual products only. Overture $29, Jobs $19, SEC $49, GOLD Verification Run $49, ForgePack Pro $49.' },
+    { group: 'products', name: 'Verity', url: 'https://forgingstack.com/verity/', status: 'coming_soon', desc: 'Verity, evidence ledger for agent runs. Site exists in its repo (docs/index.html) and needs work; not yet live on this domain. Coming Soon.' },
+    { group: 'products', name: 'Governed Agent Engine', url: 'https://forgingstack.com/governed-agent-engine/', status: 'built', desc: 'Governed Agent Engine, its own website. Live at /governed-agent-engine/.' }
   ];
   var GROUPS = [
-    { key: 'hub', label: 'Hub' },
     { key: 'standard', label: 'Standard' },
     { key: 'learn', label: 'Learn' },
     { key: 'products', label: 'Products' }
@@ -70,7 +110,9 @@
       h.textContent = g.label;
       sec.appendChild(h);
       var ul = document.createElement('ul');
-      DIRECTORY.filter(function (d) { return d.group === g.key; }).forEach(function (d) {
+      var items = DIRECTORY.filter(function (d) { return d.group === g.key; });
+      if (!items.length) { return; }
+      items.forEach(function (d) {
         var li = document.createElement('li');
         if (d.status === 'built') {
           var a = document.createElement('a');
@@ -99,6 +141,35 @@
         var span = document.createElement('span');
         span.textContent = d.desc;
         li.appendChild(span);
+
+        if (d.status === 'built' && d.children && d.children.length) {
+          var sub = document.createElement('ul');
+          sub.className = 'gt-tether-subpages';
+          d.children.forEach(function (c) {
+            var cli = document.createElement('li');
+            cli.className = 'gt-tether-subpage';
+            if (c.status === 'built') {
+              var ca = document.createElement('a');
+              ca.href = c.url;
+              ca.textContent = c.name;
+              cli.appendChild(ca);
+            } else {
+              var cstrong = document.createElement('strong');
+              cstrong.className = 'gt-tether-coming-title';
+              cstrong.textContent = c.name;
+              var cmark = document.createElement('span');
+              cmark.className = 'gt-tether-coming-soon';
+              cmark.textContent = c.status === 'removed' ? 'Removed' : 'Coming Soon';
+              cli.appendChild(cstrong);
+              cli.appendChild(cmark);
+            }
+            var cspan = document.createElement('span');
+            cspan.textContent = c.desc;
+            cli.appendChild(cspan);
+            sub.appendChild(cli);
+          });
+          li.appendChild(sub);
+        }
         ul.appendChild(li);
       });
       sec.appendChild(ul);

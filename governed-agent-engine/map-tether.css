@@ -49,3 +49,24 @@ body.gt-tether-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .gt-tether-drawer, .gt-tether-tab { transition: none !important; animation: none !important; }
 }
+
+/* Directory Maps subpages (children) — ported from the canonical
+   root tether CSS so synced children render as the root drawer renders
+   them (Batch 43 renderer alignment). */
+.gt-tether-subpages {
+  margin-top: 10px;
+  padding-left: 12px;
+  border-left: 2px solid #2a2836;
+}
+.gt-tether-subpage {
+  border: none !important;
+  padding: 6px 0 6px 4px !important;
+  background: transparent !important;
+}
+.gt-tether-subpage a {
+  font-weight: 700;
+  font-size: 15px;
+}
+.gt-tether-subpage span {
+  font-size: 13px;
+}
