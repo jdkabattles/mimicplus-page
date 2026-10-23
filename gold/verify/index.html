@@ -16,8 +16,10 @@ input,button{font-size:1rem}button{padding:8px 16px;margin-top:12px;cursor:point
 pre{white-space:pre-wrap;background:#f5f5f5;padding:12px;border-radius:8px;overflow-wrap:anywhere}
 .note{border-left:4px solid #888;padding-left:12px;color:#333}
 </style>
+<link rel="stylesheet" href="../../map-tether.css">
 </head>
 <body>
+<span data-tether-mount></span>
 <h1>GOLD Receipt — Check a Receipt</h1>
 <p>This page checks a GOLD Verification Run receipt. Nothing you upload or paste leaves your browser. The check key is used only on this page to recompute the signature, and is never sent anywhere.</p>
 
@@ -160,5 +162,6 @@ document.getElementById("checkBtn").addEventListener("click", async function(){
   else { verdictEl.className = "verdict valid"; verdictEl.textContent = "VALID — every check passed, including the signature."; }
 });
 </script>
+<script src="../../map-tether.js"></script>
 </body>
 </html>
