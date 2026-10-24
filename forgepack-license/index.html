@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+<title>ForgePack Pro — License Agreement — ForgingStack</title>
+<meta name="description" content="ForgePack Pro license agreement: $49 one-time license, 365 days, max 2 devices. Governing law and business entity pending lawyer review.">
+<meta property="og:title" content="ForgePack Pro — License Agreement — ForgingStack">
+<meta property="og:description" content="ForgePack Pro license agreement: $49 one-time license, 365 days, max 2 devices. Governing law and business entity pending lawyer review.">
+<meta property="og:url" content="https://forgingstack.com/forgepack-license/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://forgingstack.com/forgepack-license/">
+<link rel="stylesheet" href="../map-tether.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header>
+  <p><a href="https://forgingstack.com/products/">Products</a> · <a href="https://forgingstack.com/">Home</a></p>
+  <h1>ForgePack Pro — License Agreement</h1>
+  <p>Last updated: [TO BE FILLED ON PUBLISH]. Not legal advice. Governing law and business entity: [TO BE FILLED AFTER LAWYER REVIEW].</p>
+  <span data-tether-mount></span>
+</header>
+<main id="main">
+  <section id="what-you-are-buying">
+    <h2>1. What you are buying</h2>
+    <p>ForgePack Pro is a one-time $49 license for Pro features in forge-cli, forge-deploy, forge-monitor (Termux/Linux) and ForgeStack Companion (Android, F-Droid). You are buying a license, not ownership of the software. Price: $49 one-time, USD.</p>
+  </section>
+  <section id="license-grant">
+    <h2>2. License grant</h2>
+    <p>Non-exclusive, non-transferable, single-buyer license. Pro features work only while the license is active and verified. You may not resell, share, redistribute, or transfer your license key. You may not bypass, disable, or reverse-engineer activation or verification to circumvent the license.</p>
+  </section>
+  <section id="term">
+    <h2>3. Term, expiry, renewal</h2>
+    <p>Term: 365 days from purchase. The license expires automatically after 365 days. There is no auto-renewal and no subscription billing. To continue after expiry, buy a new license (manual renewal via new purchase).</p>
+  </section>
+  <section id="devices">
+    <h2>4. Devices</h2>
+    <p>Maximum 2 devices per license key: 1 Android device + 1 Linux/Termux device, as defined in the Phase 1 spec. A third activation is refused with reset instructions. Device resets: up to 2 resets per year, manual, via email verification to the buyer email on file.</p>
+  </section>
+  <section id="delivery">
+    <h2>5. Delivery and activation</h2>
+    <p>After checkout, the license key (FSK- format) is delivered once by email to the buyer email from Stripe. The key is signed (Ed25519) and verified offline before the client contacts the server. Activation binds the key to a device. The raw key is never returned by any API response; APIs return a 7-day EdDSA JWT only.</p>
+  </section>
+  <section id="verification">
+    <h2>6. Verification, grace, and outages</h2>
+    <p>Clients re-verify periodically. If the verification server is unreachable, the client keeps working for a 7-day grace period, with the outage logged.</p>
+    <p>If the verification server is down beyond the 7-day grace period and Pro locks due to our fault, the license expiry is extended by the number of downtime days. If the buyer refuses the extension, a refund is issued instead (per section 8, original payment method). No pro-rata formula is published.</p>
+  </section>
+  <section id="revocation">
+    <h2>7. Revocation</h2>
+    <p>We may revoke a license for misuse, key sharing, chargeback fraud, or key leak. A revoked license stops working. Revocation for misuse/sharing carries no refund (see section 8). If the signing key leaks, all keys issued under it are revoked, rotated, and reissued — Desk-approved, with buyer email notice.</p>
+  </section>
+  <section id="refunds">
+    <h2>8. Refunds</h2>
+    <p>Refunds need Jonathan's approval and go to the original payment method via Stripe.</p>
+    <p>We refund if: the license was never delivered, the key was invalid on arrival, or activation fails due to our fault.</p>
+    <p>We do not refund for: change of mind after a working key activates, reaching the device limit because the key was shared, expiry after 365 days, or revocation for misuse/sharing.</p>
+  </section>
+  <section id="privacy">
+    <h2>9. Privacy — what is stored</h2>
+    <ul>
+      <li>Buyer email: stored for delivery and resets only, linked by Stripe session/order token.</li>
+      <li>Device identifier: SHA-256 hash only. Raw ANDROID_ID, raw machine-id, and raw hostname are never stored.</li>
+      <li>Logs: event ID, key ID, key prefix, product, counts, result only. Never the raw key, JWT, email body, specs, file contents, credentials, or Stripe secret.</li>
+      <li>Device identifiers are pseudonymous identifiers. GDPR / UK GDPR wording for EU/UK sale needs a lawyer to confirm before any EU/UK sale.</li>
+    </ul>
+  </section>
+  <section id="support">
+    <h2>10. Support</h2>
+    <p>Support is best-effort — no fixed target, no SLA promise. Contact: jdkabattles@gmail.com (the ForgePack support email on file). Delivery is best-effort — no fixed target, no SLA promise.</p>
+  </section>
+  <section id="governing-law">
+    <h2>11. Governing law and entity</h2>
+    <p>[TO BE FILLED AFTER LAWYER REVIEW] — do NOT guess a state, entity, or governing law. A guessed jurisdiction is worse than an honest placeholder.</p>
+  </section>
+</main>
+<footer>
+  <p><a href="https://forgingstack.com/products/">Products</a> · <a href="https://forgingstack.com/">Home</a></p>
+  <p><button type="button" data-open-map aria-label="Open Directory Maps">Open Directory Maps</button></p>
+</footer>
+<script src="../map-tether.js" defer></script>
+</body>
+</html>
